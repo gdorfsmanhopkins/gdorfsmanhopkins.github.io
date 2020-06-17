@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>
+		Math 120 September 2018 Section KAUST
+	</title>
+
+</head>
+
+<body>
+	<h2>
+		Math  120 September 2018 Section KAUST
+	</h2>
+	<h3>
+		Precalculus
+	</h3>
+
+	<h3>
+		About this course
+	</h3>
+	<p>
+		<a href="http://www.math.washington.edu/~m120/math120studentnote.php">Read This</a><br>
+		<br>
+		This course is designed to prepare you for learning calculus.  This course will help you develop the skills and stamina necessary to solve lengthy, multi-step problems, involving a variety of pre-calculus mathematical concepts. We will also work on developing algebraic sophistication, and confidence. There will be a lot of practice with many mathematical methods.<br>
+		<br>
+		We’ll cover a large amount of material. You have likely seen much of the content before, but many topics will be new. The course is meant to train you to deal with long and difficult problems, so even when the concepts are familiar, the problems may still be challenging.<br>
+		<br>
+		We will meet for 2 hours Monday through Thursday.  This is a quarter length course that we will cover in 3 weeks.  We will cover a lot of material quickly, but much of it you will have seen before  It will take some work to keep up, but we will adjust pace as necessary, and if some of the material will wait until fall quarter, that is ok.<br>
+		<br>
+		Instead of quizzes, we will have worksheets for the last half an hour of many days.  This gives you opportunities to work things out in class and in groups.  I will collect and grade them for completion.
+	</p>
+
+	<p>
+		<b>Instructor:</b> <a href="http://www.math.washington.edu/~gdh2">Gabriel Dorfsman-Hopkins</a><br>
+		<b>Email:</b> gdh2[_at_]math.washington.edu<br>
+		<b>Office:</b> PDL C-008-G<br>
+		<b>Class Hours:</b>Monday-Thursday: 2:30-4:30<br>
+		<b>Classroom:</b> <a href="http://www.washington.edu/maps/#!/bag">BAG</a> 124<br>
+		<b>Office Hours:</b> Tuesday, Wednesday, Thursday: 12-1 in PDL C-008-G</b><br>
+		<b>Textbook:</b> <a href="https://sites.math.washington.edu/~m120/TheBook/TB2016.pdf">Precalculus</a>.  Printed copies available at Professional Copy & Print, and EZ Copy N Print, on the ave.<br>
+		<b>Midterm:</b> Thursday September 13th (approximately chapters 1-9)<br>
+		<b>Final:</b> Tuesday September 25th (cumulative)<br>
+		<b>Syllabus:</b> Can be found <a href="Syllabus.pdf">here</a><br>
+		<b>Homework:</b> Due Sundays at 11:50 PM.  Find it on <a href="http://hamstr.duckdns.org">Hamstr</a><br>
+	</p>
+
+	<h3>
+		Announcements
+	</h3>
+	
+	<p>
+		Here I will post announcements, as well as solutions to worksheets and tests.</p>
+	<h3>	
+		Grading Scheme
+	</h3>
+	<p>
+		<b>Homework:</b> 20%<br>
+		<b>Worksheets:</b> 20%<br>
+		<b>Midterm Exam:</b> 30%<br>
+		<b>Final Exam:</b> 30%<br>
+	</p>
+	
+	<p>
+		Grades are curved, so that your course grade will reflect your performance relative to the rest of the class rather than a fixed percentage scheme.  Historically, the median grade in Math 120 is in the range of 2.5-3.0.  If you get at least 95% overall, you will receive a 4.0. If you get at least 70% overall, you will receive at least a 2.0.<br>
+		<br>
+		<b>A grade of 2.5 or better in Math 120 is required to move on to Math 124.  You will probably need to average about 70% or better on exams and quizzes to acheive this.</b>
+	</p>
+	
+	<h3>
+		Resources
+	</h3>
+	<p>
+		<a href="https://sites.math.washington.edu/~m120/TheBook/TB2016.pdf">Electronic Version of the Textbook</a><br>
+		<a href="http://www.math.washington.edu/~m120/testindex.php">Past Math 120 Exams</a><br>
+		<a href="http://www.math.washington.edu/~m120/">Math 120 Course Materials</a><br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+	</p>
+
+	<h3>
+		Tentative Schedule
+	</h3>
+	<p>
+		This may be adjusted as we move through the quarter.  I will post an announcement and send out an email if a change to the schedule is made.  Please read the chapter corresponding to a given lecture BEFORE the lecture, and come with any questions prepared.
+	</p>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">Week</th>
+    <th class="tg-031e">Day</th>
+    <th class="tg-031e">Lecture</th>
+    <th class="tg-yw4l">Homework</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">1<br>9/5-9/9</td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e">Introduction<br>Chapter 1<br>Chapter 2<br>Chapter 3</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e">Chapter 4<br>Chapter 5<br>Chapter 6</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Sunday</td>
+    <td class="tg-031e"></td>
+    <td class="tg-yw4l">1, 2, 3, 4, 5, 6</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">2<br>9/10-9/16</td>
+    <td class="tg-031e">Monday</td>
+    <td class="tg-031e">Chapter 7</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e">Chapter 8<br>Chapter 9</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e">Chapter 10<br>Chapter 11<br>Chapter 12</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e"><b>Midterm</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Sunday</td>
+    <td class="tg-031e"></td>
+    <td class="tg-yw4l">7,8,9,10,11,12,13,14</td> 
+  </tr>
+  <tr>
+    <td class="tg-031e">3<br>9/17-9/23</td>
+    <td class="tg-031e">Monday</td>
+    <td class="tg-031e">Chapter 15<br>Chapter 16</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e">Chapter 17<br>Chapter 18</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e">Chapter 19</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e">Chapter 20</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Sunday</td>
+    <td class="tg-031e"></td>
+    <td class="tg-yw4l">15,16,17,18,19,20</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">4<br>9/25</td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e"><b>Final</b></td>
+    <td class="tg-yw4l">None</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

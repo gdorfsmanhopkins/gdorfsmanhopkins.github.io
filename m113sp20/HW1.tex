@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113 Section 6, Spring 2020}
+
+\begin{document}
+\begin{center}
+\Large {Homework Assignment 1}\\
+\small {Due: Friday, January 31}
+\end{center}
+\begin{enumerate}
+\item Let $S$ be a set with 3 elements (say \{0,1,2\}) and $T$ be a set with 5 elements (say \{0,1,2,3,4\}).
+\begin{enumerate}[(a)]
+\item Give an example of an injection $f:S\to T$.
+\item Give an example of a surjection $g:T\to S$.
+\item Can there be a bijection between $S$ and $T$? Why or why not?
+\end{enumerate}
+\item Give an example of a set $S$ and a bijection from $S$ to a \emph{proper} subset of $S$.
+\item Let $S$ and $T$ be two sets, and $f:S\to T$ a function between them.
+\begin{enumerate}[(a)]
+\item Show that $f$ is bijective \textit{if and only if} there exists a function $g:T\to S$ so that $g\circ f = \operatorname{id}_S$ and $f\circ g=\operatorname{id}_T$.
+
+\item The function $g$ constructed above is called the \emph{inverse} of $f$ and is sometimes denoted $f^{-1}$.  Show that this terminology is justified by proving that $g$ is \textit{unique}.  That is, show that if some other $h$ served as an inverse for $f$ then $g$.
+
+\end{enumerate}
+\item Show that equivalence relations are partitions are equivalent.  Explicitly, let $S$ be a set, construct a natural bijection between the partitions on $S$ and the equivalence relations on $S$ in the following way.
+\begin{enumerate}[(a)]
+\item Let $\sim$ be an equivalence relation.  Show that the equivalence classes of $\sim$ form a partition of $S$.
+\item Conversely, let ${X_i}$ be a partition of $S$.  Show that the relation $\sim$ given by the rule
+\[x\sim y\text{ if }x,y\in X_i\text{ for the same }i\]
+is an equivalence relation for $S$.
+\end{enumerate}
+\item Let $d$ be the greatest common divisor of $792$ and $275$.  Using Euclid's algorithm, find $d$ and write $d=792x + 275y$ for some $x$ and $y$.
+\item Fix a nonzero integer $m\in\mathbb{Z}$.  Show that congruence modulo $m$ forms an equivalence relation on $\mathbb{Z}$.
+\item Let $a$ and $b$ be integers.  Show that $a^2+b^2$ does not have a remainder of 3 when divided by four.  (Hint: First show that the squares of elements in $\mathbb{Z}/4\mathbb{Z}$ are just $\overline 0$ and $\overline 1$.)
+\item Let $p$ be a prime number.  Show that the product of two nonzero elements in $\mathbb{Z}/p\mathbb{Z}$ is again nonzero.
+\end{enumerate}
+\end{document}

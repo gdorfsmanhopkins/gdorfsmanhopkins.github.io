@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>
+		Math 120 Summer 2018 Section A
+	</title>
+
+</head>
+
+<body>
+	<h2>
+		Math  120 Summer 2018 Section A
+	</h2>
+	<h3>
+		Precalculus
+	</h3>
+
+	<h3>
+		About this course
+	</h3>
+	<p>
+		<a href="http://www.math.washington.edu/~m120/math120studentnote.php">Read This</a><br>
+		<br>
+		This course is designed to prepare you for learning calculus.  This course will help you develop the skills and stamina necessary to solve lengthy, multi-step problems, involving a variety of pre-calculus mathematical concepts. We will also work on developing algebraic sophistication, and confidence. There will be a lot of practice with many mathematical methods.<br>
+		<br>
+		We’ll cover a large amount of material. You have likely seen much of the content before, but many topics will be new. The course is meant to train you to deal with long and difficult problems, so even when the concepts are familiar, the problems may still be challenging.<br>
+		<br>
+		Monday, Wednesdays and Fridays will be lectures, and you  will be responsible for the material covered in each on.  Tuesdays and Thursdays will be quiz sections where you will take quizzes work through longer problems in groups, and go over homework problems.
+	</p>
+
+	<p>
+		<b>Instructor:</b> <a href="http://www.math.washington.edu/~gdh2">Gabriel Dorfsman-Hopkins</a><br>
+		<b>TA:</b> Kristine Hampton<br>
+		<b>Emails:</b> <br>
+		<ul>
+		<li>Gabriel: gdh2[_at_]math.washington.edu</li>
+		<li>Kristine: hamptkri[_at_]uw.edu</li>
+		</ul>
+		<b>Office:</b> PDL C-008-G<br>
+		<b>Lecture:</b> MWF 12:00-1:00 in <a href="http://www.washington.edu/maps/#!/JHN">JHN</a> 022<br>
+		<b>Quiz Section:</b> TTh 12:00-1:00 in <a href="http://www.washington.edu/maps/#!/PCAR">PCAR</a> 293<br>
+		<b>Office Hours:</b><br>
+		<ul>
+			<li>Gabriel: TBA.
+			<li>Kristine: TBA.
+		</ul>
+		<b>Textbook:</b> <a href="https://sites.math.washington.edu/~m120/TheBook/TB2016.pdf">Precalculus</a>.  Printed copies available at Professional Copy & Print, and EZ Copy N Print, on the ave.<br>
+		<b>Midterm 1 Date:</b>Thursday, July 12 (approximately chapters 1-8) PCAR 293<br>
+		<b>Midterm 2 Date:</b>Thursday, July 31 (approximately chapters 1-14) PCAR 293<br>
+		<b>Final Date:</b> Part 1: Thursday August 16 in PCAR 293.  Part 2: Friday August 18 in JHN 022.<br>
+		<b>Syllabus:</b> Can be found <a href="syllabus.pdf">here</a><br>
+		<b>Homework:</b> Twice weekly, due at 11:59 PM on Tuesdays and Fridays.  Find it on <a href="https://www.webassign.net/washington/login.html">WebAssign</a><br>
+	</p>
+
+		Grading Scheme
+	</h3>
+	<p>
+		<b>Homework:</b> 15%<br>
+		<b>Quizzes:</b> 10%<br>
+		<b>Midterm Exams (2):</b> 20% and 25% for the lower and higher scores respectively<br>
+		<b>Final Exam:</b> 30%<br>
+	</p>
+	
+	<p>
+		Grades are curved, so that your course grade will reflect your performance relative to the rest of the class rather than a fixed percentage scheme.  Historically, the median grade in Math 120 is in the range of 2.5-3.0.  If you get at least 95% overall, you will receive a 4.0. If you get at least 70% overall, you will receive at least a 2.0.<br>
+		<br>
+		<b>A grade of 2.5 or better in Math 120 is required to move on to Math 124.  You will probably need to average about 70% or better on exams and quizzes to acheive this.</b>
+	</p>
+
+	<h3>
+		Math Study Center
+	</h3>
+	<p>
+		Kristine and I will each have office hours twice a week where we will be available to answer questions related to homework and course material.  Outside of these times, there is still extra help available!  The <a href="https://sites.math.washington.edu/msc/">Math Study Center</a> is a tutoring center freely available to students enrolled in Math 120, and is a good place to work on homework, with access to tutors who will help you get through the sticky spots.  It is located in the basement of the <a href="http://www.washington.edu/maps/#!/CMU">communications building</a>.  The hours are posted on the website.  I very much recommend taking advantage of this resource.
+	</p>
+
+	<h3>
+		Announcements
+	</h3>
+
+	<p>
+		I will have a lecture on Tuesday July 3rd during quiz section hours in PCAR 293.
+	</p>
+	
+	<p>
+		Look here for quiz and test solutions and statistics, as well as other announcements:
+	</p>
+
+	<p>
+		Quiz 1 solutions are <a href="quiz1solutions.pdf">here</a>!  Median was an 18/20.
+	</p>
+	
+	<h3>
+		Resources
+	</h3>
+	<p>
+		<a href="https://sites.math.washington.edu/~m120/TheBook/TB2016.pdf">Electronic Version of the Textbook</a><br>
+		<a href="http://www.math.washington.edu/~m120/testindex.php">Past Math 120 Exams</a><br>
+		<a href="http://www.math.washington.edu/~m120/">Math 120 Course Materials</a><br>
+		<a href="https://www.webassign.net/manual/WA_Student_Quick_Start.pdf">Webassign help</a><br>
+	</p>
+
+	<h3>
+		Tentative Schedule
+	</h3>
+	<p>
+		This may be adjusted as we move through the quarter.  I will post an announcement and send out an email if a change to the schedule is made.  Please read the chapter corresponding to a given lecture BEFORE the lecture, and come with any questions prepared.
+	</p>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">Week</th>
+    <th class="tg-031e">Day</th>
+    <th class="tg-031e">Lecture</th>
+    <th class="tg-yw4l">Homework</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">1<br>6/18-6/22</td>
+    <td class="tg-031e">Monday</td>
+    <td class="tg-031e">Introduction<br>Chapter 1<br>Begin Chapter 2</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e">End Chapter 2<br>Begin Chapter 3</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e"><b>Quiz 1 - Coordinates</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Friday</td>
+    <td class="tg-031e">End Chapter 3<br>Begin Chapter 4</td>
+    <td class="tg-yw4l">Chapter 1</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">2<br>6/25-6/29</td>
+    <td class="tg-031e">Monday</td>
+    <td class="tg-031e">End Chapter 4</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e"></td>
+    <td class="tg-yw4l">Chapter 2</td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e">Chapter 5</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e"><b>Quiz 2 - Linear Modelling</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Friday</td>
+    <td class="tg-031e">Chapter 6</td>
+    <td class="tg-yw4l">Chapter 3<br>Chapter 4</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">3<br>7/2-7/6</td>
+    <td class="tg-031e">Monday</td>
+    <td class="tg-031e">Begin Chapter 7</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e">End Chapter 7</td>
+    <td class="tg-yw4l">Chapter 5<br>Chapter 6</td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e"><b>Independance Day: NO CLASS</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e"><b>Quiz 3 - Quadratics</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Friday</td>
+    <td class="tg-031e">Chapter 8</td>
+    <td class="tg-yw4l">Chapter 7 Part 1</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">4<br>7/9-7/13</td>
+    <td class="tg-031e">Monday</td>
+    <td class="tg-031e">Begin Chapter 9</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e"></td>
+    <td class="tg-yw4l">Chapter 7 Part 2<br>Chapter 8</td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e">End Chapter 9<br>Midterm Review</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e"><b>Midterm 1 (Chapters 1-8)</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Friday</td>
+    <td class="tg-031e">Begin Chapter 10</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e">5<br>7/16-7/20</td>
+    <td class="tg-031e">Monday</td>
+    <td class="tg-031e">End Chapter 10<br>Begin Chapter 11</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e"></td>
+    <td class="tg-yw4l">Chapter 9</td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e">End Chapter 11<br>Begin Chapter 12</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e"><b>Quiz 4 - Exponentials</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Friday</td>
+    <td class="tg-031e">End Chapter 12</td>
+    <td class="tg-yw4l">Chapter 10<br>Chapter 11</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">6<br>7/23-7/27</td>
+    <td class="tg-031e">Monday</td>
+    <td class="tg-031e">Chapter 13<br>Begin Chapter 14</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e"></td>
+    <td class="tg-yw4l">Chapter 12</td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e">End Chapter 14</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e"><b>Quiz 5 - Logarithms</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Friday</td>
+    <td class="tg-031e">Begin Chapter 15</td>
+    <td class="tg-yw4l">Chapter 13</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">7<br>7/30-8/3</td>
+    <td class="tg-031e">Monday</td>
+    <td class="tg-031e">End Chapter 15<br>Midterm Review</td>
+    <td class="tg-yw4l">Chapter 14<br><b>HOMEWORK IS DUE MONDAY THIS WEEK</b></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e"><b>Midterm 2 (Chapters 1-14)</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e">Chapter 16</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Friday</td>
+    <td class="tg-031e">Begin Chapter 17</td>
+    <td class="tg-yw4l">Chapter 15</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">8<br>8/6-8/10</td>
+    <td class="tg-031e">Monday</td>
+    <td class="tg-031e">End Chapter 17</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e"></td>
+    <td class="tg-yw4l">Chapter 16</td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e">Chapter 18</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e"><b>Quiz 6 - Trig</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Friday</td>
+    <td class="tg-031e">Chapter 19</td>
+    <td class="tg-yw4l">Chapter 17<br>Chapter 18</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">9<br>8/13-8/17</td>
+    <td class="tg-031e">Monday</td>
+    <td class="tg-031e">Chapter 20</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Tuesday</td>
+    <td class="tg-031e"></td>
+    <td class="tg-yw4l">Chapter 19 Part 1<br>Chapter 19 Part 2</td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Wednesday</td>
+    <td class="tg-031e">Final Exam Review</td>
+    <td class="tg-yw4l">Chapter 20<br><b>HOMEWORK IS DUE WEDNESDAY THIS WEEK</b></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Thursday</td>
+    <td class="tg-031e"><b>Final Exam Part 1</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">Friday</td>
+    <td class="tg-031e"><b>Final Exam Part 2</b></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

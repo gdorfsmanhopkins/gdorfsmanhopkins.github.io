@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <link href="./style.css" rel="stylesheet"/>
+</head>
+<body>
+  <main></main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@v0.108.0/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- presentation -->
+  <div class="slidecontainer">
+    <input type="range" min="1" max="1000" value="500" class="slider" id="xFreq">
+    <p>x-axis wave modulator: <span id="demo1"></span> (higher means slower)</p>
+  </div>
+  <div class="slidecontainer">
+    <input type="range" min="1" max="1000" value="500" class="slider" id="yFreq">
+    <p>y-axis wave frequency: <span id="demo2"></span> (higher means slower)</p>
+  </div>
+  <script src="./script.js"></script>
+
+
+</body>
+</html>

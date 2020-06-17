@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <!--<link href="./style.css" rel="stylesheet"/>-->
+</head>
+<body>
+  <main></main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@v0.108.0/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- presentation -->
+  <p>Consider the equation: ax^3 + bx^2y + cxy^2 + dy^3 + ex^2 + fxy + gy^2 + hx + iy.  Adjust a through i below.</p>
+  <div class="slidecontainer">
+    a:<span id="demo1"></span><input type="range" min="-5" max="5" value="1" class="slider" id="a1">
+    b:<span id="demo2"></span><input type="range" min="-5" max="5" value="0" class="slider" id="a2">
+    c:<span id="demo3"></span><input type="range" min="-5" max="5" value="0" class="slider" id="a3">
+    d:<span id="demo4"></span><input type="range" min="-5" max="5" value="0" class="slider" id="a4">
+    e:<span id="demo5"></span><input type="range" min="-5" max="5" value="0" class="slider" id="a5">
+    f:<span id="demo6"></span><input type="range" min="-5" max="5" value="0" class="slider" id="a6">
+    g:<span id="demo7"></span><input type="range" min="-5" max="5" value="0" class="slider" id="a7">
+    h:<span id="demo8"></span><input type="range" min="-5" max="5" value="0" class="slider" id="a8">
+    i:<span id="demo9"></span><input type="range" min="-5" max="5" value="0" class="slider" id="a9">
+  </div>
+  <script src="./script.js"></script>
+
+
+</body>
+</html>
