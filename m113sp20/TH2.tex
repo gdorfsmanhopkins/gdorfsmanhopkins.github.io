@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113 Section 6, Spring 2020}
+
+\begin{document}
+\begin{center}
+\Large {Take Home Assignment 2}\\
+\small {Due Monday, March 23}
+\end{center}
+With everthing going on right now the Monday deadline is flexible.  That being said, if you are going to need extra time \textit{please let me know}, I will be granting extensions no questions asked but I need to know when to expect your assignment so that nothing falls between the cracks.  Good luck and stay safe.
+
+In this set of problems we will study the quaternion group $Q_8$.  It is a nonabelian group with very interesting properties.
+\begin{definition}
+  The \textit{quaternion group of order 8}, denoted $Q_8$ is the group of the following 8 elements:
+  \[Q_8 = \{\pm1,\pm i, \pm j, \pm k\}\]
+  subject to the relations:
+  \[i^2 = j^2 = k^2 = -1,\]
+  \begin{eqnarray*}
+    ij = k, & \hspace{20pt} & ji = -k,\\
+    jk = i, & \hspace{20pt} & kj = -i,\\
+    ki = j, & \hspace{20pt} & ik = -j.
+  \end{eqnarray*}
+\end{definition}
+\begin{enumerate}
+  \item Let's start with a few simple facts.  Much of this is worked out in the book.
+  \begin{enumerate}
+    \item Write the entire multiplication table for $Q_8$.
+    \item Find a presentation for $Q_8$ with 2 generators and 3 relations.
+    \item Prove that $Q_8$ is not isomorphic to $D_8$.
+    \item Find all the subgroups of $Q_8$, and draw its lattice.  (Hint: there are 6 total subgroups).
+    \item Prove that every subgroup of $Q_8$ is normal.
+    \item Prove that every subgroup and quotient group of $Q_8$ is abelian (Hint: use the classification of groups of order 4 and 2, as well as Lagrange's theorem).
+    \item Compute $Z(Q_8)$ and $Q_8/Z(Q_8)$ (Hint for the second part: you can do this by hand, but it might be slicker to apply Homework 6 problem 5(b)).
+    \item Write a composition series for $Q_8$.
+  \end{enumerate}
+  \item Now let's follow the proof of Cayley's theorem to exhibit $Q_8$ as a subgroup of $S_8$.
+  \begin{enumerate}
+    \item Label $\{1,-1,i,-i,j,-j,k,-k\}$ as the numbers $\{1,2,\cdots,8\}$. Then the action of $Q_8$ on itself by left multiplication gives an injective map $Q_8\to S_8$.  Write the permutation representations for $-1$ and $i$ as elements $\sigma_{-1},\sigma_i\in S_8$, and verify that $\sigma_i^2 = \sigma_{-1}$.  (Using the multiplication table from question 1 will make this easier).
+    \item Use the generators from question 1(b) to give two elements of $S_8$ which generate a subgroup $H\le S_8$ isomorphic to $Q_8$.
+    \item Is $\sigma_i$ even or odd?
+    \item $A_8\cap H$ is isomorphic to a subgroup of $Q_8$.  Which one?
+  \end{enumerate}
+  \item Cayley's theorem says that if $|G|=n$ then $G$ embeds at $S_n$.  But might not be the smallest symmetric group that $G$ embeds in.  For example, $D_8$ embeds in $S_4$ (thinking about symmetries of the square as permutations of the vertices).  Nevertheless, for $Q_8$ the symmetric group given by Cayley's theorem is the smallest.
+  \begin{enumerate}
+    \item Let $Q_8$ act an a set $A$ with $|A|\le 7$.  Let $a\in A$.  Show that the stabilizer of $a$,  $(Q_8)_a\le Q_8$ must contain the subgroup $\{\pm1\}$.
+    \item Deduce that the kernel of the action of $Q_8$ on $A$ contains $\{\pm1\}$.
+    \item Conclude that $Q_8$ cannot embed into $S_n$ for $n\le7$.
+  \end{enumerate}
+  \item Finally let's say a few things about the automorphism group of $Q_8$.
+  \begin{enumerate}
+    \item By counting possible places where the generators may go, show that $|\Aut(Q_8)|\le 24$.
+    \item What is $\Inn(Q_8)$? (Hint: You already did this in question 1(g)!)
+    \item Use parts (a) and (b) to conclude that $|\Aut(Q_8)|$ must be one of $\{4,8,12,16,20,24\}$.  (Note: it will turn out that it is 24, but the proof of this fact is more involved).
+  \end{enumerate}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{lemma}{Lemma}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113 Section 6, Spring 2020}
+
+\begin{document}
+\begin{center}
+\Large {Homework Assignment 3}\\
+\small {Due Friday, February 14}
+\end{center}
+In problems 1-4 we establish some important basic results about group homomorphisms.  For all four problems we fix a homomorphism $\varphi:G\to H$.
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item Show that $\varphi(1_G) = 1_H$.
+\item Show that $\varphi(x^{-1}) = \varphi(x)^{-1}$ for all $x\in G$.
+\item Show that if $g\in G$ has finite order, then $|\varphi(g)|$ divides $|g|$.
+\item Show that if $\varphi$ is an isomorphism, then so is $\varphi^{-1}$.
+\item Conclude that if $\varphi$ is an isomorphism, $|\varphi(g)| = |g|$.
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Define the \textit{kernel} of $\varphi$ to be
+\[\ker\varphi = \{g\in G:\varphi(g) = 1_H\}\]
+\begin{enumerate}
+\item Show that $\ker\varphi$ is a subgroup of $G$.
+\item{Show that $\varphi$ is injective if and only if $\ker\varphi = \{1_G\}$.}
+\end{enumerate}
+\end{enumerate}
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item More generally, for $h\in H$ define the \textit{fiber over $h$} to be
+\[\varphi^{-1}(h) = \{g\in G:\varphi(g) = h\}.\]
+\begin{enumerate}
+\item{Show that $\ker\varphi = \varphi^{-1}(1)$}
+\item{Show that the fiber over $h$ is a subgroup if and only if $h=1_H$.}
+\item{Show that the \textit{nonempty} fibers of $\varphi$ form a partition of $G$.  (In particular, if $\varphi$ is surjective its fibers partition $G$.)}
+\item{Show that all nonempty fibers have the same cardinality.  (Hint: if $\varphi^{-1}(h)$ is nonempty, build a bijection between it and $\ker\varphi$)}
+\end{enumerate}
+\item Define the \textit{image} of $\varphi$ to be
+\[\operatorname{im}\varphi = \{h\in H:h =\varphi(g)\text{ for some }g\in G\}.\]
+Show that $\operatorname{im}\varphi$ is a subgroup of $H$.
+\end{enumerate}
+Recall that we defined the kernel of a group action in class.  The following exercise shows that the kernel of a homomorphism and the kernel of a group action are related, justifying our terminology.
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item Let $G\times A\to A$ be an action of $G$ on a set $A$.  Let $\varphi:G\to\operatorname{Aut}(A)$ be the associated permutation representation.  Show that the kernel of the group action is equal to $\ker\varphi$.
+\item Describe an injective homomorphism from $\varphi:D_{2n}\to S_n$ (you may describe this in words).  In the map you described, what is the cycle decomposition of $\varphi(r)$ (where as usual $r$ is the generator corresponding to rotation of the $n$-gon by $2\pi/n$)?
+\item The set $S_3$ has 6 elements.  Compute the order and cycle decomposition of each element.
+\end{enumerate}
+\end{document}

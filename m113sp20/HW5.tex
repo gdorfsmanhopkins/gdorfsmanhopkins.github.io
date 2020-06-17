@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{lemma}{Lemma}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113 Section 6, Spring 2020}
+
+\begin{document}
+\begin{center}
+\Large {Homework Assignment 5}\\
+\small {Due Friday, February 28}
+\end{center}
+In class we classified all subgroups of the finite cyclic group $Z_n$, putting putting them in bijection with the divisors of $n$.  Let's begin by taking care of the infinite case.
+\begin{enumerate}
+  \item Let $H = \la x\ra$ be an infinite cyclic group.  Let $a,b$ be integers.  Show $\la x^a\ra = \la x^b\ra$ if and only if $b=\pm a$.  Conclude that the subgroups of $H$ are indexed by the natural numbers.  Identifying $H$ with $\bZ$, describe all the subgroups of $\bZ$ (you may use words).
+
+  \item A group $H$ is called \textit{finitely generated} if there is a finite set $A$ such that $H = \la A\ra$.
+  \begin{enumerate}
+    \item Prove that every finite group is finitely generated.
+    \item Prove that $\bZ$ is finitely generated.
+    \item Prove that every finitely generated subgroup of the additive group $H\le\bQ$ is cyclic.  (Hint, show that $H$ is a subgroup of a cyclic subgroup of $\bQ$).
+    \item Conclude that $\bQ$ is not finitely generated.
+  \end{enumerate}
+
+  \item We now classify all groups of order 4.  In particular, up to isomorphism there are only 2, $Z_4$ and $V_4$.
+  \begin{enumerate}
+    \item  Let $G$ be a group and suppose that the order of every element of $G$ is $\le2$.  Show that $G$ is abelian.
+    \item Show that if $|G|=4$ then $G$ is abelian.  (Hint: by the takehome, for every $x\in G$, $|x|$ divides $|G|$).
+    \item Deduce if $|G|=4$ then $G\cong Z_4$ or $G\cong V_4$. (Hint, if $G$ is not $Z_4$ then start filling out a multiplication table and your hand will be forced).
+  \end{enumerate}
+  \item It would be nice if a group was classified by it's subgroup lattice.  Unfortunately, this is not the case.  In this exercise we will draw the latices of two nonisomorphic groups of order 16 with the same lattice of subgroups.  We follow Dummit and Foote Chapter 2.5 Exercises 12-14.
+  \begin{enumerate}
+    \item Consider the group $A = Z_2\times Z_4 = \la a,b |a^2=b^4=1, ab=ba\ra$.  It has order 8, and has 3 subgroups of order 4.  $\la a,b^2\ra\cong V_4, \la b\ra\cong Z_4$ and $\la ab\ra\cong Z_4$.  Every proper subgroup is contained in one of these 3.  Draw the lattice of $A$.
+    \item  Consider the group $G = Z_2\times Z_8 = \la x,y | x^2=y^8=1, xy=yx\ra$.  It has order 16 and has 3 subgroups of order 8.  $\la x,y^2\ra\cong Z_2\times Z_4$, $\la y\ra\cong Z_8$, and $\la xy\ra\cong Z_8$.  Every proper subgroup of $G$ is contained in one of these 3.  Draw a lattice of all subgroups of $G$, giving each subgroup in terms of at most two generators.  (Note, you know the subgroups of the cyclic groups of order 8, and computed those of $Z_2\times Z_4$ in part (a), now you just must see where they overlap).
+    \item Consider the group $M = \la u,v|u^2=v^8=1, vu=uv^5\ra$.  This is often called the \textit{modular group} of order 16.  It has three subgroups of order 8, $\la u,v^2\ra\cong Z_2\times Z_4$, $\la v\ra\cong Z_8$, and $\la uv\ra\cong Z_8$.  Show that the latice of subgroups of $M$ is the same as the one for $G$.  Notice also that $M\not\cong G$ since $M$ is not abelian.
+  \end{enumerate}
+\end{enumerate}
+\end{document}

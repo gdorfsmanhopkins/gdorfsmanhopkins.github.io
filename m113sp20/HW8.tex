@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113 Section 6, Spring 2020}
+
+\begin{document}
+\begin{center}
+\Large {Homework 8}\\
+\small {Due Friday, April 10th}
+\end{center}
+\begin{theorem}[Cauchy's Theorem]
+  Let $G$ be a group of order $n$, and $p$ a prime number dividing $n$.  Then $G$ has an element of order $p$.
+\end{theorem}
+\begin{remark}
+In the next exercise deduce Cauchy's theorem from Sylow's theorem. One may worry that we used Cauchy's theorem to prove Sylow's theorem, and that therefore our logic here is circular.  But notice that we used Cauchy's theorem on the center $Z(G)$ in the proof of Sylow's theorem, which is an abelian subgroup of $G$.  Since we have already proved Cauchy's theorem for abelian groups, there is no issue.
+\end{remark}
+\begin{enumerate}
+  \item{
+  Let $G$ be a group of order $n$, and let $p$ be a prime dividing $n$.
+  \begin{enumerate}
+    \item{
+    Use Sylow's theorem to show that there is some $x\in G$ with $|x| = p^i$ for some $i$.
+    }
+    \item{
+    Raise $x$ from part (a) to an appropriate power to produce $y\in G$ with $|y| = p$.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Show that a group $G$ of order 200 has a normal Sylow 5-subgroup.  Conclude that $G$ is not simple.
+  }
+  \item{
+  Show that for $n\ge3$ we have $Z(S_n)=1$. (Hint: what is the conjugacy class of an element in the center of a group?  What is the conjugacy class of an element in $S_n$?).
+  }
+  \item{
+  \begin{enumerate}
+    \item{
+    Let $x,y\in G$ be two elements of finite order and suppose that $xy=yx$.  Conclude that $|xy|$ divides the least common multiple of $|x|$ and $|y|$.
+    }
+    \item{
+    Let $G$ be an abelian group of order $pq$ for primes $p<q$.  Use Cauchy's theorem and part (a) to conclude that $G$ is cyclic.  (This completes the argument from class about groups of order $pq$).
+    }
+  \end{enumerate}
+  }
+  \item{
+  Recall that an abelian group $V$ of order $p^n$ is called an \textit{elementary abelian group of order }$p^n$ if every $x\in V$ has order $\le p$.  Show by induction on $n$ that
+  \[V\cong\underbrace{Z_p\times Z_p\times\cdots\times Z_p}_{n \text{ times}}\]
+
+  }
+  \item{
+  Write all the conjugacy classes for $Q_8$, and use this to verify that the class equation holds for $Q_8$.
+  }
+  \item{
+  Let $G$ a group of order 203, and suppose that it has a normal subgroup $H$ of order 7.  Show that $H\le Z(G)$, and conclude that $G$ is abelian. (Hint: This should essentially follow the same argument for groups of order 45 with a normal subgroup of order 9).
+  }
+\end{enumerate}
+\end{document}

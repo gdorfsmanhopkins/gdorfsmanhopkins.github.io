@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113 Section 6, Spring 2020}
+
+\begin{document}
+\begin{center}
+\Large {Homework 10}\\
+\small {Due Friday, April 24th}
+\end{center}
+Recall the definition of the semidirect product.
+\begin{definition}
+  Let $H,K$ be groups, and $\varphi:K\to\Aut(H)$ a group homomorphism.  Denote the induced action of $K$ on $H$ by:
+  \[k\cdot h = \varphi(k)(h).\]
+  The \textit{semidirect product} of $H$ and $K$ with respect to $\varphi$ is the set $H\rtimes K = \{(h,k):h\in H,k\in K\}$, where multiplication is defined by the rule:
+  \[(h_1,k_1)(h_2,k_2) = (h_1(k_1\cdot h_2),k_1k_2).\]
+\end{definition}
+\begin{enumerate}
+  \item{
+  Let's make sure that $H\rtimes K$ is a group.
+  \begin{enumerate}
+    \item Show that $(1,1)\in H\rtimes K$ is the identity.  (Remember you have to check both sides).
+    \item Show that $(h,k)^{-1} = (k^{-1}\cdot h^{-1},k^{-1})$. (As above, you have to check both sides).
+    \item Prove that multiplication is associative.
+  \end{enumerate}
+  }
+  \item{
+  Let $G_1,G_2,\cdots,G_n$ be groups.  Show that:
+  \[Z(G_1\times G_2\times\cdots\times G_n) = Z(G_1)\times Z(G_2)\times\cdot\times Z(G_n).\]
+  Conclude that a product of groups is abelian if and only if the factors are.
+  }
+  \item{
+  Let's classify some abelian groups!  List all \textit{abelian} groups of the following orders, in elementary divisor and invariant factor forms.
+  \begin{enumerate}
+    \item 100
+    \item 243
+    \item 9801
+  \end{enumerate}
+  }
+  \item{
+  Which of the following groups of order 80 are isomorphic?
+  \begin{enumerate}
+    \item $Z_5\times Z_4\times Z_4$
+    \item $Z_{10}\times Z_8$
+    \item $Z_4\times Z_{20}$
+    \item $Z_8\times Z_5\times Z_2$
+  \end{enumerate}
+  }
+  \item{
+  Let $A$ be an abelian group of (invariant factor) type $(n_1,n_2,\cdots,n_s)$.  Show that there exists some element in $A$ of order $m$ if and only if $m|n_1$.  Conclude that the exponenet of $A$ is $n_1$.
+  }
+\end{enumerate}
+\end{document}

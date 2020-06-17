@@ -1,0 +1,129 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{lemma}{Lemma}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113 Section 6, Spring 2020}
+
+\begin{document}
+\begin{center}
+\Large {Homework Assignment 6}\\
+\small {Due Friday, March 6}
+\end{center}
+\begin{enumerate}
+  \item There is an absolute value on the complex numbers given by $||a+bi|| = \sqrt{a^2+b^2}$, where we use $||\cdot||$ rather than $|\cdot|$ so not confuse notation with order of a group element.  Let $\bS^1 = \{z\in\bC: ||z|| = 1\}$. This is called the \textit{circle group}.
+  \begin{enumerate}
+    \item Show that $||\cdot||:\bC^\times\to\bR^\times$ is a homomorphism.
+    \item Show that the circle group is a normal subgroup of the multiplicative group $\bC^\times$.
+    \item Draw the graph of the circle group in the complex plane.  Justify your answer.
+    \item Show that $\varphi:\bR\to\bS^1$ defined by the rule $\varphi(x) = e^{2\pi i x}$ is a surjective homomorphism (where the binary operation on $\bR$ is addition).
+    \item Deduce that the additive quotient group $\bR/\bZ$ is isomorphic to $\bS^1$
+  \end{enumerate}
+  \item A root of unity $\xi$ is a complex number such that $\xi^n = 1$ for some positive integer $n$.  The set of roots of unity is often denoted by $\bmu$.
+  \begin{enumerate}
+    \item $\pm1$ are roots of unity.  Give 3 more examples of roots of unity.
+    \item Show that if $\xi$ is a root of unity, then $||\xi||=1$.
+    \item Show that $\bmu = (\bS^1)^{\tors}$ (recall the definition from HW 4 Problem 2(b)).  Deduce that $\bmu$ is a subgroup of $\bS^1$.
+  \end{enumerate}
+  \item Consider the additive group quotient $\bQ/\bZ$.
+  \begin{enumerate}
+    \item Show that every coset of $\bZ$ in $\bQ$ has exactly one representative $q\in\bQ$ in the range $0\le q<1$.
+    \item Show that every element of $\bQ/\bZ$ has finite order, but that there are elements of arbitrary large order.
+    \item Show that $\bQ/\bZ = (\bR/\bZ)^\tors$.  Conclude that $\bQ/\bZ\cong\bmu$.
+  \end{enumerate}
+  \item Let $N\unlhd G$ be a normal subgroup of a group $G$.  Let $\pi:G\to G/N$ be the natural projection.
+  \begin{enumerate}
+    \item Let $H\le G/N$.  Show that the preimage $\pi^{-1}(H)$ is a subgroup of $G$ containing $N$.
+    \item Let $H\le G$.  Show that its image $\pi(H)$ is a subgroup of $G/N$.
+    \item These constructions do not give a bijection between subgroups of $G$ and subgroups of $G/N$.  Give an example showing why.
+    \item If we restrict our attention to certain subgroups of $G$ we do get a bijection.  Indeed, show that there is a bijection:
+    \[\left\{
+    \begin{array}{c}
+      \text{Subgroups }H\le G\\
+      \text{such that }N\le H
+    \end{array}\right\}
+    \Longleftrightarrow
+    \left\{
+    \begin{array}{c}
+      \text{Subgroups}\\
+      \overline{H}\le G/N
+    \end{array}
+    \right\}
+    \]
+  \end{enumerate}
+  \item Let $G$ be a group and $Z(G)$ its center.
+  \begin{enumerate}
+    \item Show that $Z(G)$ is a normal subgroup.
+    \item Show that if $G/Z(G)$ is cyclic, then $G$ is abelian.
+    \item Let $p$ and $q$ be prime numbers (not necessarily distinct), and $G$ a group of order $pq$.  Show that if $G$ is not abelian, than $Z(G) = \{1\}$.
+  \end{enumerate}
+  \item Let $G$ be a group.  Let $[G,G] = \la x^{-1}y^{-1}xy | x,y\in G\ra$.
+  \begin{enumerate}
+    \item Show that $[G,G]$ is a normal subgroup of $G$.
+    \item Show that $G/[G,G]$ is abelian.
+  \end{enumerate}
+  $[G,G]$ is called the \textit{commutator subgroup} of $G$, and $G/[G,G]$ is called the \textit{abelianization} of $G$, denoted $G^\ab$.  The rest of this exercise explains why.
+  \begin{enumerate}
+    \setcounter{enumii}{2}
+    \item Let $\varphi:G\to H$ be a homomorhism with $H$ abelian.  Show $[G,G]\subseteq\ker\varphi$.
+    \item Denote the natural projection to the quotient group by $\pi:G\to G^\ab$.  Prove that $\varphi$ induces a unique homomorphism $\tilde\varphi:G^\ab\to H$ such that $\pi\circ\tilde\varphi = \varphi$.
+    \item Conclude that for $H$ an abelian group there is a bijection:
+    \[\left\{
+    \begin{array}{c}
+      \text{Homomorphisms }\varphi:G\to H\\
+    \end{array}\right\}
+    \Longleftrightarrow
+    \left\{
+    \begin{array}{c}
+      \text{Homomorphisms }\tilde\varphi:G^\ab\to H\\
+    \end{array}
+    \right\}
+    \]
+  \end{enumerate}
+  \item Let's now compute $D_{2n}^\ab$.  We should begin computing $xyx^{-1}y^{-1}$.  There are 3 cases.
+  \begin{enumerate}
+    \item Compute $x^{-1}y^{-1}xy$ in each of the following 3 cases.
+    \begin{enumerate}[(i)]
+      \item $x,y$ both reflections.  So $x=sr^i$ and $y=sr^j$.  Recall that reflections always have order 2.
+      \item $x$ a reflection and $y$ not a reflection.  So $x=sr^i$ and $y=r^j$.
+      \item Neither $x$ nor $y$ are reflections.  So $x=r^i$ and $y=r^j$.
+    \end{enumerate}
+    \item Prove that $[D_{2n},D_{2n}] = \la r^2\ra$.  If $n$ is odd, there is another generator.  What is it?
+    \item Now prove that $D_{2n}^\ab$ is either $V_4$ or $Z_2$ depending on whether $n$ is odd or even.  Note that since this is so small we should interpret this as suggesting that $D_{2n}$ is far from abelian.
+  \end{enumerate}
+\end{enumerate}
+\begin{enumerate}[\textbf{Bonus}]
+  \item In Problem 1 we could have gone in a different direction after part (a).  If you're interested, compose the complex absolute value with the log map to construct an isomorphism between $\bC^\times/\bS^1$ and the additive group $\bR$.  Describe in words the $\bS^1$ cosets and how they correspond to elements of $\bR$ (hint, it looks like a target!).  I can't promise many extra points for this, but I do think it's a fun exercise.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,70 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113 Section 6, Spring 2020}
+
+\begin{document}
+\begin{center}
+\Large {Take Home Assignment 1}\\
+\small {Due Monday, February 24}
+\end{center}
+In this assignment, we will prove an important result called \textit{Lagrange's Theorem}.  It goes as follows.
+\begin{theorem}[Lagrange's Theorem]~\\
+  If $G$ is a finite group and $H$ is a subgroup of $G$ then $|H|$ divides $|G|$.
+\end{theorem}
+With this result in hand, we will be able to deduce a celebrated result of Fermat, which is central to number theory.
+\begin{theorem}[Fermat's Little Theorem]~\\
+  Let $p$ be a prime number and $a$ an integer.  Then $a^p\equiv a\mod p$.
+\end{theorem}
+To do all this, we will need the following definition.
+\begin{definition}~\\
+  Let $H$ be a group acting on a set $A$ and fix $a\in A$.  The \textit{orbit} of $a$ under $H$ is the set
+  \[H\cdot a = \{b\in A\text{ }|\text{ }b=h\cdot a\text{ for some }h\in H\}.\]
+\end{definition}
+Lets begin!
+\begin{enumerate}
+  \item Let $H$ be a group acting on a set $A$.
+  \begin{enumerate}
+    \item Show that the relation
+    \begin{center}
+      $a\sim b$ if and only if $a = h\cdot b$ for some $h\in H$
+    \end{center}
+    is an equivalence relation on the set $A$.
+    \item Show that the equivalence classes of this equivalence relation are precisely the orbits of the elements of $A$ under the action of $H$.
+    \item Conclude that the orbits of $A$ under the action of $H$ form a partition of $A$.
+  \end{enumerate}
+  \item Let $H$ be a subgroup of a group $G$, and let $H$ act on $G$ by left mulptilication.
+  \begin{eqnarray*}
+    H\times G &\to& G\\
+    (h,g) &\mapsto& hg
+  \end{eqnarray*}
+  \begin{enumerate}
+    \item Fix $x\in G$, and consider its orbit $H\cdot x$. Show that $H$ and $H\cdot x$ have the same cardinality.  (Hint: build a bijective map $H\to H\cdot x$).  Deduce that all the orbits of $G$ under the action of $H$ have the same cardinality.
+    \item Now suppose further that $G$ is a finite group.  Use part (a) and the exercise 1 to deduce Lagrange's theorem.
+  \end{enumerate}
+  \item We can use Lagrange's theorem and what we know about cyclic groups to prove Fermat's little theorem.
+  \begin{enumerate}
+    \item Let $|G|=n<\infty$.  Fix some $x\in G$.  Use Lagrange's theorem to show that $x^n = 1$.
+    \item Let $p$ be a prime number.  Compute the order of $(\bZ/p\bZ)^\times$.  Fully justify your answer.
+    \item Combine parts (a) and (b) to prove Fermat's little theorem.
+  \end{enumerate}
+\end{enumerate}
+\end{document}

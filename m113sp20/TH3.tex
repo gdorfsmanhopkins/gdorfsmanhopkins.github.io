@@ -1,0 +1,174 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113 Section 6, Spring 2020}
+
+\begin{document}
+\begin{center}
+\Large {Takehome 3}\\
+\small {Due Monday, April 27th}
+\end{center}
+This assignment will walk you through a proof of the structure theorem for finite abelian groups.  We will prove the following:
+\begin{theorem}[Fundamental Theorem for Finite Abelian Groups]\label{fundamental}
+  Let $G$ be a finite abelian group.  Then:
+  \[G\cong Z_{n_1}\times Z_{n_2}\times\cdots\times Z_{n_s},\]
+  for a unique sequence of integers $(n_1,n_2,\cdots,n_s)$ with each $n_i\ge 2$ and $n_{i+1}|n_i$.
+\end{theorem}
+Recall that we call the decomposition from Theorem \ref{fundamental} the \textit{invariant factor decomposition}.  We will deal with the existence and uniqueness of such a decomposition separately.  Our first goal is the following proposition, which does most of the heavy lifting.
+\begin{proposition}\label{main}
+  Every finite abelian group is the direct product of cyclic groups.
+\end{proposition}
+\begin{enumerate}
+  \item{
+  Step one is to reduce the problem to $p$-groups.  Let $G$ be a \textit{finite abelian} group.
+  \begin{enumerate}
+    \item{
+    Explain why $G$ has a \textit{unique} Sylow $p$-subgroup for each prime $p$.  This justifies our use of the word \textit{the} in the following.
+    }
+    \item{
+    Suppose $G$ has order $p^\alpha q^\beta$ for distinct primes $p$ and $q$.  Let $P$ be the Sylow $p$-subgroup, and $Q$ the Sylow $q$-subgroup.  Show that $G\cong P\times Q$.
+    }
+    \item{
+    In general the prime factorization of $|G|$ is $p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_t^{\alpha_t}$.  Show by induction on $t$ that $G$ is the product of its Sylow subgroups.  Explicitly, this means that if $P_i$ is the Sylow $p_i$-subgroup for $i= 1,\cdots,t$, then
+    \[G\cong P_1\times P_2\times\cdots\times P_t.\]
+    }
+    \item{
+    Explain why if we prove Proposition \ref{main} for each of the $P_i$, then we have proved Proposition \ref{main} for $G$.
+    }
+  \end{enumerate}
+  }
+\end{enumerate}
+By Exercise 1, we have reduced the proof of Proposition \ref{main} to following:
+\begin{proposition}\label{pmain}
+   Let $A$ be an abelian $p$-group i.e., one of prime power order $p^\alpha$.  Then $A$ is a product of cyclic groups.
+\end{proposition}
+We will do this by induction on $\alpha$ but first we must develop an auxiliary tool.
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item{
+  Let $A$ be a nontrivial abelian $p$-group.  Define the $p$-power map $\varphi:A\to A$ by the rule $\varphi(x) = x^p$.
+  \begin{enumerate}
+    \item{
+    Show that $\varphi$ is a homomorphism.
+    }
+    \item{
+    Let $A_p = \ker\varphi = \{a:a^p = 1\}\unlhd A$ be the $p$-torsion of $A$ (first studied in HW4 Problem 2).  Show that $A_p$ is an elementary abelian $p$-group (recall the definition from HW8 Problem 5).
+    }
+    \item{
+    Let $A^p = \im\varphi = \{a^p: a\in A\}\le A$.  Show that $A/A^p\cong A_p$.  (Hint, show they are elementary abelian $p$-groups of the same order, then apply HW8 Problem 5).
+    }
+    \item{
+    Conclude $|A^p|<|A|$.  This will be a crucial ingredient for our induction step.
+    }
+  \end{enumerate}
+  }
+  \item{
+  We will now prove Proposition \ref{pmain} by induction on $|A|$.
+  \begin{enumerate}
+    \item{
+    First the base case: show that Proposition \ref{pmain} is true if $|A| = p$.
+    }
+    \item{
+    The induction step is more involved, begin by showing that $A^p$ is the product of cyclic groups.  That is $A^p = \la x_1\ra\times\la x_2\ra\times\cdots\times\la x_t\ra$. (Use 2(d)).
+    }
+    \item{
+    Show that $A^p\cap A_p$ is an elementary abelian group of order $p^t$.  (Hint: it is clear that it is elementary abelian (why?), so it remains to show it contains $p^t$ elements.)
+    }
+    \item{
+    We now split into two cases.  For the first case, assume that $A_p\le A^p$
+    \begin{enumerate}
+      \item{
+      For each generator $x_i$ of $A^p$, show that there is some $y_i\in A$ with $y_i^p = x_i$.
+      }
+      \item{
+      Let $A_0 = \la y_1,\cdots,y_t\ra$.  Show that $A_0\cong\la y_1\ra\times\la y_2\ra\times\cdots\times\la y_t\ra$.  (It might be useful to use induction on $t$).
+      }
+      \item{
+      Show that $A^p\unlhd A_0$ and that $A_0/A^p$ is an elementary abelian group of order $p^t$.
+      }
+      \item{
+      Use part (c) and (d)(iii) to show that $|A_0| = |A|$.  Conclude that Proposition \ref{pmain} holds for $A$.
+      }
+    \end{enumerate}
+    }
+    \item{
+    For the second case $A_p\not\le A^p$, so we know there is some $x\in A_p$ with $x\notin A^p$.
+    \begin{enumerate}
+      \item{
+      Let $\overline A = A/A^p$, and let $\pi:A\to \overline A$ be the natural projection.  Let $\overline x = \pi(x)$.  Show that $|x| = |\overline x| = p$.
+      }
+      \item{
+      Show that $\overline A\cong \la\overline x\ra\times\overline E$ for some subgroup $\overline E\le \overline A$.  (Hint: first notice $\overline A$ is elementary abelian (why?).  Now this should look a lot like the induction step of proof of HW8 Problem 5, in particular, it may be useful to consider the fibers of the projection $\overline A\to\overline A/\la\overline x\ra$).
+      }
+      \item{
+      Let $E = \pi^{-1}(\overline E)\le A$.  Show that $A\cong E\times\la x\ra$.  Conclude that Proposition \ref{pmain} holds true for $A$.
+      }
+    \end{enumerate}
+    }
+  \end{enumerate}
+  }
+\end{enumerate}
+We have now proved Proposition \ref{pmain}, which by 1(d) immediately implies Proposition \ref{main}.  In class we described a process which put a product of cyclic groups into an \textit{elementary divisor form}.  We also described a process that took a finite abelian group in elemetary divisor form, and produced its \textit{invariant factor decomposition}.  We will not reproduce that here, and instead assert that this implies the existence part of Theorem \ref{fundamental}.  Therefore only the uniqueness statement remains.  As a useful tool, we provide you with the following lemma which you may use without proof.
+\begin{lemma}[Cancellation Property for Products of Finite Groups]\label{cancel}
+  Let $M,N,K$ be finite groups and suppose $K\times M\cong K\times N$.  Then $M\cong N$.
+\end{lemma}
+\begin{remark}
+  This lemma is more subtle then one might think, and it is not true without assuming the groups are finite.  There is a lot to explore here that is beyond the scope of this assignment.  For now feel free to use the lemma as a black box, and we will study this problem more deeply in a future assignment.
+\end{remark}
+Finally, we remind ourselves of the following definition.
+\begin{definition}
+  Let $G$ be a group.  The \textit{exponent} of $G$ is the minimum $n$ such that $x^n=1$ for all $x\in G$.
+\end{definition}
+\begin{enumerate}
+  \setcounter{enumi}{3}
+  \item{
+  We finish by proving the uniqueness part of Theorem \ref{fundamental}.  Let $G$ be a group, and suppose it has 2 invariant factor decompositions.  That is:
+  \[G \cong Z_{n_1}\times\cdots\times Z_{n_s}\cong Z_{m_1}\times\cdots\times Z_{m_t}.\]
+  Where each $n_i,m_i\ge2$, and $n_{i+1}|n_i$ and $m_{i+1}|m_i$.  Use HW10 Problem 5 and Lemma \ref{cancel} in descending induction to show that $s=t$ and $n_i=m_i$ for every $i$.
+  }
+\end{enumerate}
+\end{document}
