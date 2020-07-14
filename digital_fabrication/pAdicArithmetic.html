@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Digital Fabrication Page of Gabriel Dorfsman-Hopkins</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="Homepage of Gabriel Dorfsman-Hopkins, Mathematician and Artist" />
+  <meta name="keywords" content="mathematics, algebraic geometry, perfectoid, WXML, projectivoid" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="../style/style.css" title="style" />
+
+  <style>
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+      flex: 30%;
+      max-width: 30%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="../files/https://www.googletagmanager.com/gtag/js?id=UA-127262262-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127262262-1');
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="../index.html">Gabriel<span class="logo_colour"> Dorfsman-Hopkins</span></a></h1>
+          <h2>mathematician and artist</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li class="selected"><a href="../digital_fabrication.html">Digital Fabrication</a></li>
+          <!--<li><a href="undergraduate_research.html">Undergraduate Research</a></li>-->
+          <li><a href="../art.html">Art</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <img width="100%" height="auto" src="../files/headshot.jpg">
+        <ul>
+          <li>cohomolopkins[-at-]gmail.com<br>
+          <li>RTG Postdoc at UC Berkeley<br>
+          <li>Pronouns: he/him/his<br>
+          <li><a href="../files/CV_Complete.pdf">Curriculum Vitae</a></li>
+        </ul>
+
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Interactive Arithmetic of the P-adic Numbers</h1>
+        <div class = "row">
+          <div class = "column">
+            <img src="../files/pCantor1.png">
+          </div>
+          <div class = "column">
+            <img src="../files/pCircle1.jpg">
+          </div>
+          <div class = "column">
+            <img src="../files/pCantor5.png">
+          </div>
+        </div>
+        <p>
+          The <i>p</i>-adic numbers are a way to use analytic methods (like calculus) to study number theoretic problems (for example, about integers).  But wait...calculus only really knows about <i>smallness</i>, and can't tell if something is a whole number or not.  To fix this, we endow numbers with something called the <i>p</i>-adic topology, where now <i>smallness=divisibility</i>, that is, things with more factors are smaller (strictly speaking we do this one prime at a time).  Now tools like calculus can talk about integers, because those are the smaller things in this topology!
+        </p>
+        <p>
+          But what does this topology <i>look like</i>?  What things are close together?  What things are far apart?  What about arithmetic.  Arithmetic in the real or complex numbers is very geometric, adding is just shifting!  So what does arithmetic of <i>p</i>-adic numbers look like <i>geometrically</i>?  This question motivated a group of us at ICERM including <a href="https://math.katestange.net/">Katherine Stange</a> and <a href="http://www.mathematicians.org.uk/eoh/">Edmund Harris</a> among others, and it led to this experiment.
+        </p>
+        <p>
+          Click below to play with two interactive models of the <i>p</i>-adic numbers, which allow you to add, subtract, multiply, and exponentiate (no division yet...), and see what happens to the <i>p</i>-adic number line!  The first a circular model, which essentially gives the <i>p</i>-adic topology to <b>Z</b>/<i>p<sup>n</sup></i><b>Z</b> for large <i>n</i>/  The second is a (perhaps more accurate) cantor set model, which seems to capture the fractal like nature of the <i>p</i>-adic numbers.  I should point out that both are works in progress.  If you have any comments or find any bugs please let me know!
+        </p>
+        <h3>
+          Circular Model: <a href="pAdicArithmetic/index.html">Play</a><br>
+        </h3>
+        <div class="row">
+          <div class="column">
+            <img src="../files/pCircle1.jpg">
+            <img src="../files/pCircle2.jpg">
+          </div>
+          <div class="column">
+            <img src="../files/pCircle3.jpg">
+          </div>
+          <div class="column">
+            <img src="../files/pCircle4.jpg">
+            <img src="../files/pCircle5.jpg">
+          </div>
+        </div>
+        <h3>
+          Cantor Set Model: <a href="pAdicArithmetic/cantorModel/index.html">Play</a>
+        </h3>
+        <div class="row">
+          <div class="column">
+            <img src="../files/pCantor1.png">
+            <img src="../files/pCantor2.png">
+
+          </div>
+          <div class="column">
+            <img src="../files/pCantor3.png">
+            <img src="../files/pCantor4.png">
+            <img src="../files/pCantor5.png">
+          </div>
+          <div class="column">
+            <img src="../files/pCantor6.png">
+            <img src="../files/pCantor7.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>
+    </div>
+</body>
+
+</html>
