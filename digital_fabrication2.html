@@ -8,7 +8,104 @@
   <meta name="keywords" content="mathematics, algebraic geometry, perfectoid, WXML, projectivoid" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" type="text/css" href="./style/style.css" title="style" />
-  <link rel="stylesheet" type="text/css" href="./style/gallery.css" title="gallery" />
+
+  <style>
+  body {
+    font-family: Arial;
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img {
+    vertical-align: middle;
+  }
+
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    position: relative;
+  }
+
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+  </style>
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="./files/https://www.googletagmanager.com/gtag/js?id=UA-127262262-1"></script>
@@ -58,87 +155,124 @@
       <div id="content">
         <!-- insert the page content here -->
         <h1>Digital Fabrication</h1>
+        <p>
         I enjoy exploring the world of digital fabrication and 3d printing to visualize and explore mathematical ideas.  In fall 2019 I worked at ICERM as a postdoc in the Illustrating Mathmetics program.  Before that I managed the digital fabrication lab at the <a href="http://wxml.math.washington.edu/">Washington Experimental Math Lab</a>.  I work with 3d printers, laser cutters, 3d mapping cameras, 3d modelling software, arduino, and more.  If you are interested in learning how to use any of this technology, or would like something visualized for research or teaching, please contact me!!  Here is a selection of projects!  Click on a project for a detailed description, and more images or video.
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="./julia.html">
-            <img src="./files/JuliaDef1.jpg" alt="Julia Deformation" width="600" height="400">
-          </a>
-          <div class="desc">3D printed deformations of Julia sets</div>
+        </p>
+
+      <div class="container">
+        <div class="mySlides">
+          <div class="numbertext">1 / 9</div>
+          <img src="./files/JuliaDef1.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">2 / 9</div>
+          <img src="./files/PythDef3.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">3 / 9</div>
+          <img src="./files/polarRiemann.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">4 / 9</div>
+          <img src="./files/pCircle2.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">5 / 9</div>
+          <img src="./files/set1.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">6 / 9</div>
+          <img src="./files/coasterArtsy.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">7 / 9</div>
+          <img src="./files/infinity.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">8 / 9</div>
+          <img src="./files/fractals.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+          <div class="numbertext">9 / 9</div>
+          <img src="./files/PrimeLines.jpg" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+          <p id="caption"></p>
+        </div>
+
+        <div class="row">
+          <div class="column">
+            <img class="demo cursor" src="./files/JuliaDef1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Deformation of Julia sets">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="./files/PythDef3.jpg" style="width:100%" onclick="currentSlide(2)" alt="Deformation of the Pythagorean tree fractal">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="./files/PolarRiemann.jpg" style="width:100%" onclick="currentSlide(3)" alt="3D printed Riemann Sums">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="./files/pCircle2.jpg" style="width:100%" onclick="currentSlide(4)" alt="Interactive visualizations of <i>p</i>-adic arithmetic">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="./files/set1.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nonabelian SET">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="./files/coasterArtsy.jpg" style="width:100%" onclick="currentSlide(6)" alt="Orbits of lattice points under matrix actions">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="./files/infinity.jpg" style="width:100%" onclick="currentSlide(7)" alt="Infinity mirrors and infinity rooms">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="./files/fractals.jpg" style="width:100%" onclick="currentSlide(8)" alt="Laser engraved fractals">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="./files/PrimeLines.jpg" style="width:100%" onclick="currentSlide(9)" alt="Distribution of small primes">
+          </div>
         </div>
       </div>
 
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="Pythagoras.html">
-            <img src="./files/PythDef3.jpg" alt="Pythagorean Tree" width="600" height="400">
-          </a>
-          <div class="desc">3D printed deformations of the Pythagorean tree fractal</div>
-        </div>
-      </div>
+      <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
 
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="RiemannSums.html">
-            <img src="./files/PolarRiemann.jpg" alt="Polar Riemann Sums" width="600" height="400">
-          </a>
-          <div class="desc">3D printed Riemann sums (polar and cartesian coordinates)</div>
-        </div>
-      </div>
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
 
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="pAdicViz.html">
-            <img src="./files/pCircle2.jpg" alt="p-adic arithmetic" width="600" height="400">
-          </a>
-          <div class="desc">Interactive visualizations of <i>p</i>-adic arithmetic</div>
-        </div>
-      </div>
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
 
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="nonabelianSet.html">
-            <img src="./files/set1.jpg" alt="Nonabelian Set" width="600" height="400">
-          </a>
-          <div class="desc">Nonabelian Set</div>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="latticePoints.html">
-            <img src="./files/coasterArtsy.jpg" alt="Orbits of Latice Points" width="600" height="400">
-          </a>
-          <div class="desc">Laser engravings of lattice points under matrix group actions</div>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="infinity.html">
-            <img src="./files/infinity.jpg" alt="Infinity mirrors" width="600" height="400">
-          </a>
-          <div class="desc">Infinity mirrors and infinity rooms!</div>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="egravingFractals.html">
-            <img src="./files/fractals.jpg" alt="Laser Engraved Fractals" width="600" height="400">
-          </a>
-          <div class="desc">Engraving fractals with the laser cutter</div>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery">
-          <a target="_blank" href="primes.html">
-            <img src="./files/PrimeLines.jpg" alt="Distribution of Primes < 3500" width="600" height="400">
-          </a>
-          <div class="desc">The distribution of small primes engraved as vertical lines.</div>
-        </div>
-      </div>
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+      }
+      </script>
 
       <div id="footer">
       Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>
