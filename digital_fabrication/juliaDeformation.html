@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Digital Fabrication Page of Gabriel Dorfsman-Hopkins</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="Homepage of Gabriel Dorfsman-Hopkins, Mathematician and Artist" />
+  <meta name="keywords" content="mathematics, algebraic geometry, perfectoid, WXML, projectivoid" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="../style/style.css" title="style" />
+
+  <style>
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+      flex: 30%;
+      max-width: 30%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="../files/https://www.googletagmanager.com/gtag/js?id=UA-127262262-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127262262-1');
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="../index.html">Gabriel<span class="logo_colour"> Dorfsman-Hopkins</span></a></h1>
+          <h2>mathematician and artist</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li class="selected"><a href="../digital_fabrication.html">Digital Fabrication</a></li>
+          <!--<li><a href="undergraduate_research.html">Undergraduate Research</a></li>-->
+          <li><a href="../art.html">Art</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <img width="100%" height="auto" src="../files/headshot.jpg">
+        <ul>
+          <li>cohomolopkins[-at-]gmail.com<br>
+          <li>RTG Postdoc at UC Berkeley<br>
+          <li>Pronouns: he/him/his<br>
+          <li><a href="../files/CV_Complete.pdf">Curriculum Vitae</a></li>
+        </ul>
+
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>3D Printed Deformations of Julia Set Fractals</h1>
+        <div class = "row">
+          <div class = "column">
+            <img src="../files/JuliaDef2.jpg">
+          </div>
+          <div class = "column">
+            <img src="../files/JuliaCusp6.JPEG">
+          </div>
+          <div class = "column">
+            <img src="../files/JuliaDefW1.jpg">
+          </div>
+        </div>
+        <p>
+          In many different disciplines we study how families of mathematical objects vary or deform according a shift in one parameter.  If these objects are all two dimensional, one can vary the parameter over time and display how the object changes as an animation.  With a 3d printer we can replace the time dimension with the z-axis, stacking each successively deformed layer on the last.  This allows us to hold the entire parametrized family of objects in our hands, giving an entire new dimension to the deformation (literally!).  I like to call these 'static animations.'
+        </p>
+        <p>
+          Another experiment with static animation was studying the <a href="pythagorasDeformation.html">deformation of the Pythagorean tree fractal</a>.  These two peices will appear side by side in the upcoming AMS publication <i>Illustrating Mathematics</i>.
+        </p>
+        <p>
+          This project follows a workflow developed jointly with <a href="https://www.complextrees.com/">Bernat Espigul&eacute</a>.  <a href="https://en.wikipedia.org/wiki/Julia_set">Julia sets</a> are beautiful and popular fractal images. Defining them is actually quite easy: Let <i>c</i> be a complex number, and consider the function <i>f(z) = z<sup>2</sup> + c</i>. If I start with a point p in the complex plane, and I iterate <i>f</i> – that is, I consider <i>p, f(p), f(f(p)), f(f(f(p))), ...</i> and so on – one of two things happens: either it gets infinitely large and escapes to infinity, or else at each iteration it stays relatively close to the origin. The points that stay relatively close to the origin are those in the Julia set <i>J<sub>c</sub></i>, which make up these stunning patterns.
+        </p>
+        <p>
+          It turns out that if you change the constant <i>c</i> just a little bit, the set <i>J<sub>c</sub></i> only changes a little bit as well, but it can change in quite in teresting ways. This project is an exploration of these changes. Given a path through the complex numbers, we stack the Julia sets corresponding to the points in the path to see their deformations in space. If we are at a point <i>c</i> in the path, we print the layer <i>J<sub>c</sub></i> . Then if <i>c'</i> is a point just a little bit further down the path, we print <i>J<sub>c'</sub></i> as the next layer in the print. In this way, we turn a path through the complex numbers into a 3D-printed deformation of Julia sets.
+        </p>
+        <p>
+          It is known that the Julia set associated to a complex number is connected if and only if <i>c</i> is in the celebrated <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot Set</a>.  It is worth pointing out that one can view the combination of Mandlebrot and Julia sets as a sort of fractal subset of <b>C</b> x <b>C</b> (which is 4 dimensional), and these prints are 3 dimensional slices of this mysterious and beautiful 4 dimensional space.
+        </p>
+        <p>
+          Below are various paths in <b>C</b> turned into these static animations of Julia sets.  If you have other paths you are interested in exploring, get in touch with me and let's try to parametrize it make an STL.  I'd be happy to also discuss our share our workflow for developing these objects.
+        </p>
+        <h3>
+          Traversing the upper half of the main cardioid.
+        </h3>
+        <div class="row">
+          <div class="column">
+            <img src="../files/JuliaDef1.jpg">
+            <img src="../files/JuliaDef5.jpg">
+            <img src="../files/JuliaDef10.jpg">
+          </div>
+          <div class="column">
+            <img src="../files/JuliaDef3.jpg">
+            <img src="../files/JuliaDef6.jpg">
+            <img src="../files/JuliaDef7.jpg">
+          </div>
+          <div class="column">
+            <img src="../files/JuliaDef8.jpg">
+            <img src="../files/JuliaDef9.jpg">
+            <img src="../files/JuliaDef4.jpg">
+          </div>
+        </div>
+        <h3>
+          Leaving the Mandlebrot set into totally disconnected territory!
+        </h3>
+        <div class="row">
+          <div class="column">
+            <img src="../files/JuliaDefW1.jpg">
+          </div>
+          <div class="column">
+            <img src="../files/JuliaDefW2.jpg">
+          </div>
+          <div class="column">
+            <img src="../files/JuliaDefW3.jpg">
+          </div>
+        </div>
+        <h3>
+          Exploring near the cusp (approx <i>c = 1/4</i>).
+        </h3>
+        <div class="row">
+          <div class="column">
+            <img src="../files/JuliaCusp6.JPEG">
+            <img src="../files/JuliaCusp5.JPEG">
+            <img src="../files/JuliaCusp7.JPEG">
+          </div>
+          <div class="column">
+            <img src="../files/JuliaCusp1.JPEG">
+            <img src="../files/JuliaCusp3.JPEG">
+          </div>
+          <div class="column">
+            <img src="../files/JuliaCusp8.JPEG">
+            <img src="../files/JuliaCusp9.JPEG">
+            <img src="../files/JuliaCusp10.JPEG">
+          </div>
+        </div>
+        <h3>
+          Exploring near the basilica (approx <i>c = -3/4</i>).
+        </h3>
+        <div class="row">
+          <div class="column">
+            <img src="../files/JuliaBasilica1.JPEG">
+            <img src="../files/JuliaBasilica2.JPEG">
+          </div>
+          <div class="column">
+            <img src="../files/JuliaBasilica3.JPEG">
+            <img src="../files/JuliaBasilica4.JPEG">
+            <img src="../files/JuliaBasilica5.JPEG">
+          </div>
+          <div class="column">
+            <img src="../files/JuliaBasilica6.JPEG">
+            <img src="../files/JuliaBasilica7.JPEG">
+          </div>
+        </div>
+        <h3>
+          A few pictures of the printing process.
+        </h3>
+        <img width=40% src="../files/JuliaPrint.JPEG">
+        <img width=40% src="../files/JuliaWhitePrint.JPEG">
+      </div>
+    </div>
+    <div id="footer">
+      Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>
+    </div>
+</body>
+
+</html>
