@@ -9,79 +9,54 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
   <style>
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0 4px;
-    }
-
-    /* Create four equal columns that sits next to each other */
+    /* The grid: Four equal columns that floats next to each other */
     .column {
-      flex: 30%;
-      max-width: 30%;
-      padding: 0 4px;
+      float: left;
+      width: 25%;
+      padding: 10px;
     }
 
+    /* Style the images inside the grid */
     .column img {
-      margin-top: 8px;
-      vertical-align: middle;
+      opacity: 0.8;
+      cursor: pointer;
       width: 100%;
     }
 
-    /* Responsive layout - makes a two column-layout instead of four columns */
-    @media screen and (max-width: 800px) {
-      .column {
-        flex: 50%;
-        max-width: 50%;
-      }
+    .column img:hover {
+      opacity: 1;
     }
 
-    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-    @media screen and (max-width: 600px) {
-      .column {
-        flex: 100%;
-        max-width: 100%;
-      }
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
     }
 
+    /* The expanding image container (positioning is needed to position the close button and the text) */
     .container {
       position: relative;
-      width: 100%;
+      display: none;
     }
 
-    .image {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .overlay {
+    /* Expanding image text */
+    #imgtext {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      width: 100%;
-      opacity: 0;
-      transition: .5s ease;
-      background-color: black;
-    }
-
-    .container:hover .overlay {
-      opacity: .75;
-    }
-
-    .text {
+      bottom: 15px;
+      left: 15px;
       color: white;
       font-size: 20px;
+    }
+
+    /* Closable button inside the image */
+    .closebtn {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      text-align: center;
+      top: 10px;
+      right: 15px;
+      color: white;
+      font-size: 35px;
+      cursor: pointer;
     }
   </style>
 
@@ -124,39 +99,47 @@
       <div id="content">
         <!-- insert the page content here -->
         <p>Here is a selection of recent art projects with images and/or video.</p>
-
         <div class="row">
           <div class="column">
-          <div class="container">
-            <img src="./files/spacetimeNight.jpg" alt="Julia Def" class="image">
-            <div class="overlay">
-              <div class="text">The Fabric of Spacetime</div>
-            </div>
+            <img src="./files/FabricUnder1.jpg" alt="The Fabric of Spacetime" onclick="myFunction(this);">
           </div>
-        </div>
           <div class="column">
-          <div class="container">
-            <img src="./files/MushroomKeyboardClose.jpg" alt="Julia Def" class="image">
-            <div class="overlay">
-              <div class="text">Electroluminescence</div>
-            </div>
+            <img src="./files/MushroomKeyboardPerformance.jpg" alt="Electroluminescence" onclick="myFunction(this);">
+          </div>
+          <div class="column">
+            <img src="./files/hello.jpg" alt="The Interdimensional Communication Device" onclick="myFunction(this);">
           </div>
         </div>
-        <div class="column">
-          <div class="container">
-            <img src="./files/hello.jpg" alt="Julia Def" class="image">
-            <div class="overlay">
-              <div class="text">Hello? The interdimensional communication device.</div>
-            </div>
-          </div>
+
+        <!-- The expanding image container -->
+        <div class="container">
+          <!-- Close the image -->
+          <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+          <!-- Expanded image -->
+          <img id="expandedImg" style="width:100%">
+
+          <!-- Image text -->
+          <div id="imgtext"></div>
         </div>
-        </div>
+
       </div>
     </div>
     <div id="footer">
       Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>
     </div>
   </div>
+
+  <script>
+    function myFunction(imgs) {
+      var expandImg = document.getElementById("expandedImg");
+      var imgText = document.getElementById("imgtext");
+      expandImg.src = imgs.src;
+      imgText.innerHTML = imgs.alt;
+      expandImg.parentElement.style.display = "block";
+    }
+  </script>
+
 </body>
 
 </html>
