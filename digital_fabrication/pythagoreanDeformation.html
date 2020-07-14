@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Digital Fabrication Page of Gabriel Dorfsman-Hopkins</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="Homepage of Gabriel Dorfsman-Hopkins, Mathematician and Artist" />
+  <meta name="keywords" content="mathematics, algebraic geometry, perfectoid, WXML, projectivoid" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="../style/style.css" title="style" />
+
+  <style>
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+      flex: 30%;
+      max-width: 30%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="../files/https://www.googletagmanager.com/gtag/js?id=UA-127262262-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127262262-1');
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="../index.html">Gabriel<span class="logo_colour"> Dorfsman-Hopkins</span></a></h1>
+          <h2>mathematician and artist</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li class="selected"><a href="../digital_fabrication.html">Digital Fabrication</a></li>
+          <!--<li><a href="undergraduate_research.html">Undergraduate Research</a></li>-->
+          <li><a href="../art.html">Art</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <img width="100%" height="auto" src="../files/headshot.jpg">
+        <ul>
+          <li>cohomolopkins[-at-]gmail.com<br>
+          <li>RTG Postdoc at UC Berkeley<br>
+          <li>Pronouns: he/him/his<br>
+          <li><a href="../files/CV_Complete.pdf">Curriculum Vitae</a></li>
+        </ul>
+
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>3D Printed Deformations Pythagorean Tree Fractals</h1>
+        <div class = "row">
+          <div class = "column">
+            <img src="../files/PythDef2.jpg">
+          </div>
+          <div class = "column">
+            <img src="../files/PythDef3.jpg">
+          </div>
+          <div class = "column">
+            <img src="../files/PythDef1.jpg">
+          </div>
+        </div>
+        <p>
+          In many different disciplines we study how families of mathematical objects vary or deform according a shift in one parameter.  If these objects are all two dimensional, one can vary the parameter over time and display how the object changes as an animation.  With a 3d printer we can replace the time dimension with the z-axis, stacking each successively deformed layer on the last.  This allows us to hold the entire parametrized family of objects in our hands, giving an entire new dimension to the deformation (literally!).  I like to call these 'static animations.'
+        </p>
+        <p>
+          Another experiment with static animation was studying the <a href="juliaDeformation.html">deformation of Julia set fractals</a>.  These two peices will appear side by side in the upcoming AMS publication <i>Illustrating Mathematics</i>.
+        </p>
+        <p>
+          The Pythagorean tree fractal is constructed by putting a attaching the long edge of a right triangle to the side of a square, then attaching squares to the legs of the right triangle, and repeating ad infinitum.
+        </p>
+          <img width=100% src="https://mathworld.wolfram.com/images/eps-gif/PythagorasTree_825.gif">
+        <small>image credit: <a href="https://mathworld.wolfram.com/PythagorasTree.html">Wolfram Math World</a>.</small>
+        <br><br>
+        <p>
+          A right triangle (up to scaling) is determined by one acute angle, and a small shift in that angle corresponds to a small change in the triangle, but the movement reverberates more and more as you progress deeper into the fractal.  In the static animation, I vary the angle from 45 to 60 degrees slowly over the course of more than 300 layers.
+        </p>
+        <p>
+          Here are a few pictures of a first draft of the model, as well as some images of the print.
+        </p>
+        <div class="row">
+          <div class="column">
+            <img src="../files/FractalPrinting1.jpeg">
+          </div>
+          <div class="column">
+            <img src="../files/FractalFront.jpg">
+            <img src="../files/FractalBack.jpg">
+          </div>
+          <div class="column">
+            <img src="../files/FractalPrinting2.jpeg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>
+    </div>
+</body>
+
+</html>
