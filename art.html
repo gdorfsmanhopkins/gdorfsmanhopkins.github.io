@@ -4,10 +4,87 @@
 <head>
   <title>Homepage of Gabriel Dorfsman-Hopkins</title>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <meta name="description" content="Homepage of Gabriel Dorfsman-Hopkins, Mathematician and Artist"/>
+  <meta name="description" content="Homepage of Gabriel Dorfsman-Hopkins, Mathematician and Artist" />
   <meta name="keywords" content="mathematics, algebraic geometry, perfectoid, WXML, projectivoid" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+  <style>
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+      flex: 30%;
+      max-width: 30%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: .5s ease;
+      background-color: black;
+    }
+
+    .container:hover .overlay {
+      opacity: .75;
+    }
+
+    .text {
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -27,8 +104,8 @@
           <li><a href="research.html">Research</a></li>
           <li><a href="teaching.html">Teaching</a></li>
           <li><a href="digital_fabrication.html">Digital Fabrication</a></li>
-	        <li><a href="undergraduate_research.html">Undergraduate Research</a></li>
-	        <li class="selected"><a href="art.html">Art</a></li>
+          <li><a href="undergraduate_research.html">Undergraduate Research</a></li>
+          <li class="selected"><a href="art.html">Art</a></li>
         </ul>
       </div>
     </div>
@@ -36,43 +113,61 @@
       <div class="sidebar">
         <!-- insert your sidebar items here -->
         <img width="100%" height="auto" src="./files/headshot.jpg">
-	<ul>
-    <li>cohomolopkins[-at-]gmail.com<br>
-		<li>RTG Postdoc at UC Berkeley<br>
-		<li>Pronouns: he/him/his<br>
-		<li><a href="./files/CV_Complete.pdf">Curriculum Vitae</a></li>
-	</ul>
+        <ul>
+          <li>cohomolopkins[-at-]gmail.com<br>
+          <li>RTG Postdoc at UC Berkeley<br>
+          <li>Pronouns: he/him/his<br>
+          <li><a href="./files/CV_Complete.pdf">Curriculum Vitae</a></li>
+        </ul>
 
       </div>
       <div id="content">
         <!-- insert the page content here -->
-        <p>Here is a selection of recent art projects with images and/or video.</p>
-        <h2>The Fabric of Spacetime</h2>
-          <p>An interactive model of a young universe (much less than one second old), created from a large hand crocheted hyperbolic manifold embedded with 264 individually programmable neopixel LED,  controlled by 6 motors, a motion sensor, and an Arduino MEGA microcontroller.</p>
-	  <p><a href="https://github.com/gdorfsmanhopkins/fabric-of-spacetime">Github documentation</a>.</p>
-          <p><img width="100%" height="auto" src="./files/spacetimeNight.jpg"></p>
-          <p><img width="100%" height="auto" src="./files/spacetimeTalk.jpg"></p>
-	  <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fmmmaynard%2Fvideos%2F10218736316857367%2F&show_text=0&width=846" width="400" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-	<!--  <video width="100%" height="auto" controls>
-  	    <source src="spacetimeTour.MOV">
-	  </video>
-	  <video width="100%" height="auto" controls>
-	    <source src="spacetimeDance.MOV">
-	  </video>-->
-        <h2>Electroluminescence</h2>
-          <p>A handmade synthesizer, created from hand crocheted mushrooms embedded with conductive stuffing and controlled by arduino.
-          <p><img width="50%" height="auto" src="./files/MushroomKeyboardPerformance.jpg"></p>
-	  <p><img width="100%" height = "auto" src = "./files/MushroomKeyboardClose.jpg"</p>
-	  <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fgabrieldh2%2Fvideos%2F10213893613757587%2F&show_text=0&width=846" width="400" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
-	<h2>Hello? The Interdimensional Communication Device</h2>
-	  <p>Collaboration with Aarohi Bhaway.  A homemade telegraph machine connected to a programmed infinity mirror attatched to the end of a salvaged bomb siren.  Use it to send messages into the eternal void.</p>
-	  <p><img width="100%" height="auto" src="./files/hello.jpg"></p>
-	  <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fgabrieldh2%2Fvideos%2F10213575420682959%2F&show_text=0&width=264" width="400" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+        <h1>Art</h1>
+        <p>I like to work with electronics and microcontrollers such as Arduino, together with lights, motors, sounds, and sensors, to create interactive experiences for participants.  I also like working with different means of fabrication, from digital to handmade.  This should all loosely fall under the umbrella of <i>mechatronic art</i>, which I started experimenting with in the <a href="https://dxarts.washington.edu/">DXARTS</a> department at the University of Washington, under the guidance of <a href="http://afroditipsarra.com/">Afroditi Psarra</a>.  Lately I've been exploring crochet as a very flexible form which is easily embedded with electronics.  Below is a selection, including an experiemental installation, a musical instrument, and a speculative communication device, click on an image for information, pictures, video, schematics, and more!  Note: there is certainly nontrivial overlap between my art and mathematical visualization, so feel free to head over to the <a href="digital_fabrication.html">digital fabrication</a> tab for more content.</p>
+        <div class="row">
+          <div class="column">
+            <div class="container">
+              <img src="./files/FabricUnder1.jpg" alt="The Fabric of Spacetime" class="image">
+              <div class="overlay">
+                <div class="text">The Fabric of Spacetime</div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="container">
+              <img src="./files/MushroomKeyboardPerformance.jpg" alt="Electroluminescence" class="image">
+              <div class="overlay">
+                <div class="text">Electroluminescence</div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="container">
+              <img src="./files/hello.jpg" alt="Hello?" class="image">
+              <div class="overlay">
+                <div class="text">HELLO? The Interdimensional Communication Device</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div id="footer">
       Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>
     </div>
   </div>
+
+  <script>
+    function myFunction(imgs) {
+      var expandImg = document.getElementById("expandedImg");
+      var imgText = document.getElementById("imgtext");
+      expandImg.src = imgs.src;
+      imgText.innerHTML = imgs.alt;
+      expandImg.parentElement.style.display = "block";
+    }
+  </script>
+
 </body>
+
 </html>
