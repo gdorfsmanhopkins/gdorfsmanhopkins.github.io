@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Hello?</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="Homepage of Gabriel Dorfsman-Hopkins, Mathematician and Artist" />
+  <meta name="keywords" content="mathematics, algebraic geometry, perfectoid, WXML, projectivoid" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="../style/style.css" title="style" />
+
+  <style>
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+      flex: 30%;
+      max-width: 30%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="../files/https://www.googletagmanager.com/gtag/js?id=UA-127262262-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127262262-1');
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="../index.html">Gabriel<span class="logo_colour"> Dorfsman-Hopkins</span></a></h1>
+          <h2>mathematician and artist</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li><a href="../digital_fabrication.html">Digital Fabrication</a></li>
+          <!--<li><a href="undergraduate_research.html">Undergraduate Research</a></li>-->
+          <li class="selected"><a href="../art.html">Art</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <img width="100%" height="auto" src="../files/headshot.jpg">
+        <ul>
+          <li>cohomolopkins[-at-]gmail.com<br>
+          <li>RTG Postdoc at UC Berkeley<br>
+          <li>Pronouns: he/him/his<br>
+          <li><a href="../files/CV_Complete.pdf">Curriculum Vitae</a></li>
+        </ul>
+
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>HELLO? The Interdimensional Communication Device</h1>
+        <center>
+          <img width=75% src="../files/hello.jpg">
+        </center>
+        <p>
+          A joint project with <a href="https://www.aarohibhaway.com/">Aarohi Bhaway</a>, this prototype was designed to create an interactive interface where the attempt to communicate was transformed from dots, dashes, and spaces into a more immersive and captivating experience using lights and sounds interplaying.  It takes two more archaic forms of communication (Morse code and a discarded loudspeaker), and turns them into a sort of cartoonish and futuristic communication device.  There are three interactive elements to this piece:
+          <ul>
+            <li>Constructing what you want to say: Since the input is entirely from a telegram machine, the person interacting with this is forced to convert what they are saying into morse code format, provided on the piece. This requires deliberation and thought and forces the user to think about what they want to say.</li>
+
+            <li>Tapping in the message: The machine is quite sensitive to dots and dashes, and requires careful inputs to not miss a dot or dash and lose the message to translation. The input needs to be careful and controlled, very much like how we are always asked to think before we speak.</li>
+
+            <li>Reading the transformed output: The sounds from the telegram are relayed through the speaker accompanied by the lights inside the mirrors translating the dots and dashes into a clear visual and resetting for every pause. The effect is mesmerising and captivating, since it is entirely in the handler’s control. Paying careful attention to the lights sequence can help read the morse code version of the message, and can be read using the dictionary. However, the speed of the input and the speed of the output are the same, and thus need careful attention to actually decipher what is being said.</li>
+          </ul>
+          <p>
+            The infinite tunneling effect of the infinity mirror gives a sense of communicating into an interdimensional void.  As the bottom mirror tilts when the screen clears (i.e., when the lights return to all red), the tunnel bends away, giving a sense that the letter or word you had typed has been sent...somewhere.  We hope it gives a feeling of shouting into the wilderness or into space, wondering if you will be heard.
+          </p>
+          <p>
+            This to us, represents an activity that we take for granted - Understanding. The common language and a common basis for comprehension are quite subtle and layered, and just changing one aspect of the language input can drastically change what it means for us as humans to understand what being directed at us.
+          </p>
+          <p>
+            Here are a few pictures of it in progress, and the circuit sketch.
+          </p>
+          <div class = "row">
+            <div class = "column">
+              <img src="../files/hello1.jpg">
+            </div>
+            <div class = "column">
+              <img src="../files/hello2.jpg">
+            </div>
+            <div class = "column">
+              <img src="../files/hello3.png">
+            </div>
+          </div>
+          <img width=100% src="../files/helloDiagram.png">
+
+      </div>
+    </div>
+    <div id="footer">
+      Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>
+    </div>
+</body>
+
+</html>
