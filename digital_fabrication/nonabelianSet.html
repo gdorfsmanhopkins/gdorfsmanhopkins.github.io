@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Nonabelian Set</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="Homepage of Gabriel Dorfsman-Hopkins, Mathematician and Artist" />
+  <meta name="keywords" content="mathematics, algebraic geometry, perfectoid, WXML, projectivoid" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="../style/style.css" title="style" />
+
+  <style>
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+      flex: 40%;
+      max-width: 50%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="../files/https://www.googletagmanager.com/gtag/js?id=UA-127262262-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127262262-1');
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="../index.html">Gabriel<span class="logo_colour"> Dorfsman-Hopkins</span></a></h1>
+          <h2>mathematician and artist</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li class="selected"><a href="../digital_fabrication.html">Digital Fabrication</a></li>
+          <!--<li><a href="undergraduate_research.html">Undergraduate Research</a></li>-->
+          <li><a href="../art.html">Art</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <img width="100%" height="auto" src="../files/headshot.jpg">
+        <ul>
+          <li>cohomolopkins[-at-]gmail.com<br>
+          <li>RTG Postdoc at UC Berkeley<br>
+          <li>Pronouns: he/him/his<br>
+          <li><a href="../files/CV_Complete.pdf">Curriculum Vitae</a></li>
+        </ul>
+
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Nonabelian Set</h1>
+        <div class = "row">
+          <div class = "column">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Set-game-cards.png">
+          </div>
+          <div class = "column">
+            <img src="../files/digitalSet1.png">
+          </div>
+        </div>
+        <p>
+          The famous game of <a href="https://en.wikipedia.org/wiki/Set_(card_game)">SET</a> has a few interesting mathematical interpretations.  It can be thought of as finding geometric patters (using tools of projective geometry), or as finding arithmetic ones (using tools of group theory).  Fantastic work of <a href="https://people.maths.bris.ac.uk/~zx18363/">Cathy Hsu</a>, <a href="http://sites.math.washington.edu/~ostroff/">Jonah Otroff</a>, and Lucas Van Meter, explores these perspectives, and creates really fun variations of the game in both directions.  You can check out several of them <a href="https://people.maths.bris.ac.uk/~zx18363/set.html">here</a>, and even find printable cards to play yourself.
+        </p>
+        <p>
+          One of these versions takes place in the <a href="https://en.wikipedia.org/wiki/Symmetric_group">symmetric group</a> <i>S<sub>n</sub></i>, where the player combines permutations to get the identity.  At ICERM's Illustrating Mathematics program we laser cut these permutations onto tiles to play with directly, and I would say that much fun was had.  These tiles will be appearing in the forthcoming AMS publication "Illustrating Mathematics."
+        </p>
+        <p>
+          When I was first asked what I thought about the game (at this point still in its paper variant), I suggested colors to more easily follows the lines, before I realized that on paper that wouldn't make sense.  Apparently this was a common suggestion, so I went about trying to code it up in javascript.  Click the links below to play an online varient of the game for the groups <i>S<sub>3</sub></i> and <i>S<sub>4</sub></i>
+        </p>
+        <h3>
+          <a href=""><i>S<sub>3</sub></i> version</a><br>
+          <a href=""><i>S<sub>4</sub></i> version</a>
+        </h3>
+        <p>
+          Here are a few in game screenshots, as well as some photos of the beautiful wooden tiles.
+        <div class="row">
+          <div class="column">
+            <img src="../files/set1.JPG">
+            <img src="../files/DigitalSet1.png">
+            <img src="../files/set3.JPG">
+          </div>
+          <div class="column">
+            <img src="../files/DigitalSet2.png">
+            <img src="../files/set2.JPG">
+            <img src="../files/DigitalSet3.png">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>
+    </div>
+</body>
+
+</html>
