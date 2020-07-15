@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>The Fabric of Spacetime</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="Homepage of Gabriel Dorfsman-Hopkins, Mathematician and Artist" />
+  <meta name="keywords" content="mathematics, algebraic geometry, perfectoid, WXML, projectivoid" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="../style/style.css" title="style" />
+
+  <style>
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+      flex: 30%;
+      max-width: 30%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="../files/https://www.googletagmanager.com/gtag/js?id=UA-127262262-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127262262-1');
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="../index.html">Gabriel<span class="logo_colour"> Dorfsman-Hopkins</span></a></h1>
+          <h2>mathematician and artist</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li><a href="../digital_fabrication.html">Digital Fabrication</a></li>
+          <!--<li><a href="undergraduate_research.html">Undergraduate Research</a></li>-->
+          <li class="selected"><a href="../art.html">Art</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <img width="100%" height="auto" src="../files/headshot.jpg">
+        <ul>
+          <li>cohomolopkins[-at-]gmail.com<br>
+          <li>RTG Postdoc at UC Berkeley<br>
+          <li>Pronouns: he/him/his<br>
+          <li><a href="../files/CV_Complete.pdf">Curriculum Vitae</a></li>
+        </ul>
+
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>The Fabric of Spacetime</h1>
+        <div class = "row">
+          <div class = "column">
+            <img src="../files/FabricUnder2.jpg">
+          </div>
+          <div class = "column">
+            <img src="../files/spaceTimeNightLong.jpg">
+          </div>
+          <div class = "column">
+            <img src="../files/FabricUnder4.jpg">
+          </div>
+        </div>
+
+        <p>
+          In a joint project with Meghan Maynard, we created a model of a young universe, combining crochet and electronics to create a dynamic and luminescent experience.  The main physical component is a large, handcrocheted hyperbolic manifold, where stitches were added at an exponential rate. In this way, the circumference grows exponentially faster than the length, introducing negative curvature and resulting in the many folds. This technique was pioneered in 1997 by Daina Taimina, a mathematician at Cornell. The curvature is analogous to the geometry of a very young universe (much less than one second old), where the spacial dimensions grew exponentially with respect to the time dimension, introducing curvature in the geometry of spacetime itself.
+        </p>
+        <p>
+          Sewed into the fabric model are 264 individually programmable neopixel LEDs, forming a spiral pattern around the inside, and mounted throughout the room are 6 servo motors, each connected by fi shing wire to a fold in the crocheted model. There is also a PIR motion sensor directed toward the underbelly of the piece. All of these are wired to an Arduino MEGA microcontroller.  Below is the circuit diagram:
+        </p>
+        <img width=100% src="https://raw.githubusercontent.com/gdorfsmanhopkins/fabric-of-spacetime/master/Spacetime_bb.png">
+        <p>
+          While undisturbed, the servos pull the model open and closed in a regular breathing motion, shifting to red while opening, and to blue while closing. This is in homage to the cosmic red shift and blue shift of the universe: since red has the longest wavelength of the visible spectrum, things moving away from us at relativistic velocities gain a slight red tint in color, and since blue has the shortest wavelenth, things moving towards us gain a slight blue tint. In this way, the color shift of the piece represents the actual shift that would be visible in an expanding and contracting universe. When the viewer walks under the piece, When one walks under the piece, chaos is introduced, and the motion sensor triggers one of 5 different patterns in the movement and lights, ranging from relatively controlled to completely random, until finally entropy kicks in and the universe returns to its (semi-)stable breathing state.
+        </p>
+        <p>
+          I find crochet to be a very flexible medium, both literally and figuratively, and I am fascinated at the way it can create various geometries and symmetry patterns, and also how easy it is to combine with electronics. Using crochet, I really tangibly felt the intensity of exponential growth. To create hyperbolic crochet, you add stitches in such a way that the circumference of the crocheted piece grows exponentially. In practice, this means the workflow really starts to slow down. This piece took hundreds of hours of crochet, and weighs 10 pounds. The circumference of the piece at the base is over 80 feet (all hidden in the folds).
+        </p>
+        <p>
+          This project is to appear on the cover of the forthcoming AMS publication <i>Illustrating Mathematics</i>.  You can find a complete documentation, including the code that ran the macine, <a href="https://github.com/gdorfsmanhopkins/fabric-of-spacetime">here</a>.
+        <p>
+          Here are a couple of videos of it in action.
+        </p>
+        <div style="width:100%;height:480px;background-color:black;text-align:center;">
+          <video style="height:100%;" controls>
+            <source src="https://lh3.googleusercontent.com/oQikHyZeZDNud8QVIFni7p0MP3wFQBiQrM56lT-ouzItRKofWjQCWZwrT9xfZ7ig0RvHb1_k02j2tYs8SiTbFGCDwdqS8ldDqwvftzQ1V2bdIXKIdlmAs24SeNniL5HBjfBVSubt=m18" type="video/mp4">
+          </video>
+          <video style="height:100%;" controls>
+            <source src="https://lh3.googleusercontent.com/sWBwU-5sABtlEwQz2YdgmfsMUIToG13bwYsm3VlaWgjw2YtUWQQKGkxbovt-S1QUlJ29C2UlKP-zYbuM2dsLzyEgHUiXgBJQm1wp2xsWQtpwIbbvhwyPUKeIWvs4e4VF39ZouOFA=m18" type="video/mp4">
+          </video>
+        </div>
+
+
+      </div>
+    </div>
+    <div id="footer">
+      Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>
+    </div>
+</body>
+
+</html>
