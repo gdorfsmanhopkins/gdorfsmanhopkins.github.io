@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>
+		Math 116 Spring 2020
+	</title>
+
+</head>
+
+<body>
+	<h2>
+		Math 116 Spring 2020
+	</h2>
+	<h3>
+		Introduction to Mathematical Cryptography.
+	</h3>
+
+	<h3>
+		About this course
+	</h3>
+	<p>
+		Cryptography is the art of transmitting confidential information over a potentially monitored channel.  Codes and ciphers are ancient tools, but in the modern digital age entirely new cryptographic paradigms became possible, and necessary.  One of these paradigms, and the central object of study in this course, is <i>public key cryptography</i>, allowing the exchange of confidential information between two people who have never met!  At the core of public key cryptography are marvelously clever and deep mathematical insights existing at the intersection of abstract algebra, number theory, and geometry, which we will introduce and explore.
+		<br>
+		This course will strike a balance between theory and practice.  We will have to develop some mathematics, and along with that there will be some proof writing and abstract formulations.  With these tools in hand we will be able to fully implement many of the modern cryptosystems we study, and start sending eachother confidential messages in a public forum!
+  </p>
+	<p>
+		<b>Instructor:</b> <a href="http://www.gabrieldorfsmanhopkins.com" target="_blank">Gabriel Dorfsman-Hopkins</a><br>
+		<b>Homework Grader:</b> Onyebuchi Ekenta (oekenta[_at_]berkeley.edu)<br>
+		<b>Email:</b> gabrieldh[_at_]berkeley.edu<br>
+		<b>Class Hours:</b>T-Th 5:00-6:30<br>
+		<b>Instructor Office Hours:</b> On Zoom during class hours, also <i>or by appointment</i><br>
+		<b>Textbook:</b>Introduction to Mathematical Cryptography, 2014 edition<br>
+		by Hoffstein, Pipher, Silverman [HPS]<br>
+		<b>Digital copies available through the UC Berkeley Library</b>
+		<b>Computation Resources:</b> You will each have folders on <a href="cocalc.com">CoCalc</a> to do computation and homework.
+		<b>Project 1:</b> Due Tuesday 10/6<br>
+    <b>Project 2:</b> Due Tuesday 11/24<br>
+    <b>Final Exam:</b> Takehome Due Thursday 12/17.<br>
+    <b>Syllabus:</b> Can be found <a href="Syllabus.pdf" target="_blank">here</a><br>
+		<b>Homework:</b> Due (almost) every Tuesday on CoCalc and Gradescope.<br>
+    <b>Schedule:</b> <a href = "#schedule">Below</a><br>
+	</p>
+
+	<h3>Online Lectures</h3>
+	<ul>
+		<li>Videos and notes will be posted here.
+	</ul>
+	<h3>
+		Assignments
+	</h3>
+		<p>Solutions to selected exercises will be posted when they are returned.</p>
+		<h4>Homework Assignments</h4>
+		<ul>
+			<li>Assignments (and due dates) will be posted here as pdfs.
+		</ul>
+
+	<h3>
+		Announcements
+	</h3>
+
+	<p>
+		Here I will post announcements, as well as solutions and statistics to homework, takehomes and exams.
+	</p>
+
+	<h3>
+		Grading Scheme
+	</h3>
+	<p>
+		<b>Homework:</b> 50%<br>
+		<b>Project 1:</b> 15%<br>
+		<b>Project 2:</b> 15%<br>
+		<b>Final:</b> 20%<br>
+	</p>
+
+	<p>
+		Grades are curved, so that your course grade will reflect your performance relative to the rest of the class rather than a fixed percentage scheme.
+	</p>
+
+  <h3>More Information</h3>
+  <h4>Structure</h4>
+	<p>
+		Due to the ongoing COVID-19 pandemic course will be entirely remote.  I will post 2 recorded lectures a week, corresponding to our scheduled Tuesday-Thursday schedule, but they will be available to watch at your convenience.  I will record them on Zoom and post a link on the course website, as well as posting them to BCourses.
+		<br>
+		That being said, mathematics is not a spectator sport.  Watching me do a algebraic computation may not be as useful as working it out yourself, and this is even more true for writing lines of code.  For this reason I will have exercises embedded in the lectures where I will suggest you pause the video and work out some of the details.
+		<br>
+		I will also be available hosting zoom office hours during the usual course hours (5-6:30 on Tuesdays and Thursdays), so if you are watching at that time feel free to drop in and ask any questions.
+	</p>
+	<h4>CoCalc</a>
+	<p>
+		Each one of you will have a shared folder with me on an online collaborative coding platform called <a href="cocalc.com">CoCalc</a>, which in particular runs SageMath, an open source mathematical software we will be making heavy use of this quarter.  <a href="cocalc.com">Click here to get to cocalc</a>.  It is here where you will do and turn in the computational parts of your homework assignments.  I would also recommend having a Jupyter notebook open in CoCalc during the lectures to be able to follow along and work out the computational in class exercises.  During the first lecture I will walk you through setting this up.
+	</p>
+  <h4>Homework</h4>
+	<p>
+		The main portion of your grade will be homework assignments.  There will be homework collected almost every week \textbf{on Tuesdays}.  They will be assigned the week before they are due, and will tend to come in 2 parts.
+		<ul>
+			<li>A <i>written part</i>, which you will turn in on <a href="gradescope.com">Gradescope</a>.  This can be typed up in LaTeX or hand written and scanned (please don't sumbit grainy photos).  This will generally be more mathematical, involving proof writing or explicit computation.</li>
+	  	<li>A <i>implementation part</i>, which will be turned in in the form of Jupyter notebook on CoCalc (for example, Homework 0 will be turned in by having Homework0.ipynb file existing in your CoCalc project folder and containing the completed assignment).  These will generally be implementations of algorithms, or more elaborate computations.  Please clearly mark which part of the notebook is which problem with comment lines.</li>
+		</ul>
+		Feel free to discuss homework in groups, but know that each one of you should be writing up your own assignment (no copying and pasting code will be allowed!).
+	</p>
+  <h4>Implementation Projects</h4>
+	<p>
+		There will be 2 larger implementation projects.  These will look a lot like the implementation sections of your homework assignments, but will likely be larger more cohesive implementations of an entire we've been studying (rather than just single algorithms).  You are allowed to use algorithms written in homework assignments as peices of thse projects.  You may also use the course text, as well as your course notes. You may <i>not</i> use the internet or your peers.
+	</p>
+	<p>
+		<b>Warning!</b> As the projects are specific implementations of things we are studying in class, these due dates may shift depending on course pace.  I will give you as much notice as possible if there is any change.
+	</p>
+	<ul>
+		<li><b>Project 1: </b>Due Tuesday 10/6 in CoCalc.</li>
+		<li><b>Project 2: </b>Due Tuesday 11/24, in CoCalc.</li>
+	</ul>
+	<h4>Final Exam</h4>
+	<p>
+		There will be 1 final exam, which will be a takehome assignment.  It will look similar to the written portions of the homework assignments, and will have both a written portion and an implementation portion. You may use the course text as well as your course notes and previous graded homework assignments.  You may <i>not</i> use the internet or your peers.
+	</p>
+<h2 id = "schedule">Tentative Schedule</h2>
+	<p>
+		This may be adjusted as we move through the quarter.  I will post an announcement and send out an email if a change to the schedule is made.
+	</p>
+<b>Week 1 (1/20-1/24):</b>
+  <ul>
+    <li>Introduction.  Sets, function, proofs.  [P] Chapter 1 and [DF] 0.1</li>
+  </ul>
+<b>Week 2 (1/27-1/31):</b>
+  <ul>
+    <li>Properties of the integers. [P] Chapter 2, [DF] 0.2-0.3.</li>
+    <li>Definition, examples, and early properties of groups.  [DF] 1.1-1.5.</li>
+    <li><b>Homework 1 due Friday.</b></li>
+
+</ul>
+<b>Week 3 (2/3-2/7):</b>
+<ul>
+  <li>Group homomorphisms and group actions. [DF] 1.6-1.7</li>
+  <li>Subgroups, properties, and examples.  [DF] 2.1-2.3.</li>
+  <li><b>Homework 2 due Friday.</b></li>
+</ul>
+<b>Week 4 (2/10-2/14):</b>
+<ul>
+  <li>Subgroups and generators. [DF] 2.3-2.5.</li>
+  <li>Homomorphisms and quotients of groups. [DF] 3.1-3.2.</li>
+  <li><b>Homework 3 due Friday.</b></li>
+</ul>
+<b>Week 5 (2/17-2/21):</b>
+<ul>
+  <li><i>No Class Monday</i></li>
+  <li>The isomorphism theorems.  [DF] 3.2-3.5.</li>
+  <li><b>Homework 4 due Friday</b></li>
+  <li><b>Takehome 1 assigned Friday</b></li>
+</ul>
+<b>Week 6 (2/24-2/28): </b>
+<ul>
+  <li>Group Actions. [DF] 4.1-4.4.</li>
+  <li><b>Takehome 1 due Monday</b></li>
+  <li>><b>Homework 5 due Friday</b></li>
+</ul>
+<b>Week 7 (3/2-3/6):</b>
+<ul>
+  <li>Sylow theorems. [DF] 4.5-4.6</li>
+  <li>Direct products. [DF] 5.1-5.3.</li>
+  <li><b>Homework 6 due Friday</b></li>
+</ul>
+<b>Week 8 (3/9-3/13):</b>
+<ul>
+  <li>Semidirect products. [DF] 5.4-5.5.</li>
+  <li>Extra topics in group theory. [DF] 6.1-6.2.</li>
+  <li><b>Homework 7 due Friday.</b></li>
+</ul>
+<b>Week 9 (3/16-3/20):</b>
+<ul>
+  <li>Free groups.  [DF] 6.3.</li>
+  <li>Midterm review.</li>
+  <li><b>Homework not collected.  Study problems available.</b></li>
+  <li><b>In class midterm on Friday</b>.</li>
+</ul>
+<b>Week 10 (3/23-3/27):</b>
+<ul>
+  <li><i>Spring Break</i></li>
+</ul>
+<b>Week 11 (3/30-4/3):</b>
+<ul>
+  <li>Rings, first properties, homomorphisms, ideals.  [DF] 7.1-7.4.</li>
+  <li>No homework collected.  Start next week's early!</li>
+</ul>
+<b>Week 12 (4/6-4/10):</b>
+<ul>
+  <li>Rings of fractions and the Chinese Remainder Theorem.  [DF] 7.5-7.6.</li>
+  <li>Hierarchy of particularly nice rings.  [DF] 8.1-8.3.</li>
+  <li><b>Homework 8 due Friday.  This will likely be a longer one.</b></li>
+</ul>
+<b>Week 13 (4/13-4/17): </b>
+<ul>
+  <li>Principle Ideal Domains.  [DF] 8.3.</li>
+  <li>Polynomial rings.  [DF] 9.1-9.3.</li>
+  <li><b>Homework 9 due Friday.</b></li>
+</ul>
+<b>Week 14 (4/20-4/24): </b>
+<ul>
+  <li>More on polynomial rings. [DF] 9.4-9.5.</li>
+  <li>Introducing fields. [DF] 13.1.</li>
+  <li><b>Homeowrk 10 due Friday.</b></li>
+  <li><b>Takehome 2 assigned Friday.</b></li>
+</ul>
+<b>Week 15 (4/27-5/1):</b>
+<ul>
+  <li>Field extensions and algebraic closures.  [DF] 13.1-13.2, 13.4.</li>
+  <li><b>Takehome 2 due Monday</b></li>
+  <li><b>Homework 11 due Friday</b></li>
+  <li><i>Last day of formal instruction on Friday</i></li>
+</ul>
+<b>Week 16 (5/4-5/8):</b>
+<ul>
+  <li><i>Review Week</i></li>
+  <li><b>Homework 12 due Friday</b></li>
+</ul>
+<b>Week 17 (5/11-5/15): </b>
+<ul>
+  <li><b>Final Exam Tuesday, 8AM-11AM.</b></li>
+</ul>
+</html>
