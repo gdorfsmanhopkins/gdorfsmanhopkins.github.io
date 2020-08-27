@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 116, Fall 2020}
+
+\begin{document}
+\begin{center}
+\Large {Homework 0}\\
+\small {Due Tuesday, September 1}
+\end{center}
+This first homework assignment will walk you through the setup of your CoCalc account, and the general process of submitting the \textit{implementation part} of you homework assignment.
+\begin{enumerate}
+  \item{
+  Go to \url{http://cocalc.com} and create an account.  Make sure to use you berkeley.edu email adress!  If you have already created an account, then go to \url{http://cocalc.com} and log in.
+  }
+  \item{
+  Under the list of projects, there should be one called [Your Name] - math116. Open this project. Notice that the project has two collaborators: Gabriel Dorfsman-Hopkins (that's me!), and Onyebuchi Ekenta (our grader!).  Both of us can access and edit any files in this project (as well as the entire history using the time machine feature), this is how we will view and grade your work, as well as helping and troubleshooting.
+  }
+  \item{
+  Create a new file by clicking the $\oplus$new button.
+  \begin{enumerate}
+    \item{Name the file Homework0.}
+    \item{Select the Jupyter Notebook file type (this will automatically give it the .ipynb extension).}
+    \item{You will be asked to select a kernel.  This will be the programming software your Jupyter notebook will execute.  Select \textit{SageMath 9.1}.  This will be the language we will be using throughout the course.  A quick remark, SageMath 9 is an open source software package extending Python 3, so all Python 3 syntax and programming should work as expected.}
+  \end{enumerate}
+  }
+  \item{
+  Play around a bit with the Jupyter notebook.  It is an input output style of programming that is great for experimentation.
+  }
+  \item\label{gradedProblem}{
+  \textit{Implementation Problem}. On an input cell in Jupyter, comment out the first line saying ``Problem \#\ref{gradedProblem}".  Then create a new function called speak with no inputs.  This function should print `Hello World' when called.  Then call speak.  Run the cell.  It should look something like this:\\
+  \begin{center}
+    \includegraphics[scale=.5]{example.png}
+  \end{center}
+  }
+\end{enumerate}
+Problem \#\ref{gradedProblem} will be the only problem graded on this assignment.  If we (me or the grader) can see this cell run successfully then you have set everything up just fine.  If you are having trouble, rewatch Lecture 0 where I walk through this entire process, and if you are still having trouble send me an email.  Also, the setup for Problem \#\ref{gradedProblem} is exactly how you will turn in all implementation based problems.  If there is an implementation problem in the homework, you will always turn it in by having a Jupyter notebook titled ``HomeworkN" (where N is the homework number), and in the notebook an input cell with the first line a comment clearly stating the problem number, and then the implementation in the rest of the cell.
+\end{document}
