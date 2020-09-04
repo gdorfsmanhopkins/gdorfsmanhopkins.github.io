@@ -119,7 +119,7 @@ In this assignment you will implement some of the important algorithms we discus
   \end{enumerate}
   }
   \item{
-  In this exercise we prove the existence and uniqueness of division with remainder.  Let $a,b\in\bZ$.  We start with existence.
+  In this exercise we prove the existence and uniqueness of division with remainder.  Let $a,b\in\bZ$, and suppose that $b\not=0$.  We start with existence.
   \begin{enumerate}
     \item{
     We begin by considering the set of numbers $a-bq$ as $q$ varies over the integers.  Prove that the set
@@ -127,17 +127,17 @@ In this assignment you will implement some of the important algorithms we discus
     has at least one nonnegative element.
     }
     \item{
-    Let $r$ be the minimal nonnegative element of $S$.  Show that $0\le r< b$.
+    Let $r$ be the minimal nonnegative element of $S$.  Show that $0\le r< |b|$.
     }
     \item{
-    Use (b) to conclude that $a = bq+r$ for some $q,r\in\bZ$ with $0\le r<b$.  This proves existence.
+    Use (b) to conclude that $a = bq+r$ for some $q,r\in\bZ$ with $0\le r<|b|$.  This proves existence.
     }
     \item{
     Show that the division with remainder from part (c) is unique.  That is, suppose there are $q_1,q_2,r_1,r_2\in\bZ$ such that
     \begin{eqnarray*}
       a = bq_1+r_1 &\text{and}&a= bq_2+r_2.
     \end{eqnarray*}
-    Suppose further that $0\le r_i< b$ for $i=1,2$.  Then show $q_1=q_2$ and $r_1=r_2$.
+    Suppose further that $0\le r_i< |b|$ for $i=1,2$.  Then show $q_1=q_2$ and $r_1=r_2$.
     }
   \end{enumerate}
   }
