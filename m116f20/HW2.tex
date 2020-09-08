@@ -1,0 +1,237 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 116, Fall 2020}
+
+\begin{document}
+\begin{center}
+\Large {Homework 2}\\
+\small {Due Tuesday, September 15}
+\end{center}
+\section*{Implementation Part}
+\begin{enumerate}
+  \item{
+  Write an algorthim called \verb|slowPower(g,A,N)| which takes as input natural numbers $N,A\in\bN$, and an element $g\in\bZ/N\bZ$, and returns $g^A\mod N$, that is, the reduction of $g^A$ modulo $N$, in the following (slow) way
+  \begin{enumerate}[(1)]
+    \item{Set $g_0 = g$}
+    \item{For each $i$ with $1\le i<A$, let $g_i = g_{i-1}*g\mod N$}
+    \item{return $g_A$}
+  \end{enumerate}
+  }
+  \item{
+  The fast powering algorithm requires computing the binary expansion of a number.  In this exercise we will implement \verb|getBinary(A)| which takes a positive integer $A$ and returns the binary expansion of $A$, that is, a list \verb|[A0,A1,...,Ar]| satisfying
+  \begin{enumerate}[(i)]
+    \item{
+    Each $A_i\in\{0,1\}$.
+    }
+    \item{
+    $A = A_0 + A_1*2 + A_2 * 2^2 + \cdots A_r * 2^r$
+    }
+    \item{
+    $A_r = 1$
+    }
+  \end{enumerate}
+  The algorithm is the following:
+  \begin{enumerate}[(1)]
+    \item{
+    Set $x = A$, and $i = 0$
+    }
+    \item{
+    Divide $x$ by $2$ with remainder giving $x = 2q + r$ for $0\le r<2$.
+    }
+    \item{
+    Set $A_i = r$ and $x = q$
+    }
+    \item{
+    If $x = 0$ return $[A_0,A_1,...,A_r]$.  Otherwise set $i = i+1$ and return to step (ii).
+    }
+  \end{enumerate}
+  Think about why this algorithm works and how fast it should be while you're writing it.  You will be proving the correctness and analyzing time complexity in the written part of this assignment.
+  }
+  \item{
+  With binary expansion in hand we can do fast powering.
+  \begin{enumerate}
+    \item{
+    Write an algorthim called \verb|fastPower(g,A,N)| which takes as input natural numbers $N,A\in\bN$, and an element $g\in\bZ/N\bZ$, and returns $g^A\mod N$, that is, the reduction of $g^A$ modulo $N$.  Follow the algorithm outlined in class:
+    \begin{enumerate}[(1)]
+      \item{
+      Compute the binary expansion $[A_0,A_1,..,A_r]$ of $A$.
+      }
+      \item{
+      Compute $a_i \equiv g^{2^i}\mod N$ for $0\le i\le r$ by successive squaring.  (Notice that $a_{i+1}\equiv a_i^2\mod N$).
+      }
+      \item{
+      Compute $g^A \equiv a_0^{A_0}\cdots a_r^{A_r}\mod N$.
+      }
+    \end{enumerate}
+    In step (3), rather than multiplying all the $a_i^{A_i}$ together and then reducing, which could produce a very large number that your computer may not want to handle, one should multiply by the next $a_i^{A_i}$ and then reduce $\mod N$ at each step.  Notice this doesn't increase the number of multiplications.
+    }
+  \end{enumerate}
+  As we showed in class, \verb|fastPower| is much better than \verb|slowPower|.  Nevertheless, for large $A$ it requires a remembering large amounts of data (including $\log_2(A)$ different powers of $g$), which is not ideal.  This exercise writes a variant which avoids the need for storage.  We will need the following definition: if $r$ is a real number the \textit{floor} of $r$, denoted $\lfloor r\rfloor$ is the largest integer less than or equal to than $r$ (so for example $\lfloor \pi\rfloor = 3$).
+  \begin{enumerate}
+    \setcounter{enumii}{1}
+    \item{
+    Write a function \verb|fastPowerSmall(g,A,N)| taking the same inputs and implementing the following algorithm (from [HPS] Exercise 1.25).
+    \begin{enumerate}[(1)]
+      \item{
+      Set $x = g$ and $b = 1$.
+      }
+      \item{
+      If $A\equiv1\mod 2$ set $b = b\cdot a$
+      }
+      \item{
+      Set $a = a^2\mod N$ and $A = \lfloor{A}/{2}\rfloor$.
+      }
+      \item{
+      If $A>0$ go back to step 2.  Otherwise return $b$.
+      }
+    \end{enumerate}
+    Think about why this algorithm works and how fast it should be while you're writing it.  You will be proving the correctness and analyzing time complexity in the written part of this assignment.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Test out \verb|slowPower|,\verb|fastPower|, and \verb|fastPowerSmall| by using all 3 to compute the following.
+  \begin{enumerate}
+    \item{
+    $17^{183}\mod256$
+    }
+    \item{
+    $11^{507}\mod1237$
+    }
+    \item{
+    $2^{123456789}\mod987654321$
+    }
+    \item{
+    The last 4 digits of 5 to the trillionth power.
+    }
+  \end{enumerate}
+  }
+\end{enumerate}
+\section*{Written Part}
+\begin{enumerate}
+  \setcounter{enumi}{4}
+  \item{
+  Let's begin by proving correcntess of the algorithms from the implementation part.
+  \begin{enumerate}
+    \item{
+    Prove the correctness of \verb|getBinary| from Problem 2.  Explicitly, prove that the list $[A_0,\cdots,A_r]$ it returns satisfies conditions (i)-(iii).
+    }
+    \item{
+    Analyze the time of complexity \verb|getBinary|.  What is the maximum amount of times it performs division with remainder?  Justify your answer.
+    }
+    \item{
+    Prove that the correctness of \verb|fastPowerSmall| from 3(b).  Explicitly, prove that it correctly returns an eliment $b\in\{0,\cdots,N-1\}$ such that $g^A\equiv b\mod N$.
+    }
+    \item{
+    Analyze the time complexity of \verb|fastPowerSmall|.  What is the maximum amount of times it runs steps (2)-(4)?  Justify your answer.
+    }
+    \item{
+    Write a couple of sentences informally discussing the space advanges of \verb|fastPowerSmall| over \verb|fastPower|.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Let $\{p_1,\cdots,p_r\}$ be a set of prime numbers and let $a = p_1p_2\cdots p_r + 1$.  Show that $a$ has a prime divisor which is not equal to any of the $p_i$.  Use this fact to conclude that there are infinitely many prime numbers.  (We should point out that this proof appears in Euclid's \textit{Elements}, and is quite literally thousands of years old!)
+  }
+  \item{
+  Recall that in the $\bZ$, you couldn't always divide by 2, but you could \textit{sometimes} divide by 2.  We can explain this phenomenon by saying $2x = b$ has a solution in $\bZ$ precisely when $b$ is even.  Let's study this problem in the modular setting. Consider the congruence
+  \[ax = c\mod m.\]
+  \begin{enumerate}
+    \item{
+    Prove that there is a solution if and only if $\gcd(a,m)$ divides $c$.
+    }
+    \item{
+    In the case of $\bZ$, the solution is unique.  Here this need not be the case.  Prove that if there is one solution to the congruence, there are precisely $\gcd(a,m)$ many solutions in $\bZ/m\bZ$.
+    }
+    \item{
+    Check that this works by finding all the solutions to the following congruences:
+    \begin{enumerate}
+      \item{$2x\equiv 4\mod 6$}
+      \item{$3x\equiv 4\mod 9$}
+      \item{$12x\equiv15\mod 21$}
+    \end{enumerate}
+    }
+  \end{enumerate}
+  }
+  \item{
+  This homework assignment concludes with a study of square roots modulo $p$ for some prime $p$ (adapted from Exercises 1.36 and 1.39 in [HPS]).  We will see that the behaviour is similar to that of $\bZ$, where every number has either 2 square roots, or none at all.
+  \begin{enumerate}
+    \item{
+    Let $p$ be prime, and suppose $p\not=2$, and $b\in\bZ/p\bZ$ a nonzero element.  Show that $b$ either has 2 square roots modulo $p$, or none.  That is, show that the congruence
+    \[x^2\equiv b\mod p\]
+    has either 2 or 0 solutions in $\bZ/p\bZ$.  What happens if $p=2$?
+    }
+    \item{
+    Test out this works by finding all solutions to the following congruences:
+    \begin{enumerate}
+      \item{$x^2 = 2\mod7$}
+      \item{$x^2 = 3\mod11$}
+    \end{enumerate}
+    }
+    \item{
+    Much like the integers, if a number has a square root modulo $p$, we call it a \textit{perfect square} modulo $p$.  Find all the perfect squares in $\bZ/5\bZ$ and $\bZ/7\bZ$.
+    }
+  \end{enumerate}
+  Notice that in each case exactly half of the nonzero elements were perfect squares (suggesting that perfect squares are more common mod $p$ than in $\bZ$).  Let's prove this in general.
+  \begin{enumerate}
+    \setcounter{enumii}{3}
+    \item{
+    Let $p$ be an odd prime and $g\in\bZ/p\bZ$ be a primitive root.  Then any $a\in\bZ/p\bZ$ is congruent to a power of $g$ modulo $p$, say $a\equiv g^k\mod p$.  Show that $a$ is a perfect square if and only if $k$ is even.  Conclude that exactly half of the nonzero elements of $\bZ/p\bZ$ are perfect squares.
+    }
+  \end{enumerate}
+  With these tools in hand we can prove the following variant of Fermat's little theorem.
+  \begin{enumerate}
+    \setcounter{enumii}{4}
+    \item{
+    For each prime $p$ such that $3\le p<20$, compute $b^{(p-1)/2}\mod p$ for various nonzero values of $b\in\bZ/p\bZ$ (for example, $b=2$).  Feel free to use the algorithms you wrote in the implementation part.  You should notice a pattern, make a conjecture as to the possible values of $b^{(p-1)/2}\mod p$ for $p\not|b$, and prove it is correct.  (\textbf{Hint:} Use Fermat's little theorem and part (a) above.)
+    }
+  \end{enumerate}
+  }
+\end{enumerate}
+\end{document}
