@@ -1,0 +1,194 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 116, Fall 2020}
+
+\begin{document}
+\begin{center}
+\Large {Homework 1}\\
+\small {Due Thursday, September 10}
+\end{center}
+\section*{Written Part}
+\begin{enumerate}
+  \setcounter{enumi}{4}
+  \item{
+  Let $a,b,c\in\bZ$.
+  \begin{enumerate}
+    \item{
+    Suppose $a|b$ and $b|c$.  Prove $a|c$
+    }
+    \begin{proof}
+      By assumption there are $k,l\in\bZ$ such that $b = ak$ and $c = bl$.  Substitution gives $c = akl$ whence $a|c$
+    \end{proof}
+    \item{
+    Suppose $a|b$ and $b|a$.  Prove $a=\pm b$.
+    }
+    \begin{proof}
+      By assumption there are $k,l\in\bZ$ with $a = bk$ and $b = al$.  Substitution give $a = alk$ so that $lk = 1$.  Therefore either $l = k = 1$ or $l = k = -1$ and the result follows.
+    \end{proof}
+    \item{
+    Suppose $a|b$ and $a|c$.  Prove $a|(b+c)$ and $a|(b-c)$.
+    \begin{proof}
+      By assumption there are $k,l\in\bZ$ with $b = ka$ $c = la$.  Thus $b\pm c = ka \pm la = (k\pm l)a$ whence $b|(b\pm c)$.
+    \end{proof}
+    }
+  \end{enumerate}
+  }
+  \item{
+  In this exercise we prove the existence and uniqueness of division with remainder.  Let $a,b\in\bZ$, and suppose that $b\not=0$.  We start with existence.
+  \begin{enumerate}
+    \item{
+    We begin by considering the set of numbers $a-bq$ as $q$ varies over the integers.  Prove that the set
+    \[S = \{a-bq : q\in\bZ\},\]
+    has at least one nonnegative element.
+    }
+    \begin{proof}
+      The goal is to show that there is some $q$ with $a-bq\ge0$.  Solving for $q$ gives $q\ge(a/b)$ if $b\ge0$ or $q\le(a/b)$ if $b\le0$.  In each case we can find some $q\in\bZ$ satisfying the inequality.
+    \end{proof}
+    \item{
+    Let $r$ be the minimal nonnegative element of $S$.  Show that $0\le r< |b|$.
+    \begin{proof}
+      By assumption $r\ge0$ and $r= a-bq$ for some $q$.  Suppose $r\ge|b|$.  Then
+      \[r-|b| = a-bq - |b| = a = b(q\pm 1)\]
+      is another nonnegative element of $S$, and it is smaller than $r$, contradicting the minimality of $r$.  So we cannot have $r\ge|b|$ completing the proof.
+    \end{proof}
+    }
+    \item{
+    Use (b) to conclude that $a = bq+r$ for some $q,r\in\bZ$ with $0\le r<|b|$.  This proves existence.
+    }
+    \begin{proof}
+      Letting $r = a-bq$ be the minimal element of the set, then $a = bq+r$ and by the previous exercise $0\le r<|b|$.
+    \end{proof}
+    \item{
+    Show that the division with remainder from part (c) is unique.  That is, suppose there are $q_1,q_2,r_1,r_2\in\bZ$ such that
+    \begin{eqnarray*}
+      a = bq_1+r_1 &\text{and}&a= bq_2+r_2.
+    \end{eqnarray*}
+    Suppose further that $0\le r_i< |b|$ for $i=1,2$.  Then show $q_1=q_2$ and $r_1=r_2$.
+    }
+    \begin{proof}
+      Perhaps swapping 1 and 2 we may assume without loss of generality that $r_1\ge r_2$.  The equation $bq_1 + r_1 = bq_2 + r_2$ can be rewritten as
+      \[r_1 - r_2 = b(q_2 - q_1).\]
+      Therefore $r_1-r_2$ is a multiple of $b$, and $0\le r_1-r_2<|b|$, so the only possibility is that $r_1-r_2 = 0$ and we have $r_1=r_2$.  Subbing into the equation above gives:
+      \[0 = b(q_2-q_1),\]
+      and since $b\not=0$ we have $q_2-q_1 = 0$ so that $q_2=q_1$.
+    \end{proof}
+  \end{enumerate}
+  }
+  \item{
+  Fix two integers $a$ and $b$.  The extended Euclidean algorithm shows the greatest common divisor of $a$ and $b$ is an integral linear combination of $a$ and $b$.  In this exercise we prove a partial converse to this statement.
+  \begin{enumerate}
+    \item{
+    Show that $\gcd(a,b)$ divides $au+bv$ for any $u,v\in\bZ$.
+    }
+    \begin{proof}
+      Let $g = \gcd(a,b)$.  Then $g|a$ and $g|b$ so that $g|au$ and $g|bv$.  By 5(c) then $g|(au+bv)$.
+    \end{proof}
+    \item{
+    Using part (a), prove that $a$ and $b$ are coprime if and only if there are $u,v\in\bZ$ such that $au+bv=1$.
+    }
+    \begin{proof}
+      If $a$ and $b$ are coprime then we can find such a $u$ and $v$ using the extended Euclidean algorithm.  Conversely, suppose $au+bv=1$.  Then by part (a) we know that $\gcd(a,b)$ divides 1, so it must be equal to 1.
+    \end{proof}
+  \end{enumerate}
+  }
+  \item{
+  In this exercise we prove the algebraic consistency of modular arithmetic.  Let $m$ be a positive integer, and fix integers $a,a',b,b'$ satisfying
+  \begin{eqnarray*}
+    a&\equiv& a'\mod m\\
+    b&\equiv& b'\mod m.
+  \end{eqnarray*}
+  Prove that the following congruences hold.\\
+  {\textcolor{blue}{We will assume throughout that $a = a'+km$ and $b = b'+lm$.}
+  }
+  \begin{enumerate}
+    \item{
+    $a+b\equiv a'+b'\mod m$.
+    }
+    \begin{proof}
+      \[a + b = a' + km + b' + lm = a' + b' + (k+l)m\equiv a'+b'\mod m.\]
+    \end{proof}
+    \item{
+    $a-b\equiv a'-b'\mod m$.
+    }
+    \begin{proof}
+      \[a + b = a' + km - (b' + lm) = a' - b' + (k-l)m\equiv a'-b'\mod m.\]
+    \end{proof}
+    \item{
+    $ab\equiv a'b'\mod m$.
+    }
+    \begin{proof}
+      \[ab = (a+km)(b+lm) = ab + kmb + alm + kmlm = ab + m(kb + al + klm)\equiv ab\mod m.\]
+    \end{proof}
+  \end{enumerate}
+  }
+  \item{
+  Let's get a little practice with modular algebra.  You're welcome to make use of a Jupyter notebook to help you in these calculations.
+  \begin{enumerate}
+    \item{
+    What is $4^{-1}$ modulo 15?
+    }\\
+    \textcolor{blue}{Since $4\cdot 4 = 16\equiv 1\mod 15$ we have $4^{-1} = 4$.}
+    \item{
+    Solve $4x = 11 \mod 15$ for $x$.  Give a value of $x$ that lives in $\bZ/15\bZ$.
+    }\\
+    \textcolor{blue}{We multiple both sides of the equation by $4^{-1}$, which by part (a) is 4.  This gives $x = 44\equiv 14\mod 15$.}
+    \item{
+    What is $35^{-1}$ modulo 573?
+    }\\
+    \textcolor{blue}{We use the extended Euclidean algorithm which gives $35u+573v = 1$ for $u = 131$ and $v = -8$.  In particular $35^{-1}\equiv 131\mod 573$.}
+    \item{
+    Solve $35x + 112 = 375\mod 573$ for $x$.  Give a value of $x$ that lives in $\bZ/573\bZ$.
+    }\\
+    \textcolor{blue}{
+    Subtracting 112 from both sides gives $35x\equiv 263\mod 573$.  By part (c) dividing through by 35 is the same as multiplying by 131 so we get $x = 263*131 = 34453\equiv533\mod 573$.
+    }
+  \end{enumerate}
+  }
+\end{enumerate}
+\end{document}
