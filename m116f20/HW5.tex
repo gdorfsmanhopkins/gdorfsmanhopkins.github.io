@@ -76,7 +76,7 @@
   \begin{itemize}
     \item{One way you could do this is to make an auxiliary function \verb|CRTPairs(m1,m2,a1,a2)| which solves the problem for 2 congruences, and have \verb|CRT| feed recursively into \verb|CRTPairs|}
     \item{
-    Naively checking the moduli are coprime takes $\cO(t^2)$ steps, but you should be able to check that all the moduli are coprime in $t$ steps.
+    Naively checking the moduli are coprime takes running the Euclidean algorithm $\cO(t^2)$ times, but you should be able to do so only running it $\cO(t)$ times.
     }
   \end{itemize}
   }
@@ -184,7 +184,7 @@
   \item{
   \begin{enumerate}
     \item{
-    Show that \verb|CRT| runs in $\cO(\log N)$ steps where $N = m_1m_2\cdots m_t$ is the product of the moduli.
+    Show that \verb|CRT| runs in $\cO(\log N)$ steps where $N = m_1m_2\cdots m_t$ is the product of the moduli.  (You may assume your basic operations $+,-,\times,\div$ are all $\cO(1)$.  It is also worth pointing out that the number of prime of factors of $N$ grows on average with $\cO(\log(\log N))$, which is very slow.  Since this is a rough upper bound for $t$, you may treat that as negligable, or instead show that CRT runs in $\cO(\log N\log(\log(N))$.
     }
     \item{
     Baby steps-giant steps as we introduced in class took $\cO(\sqrt N\log N)$ because of how long it took to find an element in both the baby steps list and the giant steps list.  In question 2 we implemented a hash table instead of a list, and checking if an element is in a hash table takes $\cO(1)$ steps (which doesn't depend on the size of the table!).  Use this fact to prove that your implementation runs in $\cO(\sqrt N)$ steps instead.
@@ -197,7 +197,7 @@
     \item{
     Let $a,b,c$ be positive integers and suppose that:
     \begin{eqnarray*}
-      a|b,&a|c,&\gcd(a,b) = 1.
+      a|c,&b|c,&\gcd(a,b) = 1.
     \end{eqnarray*}
     Then $ab|c$.
     }
