@@ -184,7 +184,7 @@
   \item{
   \begin{enumerate}
     \item{
-    Show that \verb|CRT| runs in $\cO(\log N)$ steps where $N = m_1m_2\cdots m_t$ is the product of the moduli.  (You may assume your basic operations $+,-,\times,\div$ are all $\cO(1)$.  It is also worth pointing out that the number of prime of factors of $N$ grows on average with $\cO(\log(\log N))$, which is very slow.  Since this is a rough upper bound for $t$, you may treat that as negligable, or instead show that CRT runs in $\cO(\log N\log(\log(N))$.
+    Show that \verb|CRT| runs in $\cO(\log N)$ steps where $N = m_1m_2\cdots m_t$ is the product of the moduli.  (You may assume your basic operations $+,-,\times,\div$ are all $\cO(1)$).
     }
     \item{
     Baby steps-giant steps as we introduced in class took $\cO(\sqrt N\log N)$ because of how long it took to find an element in both the baby steps list and the giant steps list.  In question 2 we implemented a hash table instead of a list, and checking if an element is in a hash table takes $\cO(1)$ steps (which doesn't depend on the size of the table!).  Use this fact to prove that your implementation runs in $\cO(\sqrt N)$ steps instead.
