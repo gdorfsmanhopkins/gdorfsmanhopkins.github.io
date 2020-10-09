@@ -1,0 +1,254 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{seqsplit}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 116, Fall 2020}
+
+\begin{document}
+\begin{center}
+\Large {Takehome Project 1}\\
+\small {Due Thursday, October 15}
+\end{center}
+In this assignment you will implement RSA from the ground up, including generating your own (very large) primes.  You will also prove a few things about the algorithms you write, and take a small tour of the Euler $\varphi$ function and how it relates to RSA.  So it will look a lot like homework assignments so far with a few key differences.
+\begin{itemize}
+  \item{Your work must be your own.  For this assignment do not work in groups or share code.}
+  \item{It is open book: you may use the textbook, your class notes, my class notes and lecture videos, past homework assignments and their solutions, as well as the Sage and Python documentation.  Everything else is off limits.  I can also be a resource so don't hesitate to reach out!}
+  \item{Part of the assignment is involves me sending a message to you and you replying.  Therefore you must share an RSA public key with me (on Discord or via email if you prefer), \textbf{By Tuesday!}}
+\end{itemize}
+If you have questions, please reach out to me ASAP.  Ok, let's get started.  Have fun!
+\section*{Implementation Part}
+\begin{enumerate}
+  \item{
+  First gather your belongings.  You will need your fast powering algorithm and the extended euclidean algorithm, as well as your implementations of the ASCII encoding schemes: \verb|textToInt| and \verb|intToText|.  It is important that these run correctly and efficiently because they will do much of the hard work of the functions we build, so if you need to make corrections from previous assignments please do, you are welcome to use posted homework solutions as a guide.
+  }
+  \item{
+  The problem at the center of RSA is finding the $e$'th root of the ciphertext $c$ modulo $N$ where $N=pq$ is a product of (distinct) primes.  This is hard to do for large $N$ if you don't know the factors $p$ and $q$, but once you know $p$ and $q$ it becomes easy!  Write a finction \verb|findRoot(c,e,p,q)| which solves the equation $x^e\equiv c\mod N$ for $x$ where $N=pq$.  That is, it should satisfy the following
+  \begin{center}
+    \begin{tabular}{c|c}
+      Input & Output\\
+      \hline
+      An integer $c$, and two primes $p\not=q$ & The $e$th root of c$\mod N$:\\
+      An exponent $e$ with $\gcd(e,(p-1)(q-1))=1$ & $\sqrt[e]{c}\mod N$
+    \end{tabular}
+  \end{center}
+  }
+  \item{
+  The security of RSA depends on finding two large primes $p$ and $q$, and multiplying them together to get a large value $N$.  As demonstrated in problem 2, knowing $p$ and $q$ makes the RSA problem easy, so it is important that you keep $p$ and $q$ secret.  The best way to do this is to generate them yourself, so let's do it!  We first remind ourselves of the following definition:
+  \begin{definition}[Miller-Rabin Witness]
+    Let $n$ be a number, and factor $n-1 = 2^k m$ for $m$ odd.  A number $a=2,...,n-1$ is called a \textit{Miller-Rabin Witness} for the compositeness of $n$ if both:
+    \begin{itemize}
+      \item{$a^m\not\equiv1\mod n$}
+      \item{None of $a^{2^im}\equiv-1\mod n$ for any $i=0,\cdots,k-1$}
+    \end{itemize}
+  \end{definition}
+  We proved in class that if such an $a$ exists, $n$ cannot be prime (hence $a$ witnesses that $n$ is composite).
+  \begin{enumerate}
+    \item{
+    Define a function \verb|millerRabin(a,n)| which takes as input integers $a,n\in\bZ$ with $2\le a\le n-1$ and returns \verb|True| if $a$ is a Miller-Rabin witness for $n$ and \verb|False| otherwise.  If you get stuck, Table 3.2 in [HPS] outlines some pseudocode you can implement.   (\textbf{Note}: It is very important that this runs quickly, so you shouldn't compute each $a^{2^im}$ with fast powering as this will pick up an extra factor of $\log$.  Instead use fast powering to compute $a^m$, and find the rest with successive squaring.)
+    }
+  \end{enumerate}
+  Finding one Miller-Rabin witness means that $n$ is composite, but if $a$ is not a Miller-Rabin witness that doesn't mean that $n$ is prime.  Nevertheless, Miller-Rabin witnesses are very plentiful for composite numbers!  We exploit this to write a probabilistic test for primality.
+  \begin{enumerate}
+    \setcounter{enumii}{1}
+    \item{
+    Write a function \verb|probablyPrime(n)| which runs \verb|millerRabin(a,n)| for 20 randomly chosen $a$ between $2$ and $n-1$.  If any of these $a$ are a witness, the $n$ must be composite, so we return \verb|False|.  Otherwise there is a very high probablity that $n$ is prime, so we return \verb|True|.  Just how high is the probability?  We will address this in the written part of this assignment.
+    }
+  \end{enumerate}
+  Now we have a way to efficiently test if a given number is (very likely) prime.  So how do we find primes in a given range?  It turns out that primes are plentiful enough that if we just guess random numbers and see if they are prime we will probably stumble upon one before too long:
+  \begin{enumerate}
+    \setcounter{enumii}{2}
+    \item{
+    Write a function \verb|findPrime(lowerBound,upperBound)| which returns a prime between the two bounds by repeatedly picking a random number $n$ between the bounds and running \verb|probablyPrime(n)|, until it finds an $n$ that is (probably) prime, and returns it.
+    }
+    \item{
+    This works remarkably well!  Use it to find a prime number in the following ranges:
+    \begin{enumerate}
+      \item{between 10 and 100.}
+      \item{between 1000 and 10,000.}
+      \item{With 100 digits.}
+      \item{With 500 digits.}
+    \end{enumerate}
+    Amazing!!  Check your work as follows: Sage can (proveably) check if a number $n$ is prime by returning \verb|True| or \verb|False| on \verb|n in Primes()|.  Try this on the first 3 primes you just generated (it probably will be too slow for the fourth).
+    }
+  \end{enumerate}
+  }
+  \item{
+  Now we can implement RSA.
+  \begin{enumerate}
+    \item{
+    Write a function \verb|generateRSAKey(b)| which generates an RSA public and private key from primes \verb|b| bits long in the following four steps:
+    \begin{enumerate}[(1)]
+      \item{
+      Generate 2 primes $p$ and $q$ of length \verb|b| bits using the functions you wrote in Problem 3 of this assignment.
+      }
+      \item{
+      Choose an encryption exponent $e\in(\bZ/(p-1)(q-1)\bZ)^*$ with $e\not=1$.  (Choosing random numbers and seeing if they are prime to $(p-1)(q-1)$ should actually be a rather quick way to do this).
+      }
+      \item{
+      Compute the decryption exponent $d$ associated to $e$.  (This is essentially the core of the computation in Problem 2, so rather than have to run \verb|findRoot| every time we want to decrypt a message, we can compute this decryption exponent once and for all).
+      }
+      \item{
+      Return a pair of keys \verb|[PublicKey,PrivateKey]| where \verb|PublicKey = [N,e]| for $N=pq$ will be published and \verb|PrivateKey = [N,d]| you will keep to yourself and use to decrypt messages.
+      }
+    \end{enumerate}
+    }
+    \item{
+    Write functions \verb|RSAEncrypt(message,PublicKey)| and \verb|RSADecrypt(cipher,PrivateKey)| encrypt a message or decrypt a cipher.  (Note, expect \verb|PublicKey| and \verb|PrivateKey| to be of the form generated in part(a)).
+    }
+  \end{enumerate}
+  }
+  We did it!
+  \item{
+  Let's test this out.
+  \begin{enumerate}
+    \item{
+    Generate an RSA key from 16 bit primes.  Then encrypt $m=314159$ and decrypt the given ciphertext.  Did it return $m$?
+    }
+    \item{
+    Let's use RSA to communicate over a public channel.  Generate an RSA key from 512 bit primes.  Post your public key on the Discord channel \verb|RSA_Keys| \textbf{by TUESDAY}.  \textbf{Save your private key!}  Expect a message from me.
+    }
+    \item{
+    I have generated the following RSA Key from 512 bit primes:\\
+    $N = \seqsplit{%
+    105221311114140839201427133950507696174424336576952551465373118964343111443615210569737200855666356661550817443041847189726504019039974038772379507161582278783519296999687194872224184723574952162166440945091505292215584920700394034422263656616475374115086086511371138567040077974143875815670499682468534466439}
+    $.\\
+    $e = \seqsplit{%
+    21016836287029986747723759800774101835281275854873180166245543058525887395193963077668602549901653960543032592283482973078890937198353136566265224452055576540700523282705867083716006709316664895297672507188173908369139892947290295938964443139784969754551470562127704086246141892044152375206351855610254115515}
+    $.\\
+    You will need this information to reply to my message.
+    }
+  \end{enumerate}
+  }
+\end{enumerate}
+\section*{Written Part}
+\begin{enumerate}
+  \setcounter{enumi}{5}
+  \item{
+  \begin{enumerate}
+    \item{
+    Prove that \verb|millerRabin(a,n)| runs in $\cO(\log n)$ basic operations ($+,-,\times,\div$).
+    }
+    \item{
+    Assume that \verb|ZZ.random_element| runs in $\cO(1)$.  Prove that \verb|probablyPrime(n)| runs in $\cO(\log n)$ basic operations.
+    }
+  \end{enumerate}
+  It is rather amazing that our probabilistic primality test runs so quickly.  It is slightly more subtle to analyze the time complexity of \verb|findPrime| (and therefore anything that calls it), since it relies on randomly guessing numbers before checking if they are prime.  Part of the input to this is knowing the distribution of the primes which we haven't discussed yet.  Nevertheless, we can discuss some of this.
+  \begin{enumerate}
+    \setcounter{enumii}{2}
+    \item{
+    Describe how \verb|findPrime| could possibly go on forever.
+    }
+    \item{
+    Show that it is extremely unlikely that \verb|findPrime| runs forever.  (\textit{Hint}: For the second part, let P be proportion of primes in your range.  To not pick a nonprime then has probabilitiy $1-P$.  Relate the problem to $\lim_{n\to\infty}(1-P)^n$).
+    }
+  \end{enumerate}
+  }
+  \item{
+  Recall that if $n$ is composite, then 75\% of the integers between 2 and $n-1$ serve as Miller-Rabin witnesses to the compositness of $n$.  Use this fact to compute the probability that $n$ is prime if \verb|probablyPrime(n)| returns true.  Fully justify your answer.
+  }
+  \item{
+  We finish by proving the general case of Euler's theorem, and using this to show that the generalized RSA problem of solving $x^e\equiv c\mod N$ for $x$ can be solved by factoring $N$.  First let's review the following definition.
+  \begin{definition}[Euler's $\varphi$-function]
+    Let $n$ be a positive integer.  Then $\varphi(n)$ is the number of positive integers less than $n$ which are coprime with $n$.  That is:
+    \[\varphi(n) = \#\{a = 1,\cdots,n-1\text{ such that }\gcd(a,n) = 1\}.\]
+  \end{definition}
+  \begin{enumerate}
+    \item{
+    Show that $(\bZ/n\bZ)^*$ is a finite commutative group under multiplication.  What is its order?
+    }
+    \item{
+    Prove Euler's Theorem: Let $a$ be an integer coprime with $n$, then
+    \[a^{\varphi(n)}\equiv1\mod n.\]
+    (\textit{Hint}: Recall that we proved Lagrange's theorem for commutative groups.  Can this do all the work for you?).
+    }
+    \item{The Euler $\varphi$ function has nice properties with respect to multiplication.  Let's establish them:
+    \begin{enumerate}
+      \item{
+      Let $m,n$ be positive coprime integers.  Prove that $\varphi(mn)=\varphi(m)\varphi(n)$.
+      }
+      \item{
+      Let $p$ be a prime number, and $j$ a positive integer.  Compute $\varphi(p^j)$.  Justify your answer.
+      }
+      \item{
+      Using parts (c)i,ii prove the following formula for $\varphi$ for a general integer $N>1$:
+      \[\varphi(N) = N\cdot\left(\prod_{\substack{\text{primes }p\\ \text{with }p|N}}\left(1-\frac{1}{p}\right)\right).\]
+      }
+    \end{enumerate}
+    }
+    \item{
+    Euler's theorem is related to several theorems we have already seen.
+    \begin{enumerate}
+      \item{
+      Deduce Fermat's little theorem from Euler's theorem.
+      }
+      \item{
+      Let $N=pq$ be a product of distinct primes.  Compare the formula given by Euler's theorem to the version of Euler's theorem for the product of two primes that we proved in class.  Which one is stronger?  Does one imply the other?
+      }
+    \end{enumerate}
+    }
+    \item{
+    Fermat's last theorem helped us compute roots mod $p$, and Euler's theorem for the product of two primes helped us compute roots mod $pq$.  Similarly, the general version of Euler's theorem allows us to compute roots mod $N$ for general $N$.  To see this fix $N,c,e$ positive integers such that $\gcd(e,\varphi(N)) = 1$.
+    \begin{enumerate}
+      \item{
+      Show that $x^e\equiv c\mod N$ has a unique solution in $\bZ/n\bZ$.
+      }
+      \item{
+      Suppose you know the factorization of $N$.  Describe an algorithm to compute the unique solution $x = \sqrt[e]{c}\mod N$ from part (e)i.
+      }
+    \end{enumerate}
+    }
+  \end{enumerate}
+  }
+\end{enumerate}
+\end{document}
