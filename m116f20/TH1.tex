@@ -10,6 +10,7 @@
 \usepackage{tikz-cd}
 \usepackage{tikz}
 \usepackage{seqsplit}
+\usepackage{ulem}
 \AtBeginEnvironment{proof}{\color{blue}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
@@ -195,7 +196,7 @@ If you have questions, please reach out to me ASAP.  Ok, let's get started.  Hav
   \end{enumerate}
   }
   \item{
-  Recall that if $n$ is composite, then 75\% of the integers between 2 and $n-1$ serve as Miller-Rabin witnesses to the compositness of $n$.  Use this fact to compute the probability that $n$ is prime if \verb|probablyPrime(n)| returns true.  Fully justify your answer.
+  \sout{Recall that if $n$ is composite, then 75\% of the integers between 2 and $n-1$ serve as Miller-Rabin witnesses to the compositness of $n$.  Use this fact to compute the probability that $n$ is prime if probablyPrime(n) returns true.  Fully justify your answer.}
   }
   \item{
   We finish by proving the general case of Euler's theorem, and using this to show that the generalized RSA problem of solving $x^e\equiv c\mod N$ for $x$ can be solved by factoring $N$.  First let's review the following definition.
@@ -238,10 +239,10 @@ If you have questions, please reach out to me ASAP.  Ok, let's get started.  Hav
     \end{enumerate}
     }
     \item{
-    Fermat's little theorem helped us compute roots mod $p$, and Euler's theorem for the product of two primes helped us compute roots mod $pq$.  Similarly, the general version of Euler's theorem allows us to compute roots mod $N$ for general $N$.  To see this fix $N,c,e$ positive integers such that $\gcd(e,\varphi(N)) = 1$.
+    Fermat's little theorem helped us compute roots mod $p$, and Euler's theorem for the product of two primes helped us compute roots mod $pq$.  Similarly, the general version of Euler's theorem allows us to compute roots mod $N$ for general $N$.  To see this fix $N,c,e$ positive integers such that $\gcd(e,\varphi(N)) = 1$ and such that $\gcd(c,N)=1$.
     \begin{enumerate}
       \item{
-      Show that $x^e\equiv c\mod N$ has a unique solution in $\bZ/n\bZ$.
+      Show that $x^e\equiv c\mod N$ has a unique solution in $\bZ/N\bZ$.
       }
       \item{
       Suppose you know the factorization of $N$.  Describe an algorithm to compute the unique solution $x = \sqrt[e]{c}\mod N$ from part (e)i.
