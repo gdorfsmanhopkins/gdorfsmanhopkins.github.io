@@ -1,0 +1,252 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 116, Fall 2020}
+
+\begin{document}
+\begin{center}
+\Large {Homework 7}\\
+\small {Due Thursday, October 29}
+\end{center}
+\section*{Implementation Part}
+For several of the implementation parts of the problem you will need to choose large secret primes, so make sure you have access to \verb|findPrime| and all the functions it depends on from the takehome project.
+\begin{enumerate}
+  \item{
+  Let's begin by writing functions that efficiently compute Legendre and Jacobi symbols.
+  \begin{enumerate}
+    \item{
+    Write a function \verb|legendreSymbol(a,p)| which takes as input an integer $a$ and an \textit{odd} prime $p$, and returns the Legendre symbol $\left(\frac{a}{p}\right)$ in $\cO(\log(p))$ time.
+    }
+    \item{
+    Write a function \verb|jacobiSymbol(a,b)| which takes as input integers $a$ and $b$ where $b$ is odd and positive and returns the Jacobi symbol $\left(\frac{a}{b}\right)$ \textit{without factoring b}.  We remind you of the following properties of Jacobi symbols which should help with your computation.
+    \begin{itemize}
+      \item{
+      This only depends on the residue of $a$ modulo $b$.
+      }
+      \item{
+      If $a\equiv -1,0,1,2\mod b$ this is easy to compute directly (using quadratic reciprocity for $-1$ and $2$).
+      }
+      \item{
+      If $b$ is prime then this is a Legendre symbol!  (\verb|probablyPrime| will help determine this quickly).
+      }
+      \item{
+      You can use quadratic reciprocity to relate $\left(\frac{a}{b}\right)$ and $\left(\frac{b}{a}\right)$.  Since we can reduce $b$ modulo $a$ this gives us a strictly smaller problem!  (\textbf{Warning:}, if $a$ is even the $\left(\frac{b}{a}\right)$ doesn't make sense!  You will have to factor out the 2's from a use the multiplicativity of the Jacobi function to deal with this case!)
+      }
+    \end{itemize}
+    }
+    \item{
+    Compute the following Jacobi symbols.  For the first 3 you can check your work by hand. \[\left(\frac{8}{15}\right),\left(\frac{11}{15}\right),\left(\frac{12}{15}\right),\left(\frac{171337608}{536134436237}\right).\]
+    }
+  \end{enumerate}
+  }
+  \item{
+  Implement the Goldwasser-Micali probabilistic encryption scheme to securely send 1 bit of data.
+  \begin{enumerate}
+    \item{
+    Create a function \verb|GenerateGMKey(b)| which creates a Goldwasser-Micali key from $b$-bit primes.  In particular, it should output a \textit{public key} $[N,a]$ where $N = pq$ is a product of (secret) $b$ bit primes and $a\in\bZ/N\bZ$ is a quadratic \textit{non}residue modulo $p$ and $q$, as well as a \textit{private key} which should just consist of one of the secret primes.  (You can use part 1 to compute Legendre symbols.)
+    }
+    \item{
+    Write functions \verb|GMEncrypt(publicKey,m)| and \verb|GMDecrypt(privateKey,c)|.  The first takes a Goldwasser-Micali public key, and a bit $m = \{0,1\}$, and returns a ciphertext $c\in\bZ/N\bZ$ which is a square modulo $N$ if and only if $m=0$. The second recovers $m$ from $c$ and the private key and Legendre symbols.  (\textit{Note}: When you compute the random integer in the encryption function make sure it is larger than the square root of $N$.  For extremely large $N$, you should make use of the sage integer square root function \verb|isqrt()| since floats may round up to infinity and have trouble reconverting to ints).
+    }
+    \item{
+    Generate and print a Goldwasser-Micali key from 16 bit primes.  Use it to encrypt and then decrypt both both 0 and 1.  Confirm that you recover the bit correctly.
+    }
+    \item{
+    Implement a Goldwasser-Micali key from primes $p=151$ and $q=233$.  Recover the bit from the cipher $c = 33482$.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Implement the RSA Digital Signature algorithm.  It will look very similar to the first project, and you are welcome to reuse code from that assignment (especilly for key generation).
+  \begin{enumerate}
+    \item{
+    Write a function \verb|generateRSAKey(b)| which generates an RSA private signing key and public verification key from primes \verb|b| bits long.  The verification key will be a pair \verb|[N,e]| where $N = pq$ is a product of secret primes $b$ bits long and $e$ is an integer prime to $(p-1)(q-1)$, and the signing key will be a pair \verb|[N,d]| for the same $N$ and $d$ the inverse of $e$ modulo $(p-1)(q-1)$ (sound familiar?).
+    }
+    \item{
+    Write functions \begin{center}\verb|RSASign(signingKey,document)| and \verb|RSAVerify(verificationKey,document,signedDocument)|.\end{center}  The former will sign a document with the signing key (by taking an appropriate root), and the second will verify that a document is correctly signed (by exponentiating).
+    }
+    \item{Generate an RSA digital signature key from 16 bit primes.  Use it to sign the document $D = 314159$.  Run your verification algorithm for twice, once with the signed document and once with the unsigned document, and confirm you get the expected results.}
+    \item{
+    My RSA key has not changed since the project.  In this exercise we will use it as a public verification key.\\
+    $N =\\ \seqsplit{%
+    105221311114140839201427133950507696174424336576952551465373118964343111443615210569737200855666356661550817443041847189726504019039974038772379507161582278783519296999687194872224184723574952162166440945091505292215584920700394034422263656616475374115086086511371138567040077974143875815670499682468534466439}
+    $.\\
+    $e =\\ \seqsplit{%
+    21016836287029986747723759800774101835281275854873180166245543058525887395193963077668602549901653960543032592283482973078890937198353136566265224452055576540700523282705867083716006709316664895297672507188173908369139892947290295938964443139784969754551470562127704086246141892044152375206351855610254115515}
+    $.\\
+    You recieve two documents:\\
+    $D = \seqsplit{%
+    44591585690519734445193105605299933531568892342090748601970008137}$\\
+    $D' =\\ \seqsplit{%
+    337377130929260027119979659386867814239851983409854239806787406685408379201657143087595936042616688490456529718758762313}$\\
+    Run \verb|intToText| to read this documents (note: they are not encrypted).  Each claims to be signed by me, and comes with a digital signature:\\
+    $D^{sig} =\\ \seqsplit{%
+    84266656881633759645931434414589646373474140299696318568846558871354683992664911157753484472137215120833883659981300550744963663713366844538345153354910646994089867353135355958633675880207565142502666869723013255076555165394554832168424776641559903698464211162982834359695243021419912674971036001530626269241}$
+    \newpage
+    $D'^{sig} =\\ \seqsplit{%
+    90592809313509991477767898543561252818730285233946708276918316631997361944737647286633671059236656863128827269012547659105911490655257488384426092740746945829967538162116044915055692244129577771297348901913124079826581655154147415714324848399155672059930064485203220452985824881282662030076919344957027591627}$\\
+    Which message is truthful?
+    }
+  \end{enumerate}
+  }
+  \item{
+  Implement Elgamal digital signatures.
+  \begin{enumerate}
+    \item{
+    Write a function \verb|generateElgamalKey(p,g)| which takes as input a prime $p$ and a primitive root $g\in\bF_p^*$, chooses a secret exponent $a$ (at random) and returns a private signing key $[a,p,g]$ and a public verification key $[A,p,g]$.
+    }
+    \item{
+    Write functions \begin{center}\verb|elgamalSign(signingKey,document)| and \verb|elgamalVerify(verificationKey,document,signedDocument)|.\end{center}
+    The former will sign a document with the given signing key, returning the signed document as a pair $[S_1,S_2]$ where $0\le S_1<p$ and $0\le S_2<p-1$.  The second will verify that the document was correctly signed.  Both should follow the elgamal digital signature protocol defined in the October 22 lecture and described in Table 4.2 of [HPS].
+    }
+    \item{
+    If you sign 2 different documents with the same random element $a$, your Elgamal signing key becomes insecure.  In problem 8 you will describe an algorithm to steal that signing key.  Implement that algorithm here.  In particular, implement an algorithm
+    \begin{center}
+      \verb|stealElgamalSignature(verificationKey,D,Dsig,D',D'sig)|.
+    \end{center}
+    which takes as input verification key associated to an Elgamal signature (which is public information), as well as 2 distinct documents signed with that key.  It will first check if those 2 documents were signed with the same random value $k$, and if they were it will return the signers secret exponent $a$.  (This attack was used to steal Sony's digital signature in 2013!).
+    }
+    \item{
+    Let $p=3700273081$, and $g=7$.  Create an Elgamal key, and use it to sign the document $D = 314159$.  Then verify that the signature was valid.
+    }
+    \item{
+    Suppose Samantha has a public verification key $[A,p,g] = [185149,348149,113459]$.  Suppose Samantha signed the following 2 documents:
+    \begin{eqnarray*}
+      D = 153405 && D^{sig} = (S_1,S_2) = (208913,209176)\\
+      D' = 127561 && D'^{sig} = (S_1',S_2') = (208913,217800).
+    \end{eqnarray*}
+    Use \verb|stealElgamalSignature| to steal Samantha's signing exponent.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Implement DSA.
+  \begin{enumerate}
+    \item{
+    Write a function \verb|generateDSA(p,q,g)| which takes as input primes $p,q$ with $p\equiv 1\mod q$, and an element $g\in\bF_p^*$ of order $q$.   It then chooses chooses a secret exponent $a$ (at random) and returns a private signing key $[a,p,q,g]$ and a public verification key $[A,p,q,g]$.
+    }
+    \item{
+    Write functions \begin{center}\verb|DSASign(signingKey,document)| and \verb|DSAVerify(verificationKey,document,signedDocument)|.\end{center}
+    The former will sign a document with the given signing key, returning the signed document as a pair $[S_1,S_2]$ where $0\le S_i<q$ for $i=1,2$.  The second will verify that the document was correctly signed.  Both should follow the DSA protocol defined in the October 22 lecture and described in Table 4.3 of [HPS].
+    }
+    \item{
+    Let $p = 48731$ and $q = 443$.  Assume that $7$ is a primitive root for $\bF_p^*$.  Use this to find an element of order $443$ in $\bF_p^*$.  Call this element $g$.
+    }
+    \item{
+    Generate a DSA key for $p,q,g$ in part (c).  Use it to sign the document $D = 314$ and verify that this signature is valid.
+    }
+  \end{enumerate}
+  }
+\end{enumerate}
+\section*{Written Part}
+\begin{enumerate}
+  \setcounter{enumi}{5}
+  \item{
+  Let's do a few checks from the implementation part.
+  \begin{enumerate}
+    \item{
+    Compute the Jacobi symbols $\left(\frac{8}{15}\right),\left(\frac{11}{15}\right),\left(\frac{12}{15}\right)$ by hand and confirm your solutions from 1(c) are correct.
+    }
+    \item{
+    In the Goldwasser-Micali algorithm it was suggested that the random number be chose as greater than $\sqrt N$.  Why?
+    }
+  \end{enumerate}
+  }
+  \item{
+  Let $p$ be an odd prime and $g\in\bF_p^*$ a primitive root.  Fix any $h\in\bF_p^*$.  In this problem we study how to get information about $\log_g(h)$.
+  \begin{enumerate}
+    \item{
+    Describe how to easily tell $\log_g(h)$ is even or odd.
+    }
+    \item{
+    We can write $\log_g a$ in binary:
+    \[\log_ga = \varepsilon_0 + \varepsilon_1\cdot 2 + \varepsilon_2\cdot 2^2 + \varepsilon_3\cdot 2^3 + \cdots\hspace{50pt}\varepsilon_i\in\{0,1\}.\]
+    Explain why (a) means that we know $\varepsilon_0$.  This property is summarized as saying that the \textit{first bit} of the discrete log problem over $\bF_p$ is insecure.
+    }
+    \item{
+    If $p-1$ is divisible by higher powers of 2, we can recover more bits!  Factor $p-1 = 2^k m$.  Describe an algorithm to compute the first $k$ bits of $\log_g h$, that is, to recover $\varepsilon_0,\varepsilon_1,\cdots,\varepsilon_{k-1}$.  You may assume that there is a fast algorithm to compute square roots modulo $p$ (if $p\equiv 3\mod 4$ we described such an algorithm is class, but there is a general fast algorithm which we may encounter in the coming weeks).
+    }
+  \end{enumerate}
+  }
+  \item{
+  Let $p$ be a prime number and $g\in\bF_p^*$ a primitive root.  Let $i$ and $j$ be integers such that $\gcd(j,p-1)=1$.  Let $A$ be arbitrary.  Set:
+  \begin{eqnarray*}
+    S_1&\equiv& g^iA^j\mod p\\
+    S_2 &\equiv& -S_1j^{-1}\mod p-1\\
+    D &\equiv& -S_1ij^{-1}\mod p-1
+  \end{eqnarray*}
+  \begin{enumerate}
+    \item{
+    Show that the pair $(S_1,S_2)$ is a valid Elgamal signature for the document $D$.  In particular, this means Eve can produce valid Elgamal signatures.
+    }
+    \item{
+    Explain why this doesn't mean that Eve can forge Sam's signature on a given document.  What extra information would allow Eve to do this?
+    }
+  \end{enumerate}
+  }
+  \item{
+  In this exercise we describe a potential security flaw in the Elgamal digital signature algorithm.  Suppose that Samantha made the mistake of signing two documents $D$ and $D'$ using the same random value $k$.
+  \begin{enumerate}
+    \item{
+    Explain how Eve can immediately recognize that Samantha has made this blunder.
+    }
+    \item{
+    Let the signature for $D$ be $D^{sig} = (S_1,S_2)$ and the signature for $D'$ be $D'^{sig} = (S_1',S_2')$.  Explain how Eve can recover Samantha's secret exponent $k$.
+    }
+  \end{enumerate}
+  }
+\end{enumerate}
+\end{document}
