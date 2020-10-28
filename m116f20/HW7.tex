@@ -153,7 +153,7 @@ For several of the implementation parts of the problem you will need to choose l
     The former will sign a document with the given signing key, returning the signed document as a pair $[S_1,S_2]$ where $0\le S_1<p$ and $0\le S_2<p-1$.  The second will verify that the document was correctly signed.  Both should follow the elgamal digital signature protocol defined in the October 22 lecture and described in Table 4.2 of [HPS].
     }
     \item{
-    If you sign 2 different documents with the same random element $a$, your Elgamal signing key becomes insecure.  In problem 8 you will describe an algorithm to steal that signing key.  Implement that algorithm here.  In particular, implement an algorithm
+    If you sign 2 different documents with the same random element $a$, your Elgamal signing key becomes insecure.  In problem 9 you will describe an algorithm to steal that signing key.  Implement that algorithm here.  In particular, implement an algorithm
     \begin{center}
       \verb|stealElgamalSignature(verificationKey,D,Dsig,D',D'sig)|.
     \end{center}
@@ -244,7 +244,7 @@ For several of the implementation parts of the problem you will need to choose l
     Explain how Eve can immediately recognize that Samantha has made this blunder.
     }
     \item{
-    Let the signature for $D$ be $D^{sig} = (S_1,S_2)$ and the signature for $D'$ be $D'^{sig} = (S_1',S_2')$.  Explain how Eve can recover Samantha's secret exponent $k$.
+    Let the signature for $D$ be $D^{sig} = (S_1,S_2)$ and the signature for $D'$ be $D'^{sig} = (S_1',S_2')$.  Explain how Eve can recover Samantha's secret signing key $k$.
     }
   \end{enumerate}
   }
