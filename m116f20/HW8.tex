@@ -1,0 +1,203 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cS}{\mathcal{S}}
+
+%Math script
+\newcommand{\sA}{\mathscr{A}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 116, Fall 2020}
+
+\begin{document}
+\begin{center}
+\Large {Homework 8}\\
+\small {Due Saturday, November 7}
+\end{center}
+Since we haven't introduced any new algorithms this week, there will be no implementation part.
+\section*{Written Part}
+\begin{enumerate}
+  \item{
+  In Hw 7 problem 7c you described an algorithm that recovered the first $k$ bits of the discrete log modulo $p$, assuming that $p-1$ is divisible by $2^k$.  Prove the correctness of this algorithm.  In particular, there is some ambiguity when you take the square root in last week's algorithm.  Why does the assumption that $p-1$ is divisible by $2^k$ alleviate this ambiguity?
+  }
+  \item{
+  We've given several proofs of Fermat's Little Theorem.  This exercise outlines another one that is of a very different flavor.  Throughout we fix a prime number $p$.
+  \begin{enumerate}
+    \item{
+    Let $j$ be an integer with $1\le j\le p-1$.  Prove that $j\choose p$ is divisible by $p$.
+    }
+    \item{
+    For any integers $a,b$, show that:
+    \[(a+b)^p\equiv a^p + b^p\mod p.\]
+    (This identity is often called the \textit{freshman's dream} by jaded calculus professors).
+    }
+    \item{
+    Prove Fermat's Little Theorem: $a^p\equiv a\mod p$ by induction on $a$ using part (b) with $b=1$.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Suppose we flip a coin times.  Compute the probability of the following event.
+  \begin{enumerate}
+    \item{
+    The probability that the first and last coins are both heads.
+    }
+    \item{
+    The probability that at least one of the first and last coins is heads.
+    }
+    \item{
+    The probability that exactly 5 coin tosses are heads.
+    }
+    \item{
+    The probability that exactly $k$ coin tosses are heads.
+    }
+    \item{
+    The probability that an even number of coin tosses are heads.
+    }
+    \item{
+    The probability that an odd number of coin tosses are heads.
+    }
+  \end{enumerate}
+  }
+  \item{We let $Pr:\Omega\to\bR$ be a probability theory.
+  \begin{enumerate}
+    \item{
+    Let $E$ be an event, and $E^c$ its complement.  Prove $Pr(E^c) = 1- Pr(E)$.
+    }
+    \item{
+    Let $E$ and $F$ be disjoint events.  Prove that
+    \[Pr(E\cup F) = Pr(E) + Pr(F).\]
+    }
+    \item{
+    Let $E$ and $F$ be any two events (not necessarily disjoint).  Prove that
+    \[Pr(E\cup F) = Pr(E) + Pr(F) - Pr(E\cap F).\]
+    }
+    \item{
+    Let $E_1,E_2,$ and $E_3$ be events.  Prove that:
+    \begin{eqnarray*}Pr(E_1\cup E_2\cup E_3) = &Pr(E_1) + Pr(E_2) + Pr(E_3) - Pr(E_1\cap E_2) - Pr(E_1\cap E_3)\\&- Pr(E_2\cap E_3) + Pr(E_1\cap E_2\cap E_3).
+    \end{eqnarray*}
+    }
+    \item{
+    Let $E_1,E_2,\cdots,E_n$ be $n$ events.  We say that the events are \textit{pariwise disjoint} if $E_i\cap E_j=\emptyset$ for all $i\not=j$.  Show that if the events are pairwise disjoint then:
+    \[Pr(E_1\cup E_2\cup\cdots\cup E_n) = Pr(E_1)+Pr(E_2)+\cdots+Pr(E_n).\]
+    }
+    \item{
+    Let $E_1,\cdots,E_n$ be $n$ (not necessarily disjoint) events.  Conjecture a general formula for $Pr(E_1\cup E_2\cup\cdots\cup E_n)$ in terms of the probability of the $E_i$ and their various intersections.  This is called the \textit{inclusion-exclusion} principle.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Let $E,F$ be events.
+  \begin{enumerate}
+    \item{
+    Show that $Pr(E|E)=1$.  Explain in words why this is reasonable.
+    }
+    \item{
+    Suppose that $E$ and $F$ are disjoint.  Show that $Pr(E|F) = 0$.  Explain in words why this is reasonable.
+    }
+    \item{
+    Let $F_1,\cdots,F_n$ be pairwise disjoint and suppose $F_1\cup\cdots\cup F_n = \Omega$.  Prove the following decomposition formula:
+    \[Pr(E) = \sum_{i=1}^n Pr(E|F_i)Pr(F_i).\]
+    }
+    \item{
+    Prove the following general version of Bayes' formula:
+    \[Pr(F_i|E) = \frac{Pr(E|F_i)Pr(F_i)}{\sum_{j=1}^n Pr(E|F_j)Pr(F_j)}.\]
+    }
+  \end{enumerate}
+  }
+  \item{
+  This is the famous \textit{Monty Hall Problem}.  Ralph is on a game show, and Monty Hall gives Ralph the choice of a prize, behind one of 3 closed doors.  Monty tell's Ralph that behind 2 of the doors are goats, and behind the third is a new car.  Ralph chooses a door, and then Monty opens one of the remaining 2 doors revealing a goat!  Monty then asks Ralph: \textit{would you rather stick to the door you chose?  Or switch to the other closed door?}
+  \begin{enumerate}
+    \item{
+    If Ralph always sticks with the same closed door, what are his chances of winning a car?  What about if Ralph always switches?  What is Ralph's best strategy?
+    }
+    \item{
+    More generally, suppose that there are $N$ doors, $M$ cars, and Monty hall reveals $K$ goats after Ralphs first choice.  Compute the probabilities:
+    \[Pr(\text{Ralph wins a car }|\text{ Ralph sticks}),\]
+    \[Pr(\text{Ralph wins a car }|\text{ Ralph switches}).\]
+    Which is the better strategy? (Letting $N=1000, M=1, K=998$ makes the solution to part (a) seem less paradoxical).
+    }
+  \end{enumerate}
+  }
+  \item{
+  In this exercise we study the probability of success of a Monte Carlo algorithm in quite a bit more generality that we considered in class.  Let $\cS$ be a set (of integers), and $\sA$ an interesting property of elements of $\cS$.  Suppose that:
+  \[Pr(x\in\cS\text{ is \textbf{not} }\sA) = \delta.\]
+  Suppose that you have a Monte-Carlo algorithm that takes as input a random number $r$ and some $m\in\cS$ and returns \verb|Yes| or \verb|No| satisfying:
+  \begin{enumerate}[(1)]
+    \item{If the algorithm returns \verb|Yes| $m$ is \textit{definitely} $\sA$.}
+    \item{If $m$ has $A$, then the property that the algorithm returns \verb|Yes| is at least $P$.}
+  \end{enumerate}
+  \begin{enumerate}
+    \item{Express conditions (1) and (2) as conditional probabilities}
+    \item{
+    Suppose we run the algorithm $N$ times on a fixed $m\in\cS$, and the algorithm returns \verb|No| each time.  Derive a lower bound in terms of $\delta,P$ and $N$ for the probabilit that $m$ is \textit{not} $\sA$.  (In class we did this for $\delta = .01$ and $P=1/2$.  Here you will have to be more careful about distinguishing $P$ and $1-P$.)
+    }
+  \end{enumerate}
+  }
+  \item{
+  We can now compute the probability of correctness for \verb|probablyPrime|.  Recall that if $n$ is a composite number, then 75\% of integers between $2$ and $n-1$ are Miller-Rabin witnesses to the compositeness of $n$.  You will also need the prime number theorem, which we interpret as saying the probability of an integer $n$ being prime is approximately $\ln(n)/n$.
+  \begin{enumerate}
+    \item{
+    Suppose \verb|probablyPrime(n)| returns \verb|True|.  Compute the probability that $n$ is prime.
+    }
+    \item{
+    Suppose instead of running the Miller-Rabin test on 20 potential witnesses, \verb|probablyPrime| runs the test on $N$ potential witnesses.  If \verb|probablyPrime(n)| returns \verb|True|, compute the probability that $n$ is prime in terms of $N$.
+    }
+  \end{enumerate}
+  }
+
+\end{enumerate}
+\end{document}
