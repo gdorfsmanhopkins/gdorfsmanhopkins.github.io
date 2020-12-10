@@ -1,0 +1,182 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\usepackage{tabularx}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 116, Fall 2020}
+
+\begin{document}
+\begin{center}
+\Large {Final Exam}\\
+\small {Due Thursday, December 17 \textbf{at noon}}
+\end{center}
+This is the final assignment of the course.  As in the takehome projects:
+\begin{itemize}
+  \item{Your work must be your own.  For this assignment do not work in groups or share code.}
+  \item{It is open book: you may use the textbook, your class notes, my class notes and lecture videos, past homework assignments and their solutions, as well as the Sage and Python documentation.  Everything else is off limits.  I can also be a resource so don't hesitate to reach out or come by office hours!}
+\end{itemize}
+If you have questions, please reach out to me ASAP.
+\section*{Implementation Part}
+\begin{enumerate}
+  \item{
+  Implement Lenstra's elliptic curve factorization algorithm.  In particular, write function \verb|LenstraFactor(N)| which takes as input a number $N$ and returns a nontrivial factor of $N$.  The algorithm is outlined in the December 1st lecture (or Table 6.8 in [HPS]).  You will need your elliptic curve arithmetic algorithms from Takehome 2, including \verb|addPoints| and one of your variants of \verb|doubleAndAdd|.  You will likely need to adjust them to deal with the case where adding is impossible (this is, after all, what you are looking for).
+  }
+  \item{
+  This is the third integer factorization algorithm we have implemented (there are many more).  In particular, we have seen \verb|PollardFactor| (HW6 Problem 1) which implements Pollard's $p-1$ algorithm, and \verb|PollardRhoFactor|
+  (HW10 Problem 3) which implements Pollard's $\rho$ method.  Let's compare them here.  Each of the following numbers are $pq$ for distinct primes $p$ and $q$.  Run (or try to run) each factorization algorithm on each.
+  \begin{enumerate}
+    \item{25992521}
+    \item{70711569293}
+    \item{508643544315682693}
+    \item{2537704279906340177603567383}
+  \end{enumerate}
+  }
+  \begin{remark}
+    Not every algorithm will terminate with all four numbers above (although I found each number to be able to be factored by at least one of them), so it may be pertinent to put some upper bounds in your looping.  I found an upper bound for $j$ of 10 or 20 thousand for Lenstra's algorithm to be useful, although you could go higher (definitely not lower).  I think it is also a good idea to try several curves before giving up.  An upper bound of 100,000 for Pollard's $p-1$ algorithm seems reasonable, and 1,000,000 for Pollards $\rho$ (with a possibility of trying several mixing functions) also seems to hit the sweetspot for me.  But feel free to play with these numbers in trying to find your factorizations.
+  \end{remark}
+\end{enumerate}
+\section*{Written Part}
+\begin{enumerate}
+  \setcounter{enumi}{2}
+  \item{
+  In Problem 2 I found one algorithm worked for (c) while a different one worked for (d).  Explain why this could happen.
+  }
+  \item{
+  In class we suggested that the problem of factoring a number $N$ is in some sense equivalent to being able to compute square roots modulo $N$.  In
+  this problem we will make this precise, for $N=pq$ a product of 2 distinct primes.
+  \begin{enumerate}
+    \item{
+    Suppose you know the factorization of $N$ into $pq$.  Describe an algorithm to efficiently compute whether $a$ has a square root modulo $N$, and prove the correctness of your algorithm.
+    }
+    \item{
+    Suppose $\gcd(a,N)=1$.  Show that if $a$ has one square root modulo $N$, then it exactly 4 square roots modulo $N$.  In the case where $\gcd(a,N)\not=1$, how many square roots might $a$ have? Why?
+    }
+    \item{
+    Suppose you know the factorization of $N$ into $pq$.  Describe an algorithm to compute all the square roots of $a$ modulo $N$ if they exist.  Prove the correctness of your algoritm.  (You may assume you have a fast algorithm to compute square roots modulo primes.)
+    }
+    \item{
+    Conversely, suppose you have an oracle that can tell you all the square roots of $a$ modulo $N$ if they exist.  Describe a way to use constultation with this oracle to factor $N$.  Prove your method works.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Let $E$ be an elliptic curve over $\bF_p$, and suppose that $\#E(\bF_p) = n$.  Let $P\in\#E(\bF_p)$ be a point.  Suppose $a$ is an integer and that $\gcd(a,n)=1$.  Prove that $P$ is a multiple of $aP$.
+  }
+  \item{
+  Recall that the Elliptic Curve Diffie Hellman Problem (ECDHP) is the problem of recovring a point $nmQ\in E(\bF_p)$, given $nQ$ and $mQ$.
+  \begin{enumerate}
+    \item{
+    Formulate the MV-Elgamal Problem.  That is, describe the precise mathematical problem at the center of MV-Elgamal.
+    }
+    \item{
+    Prove that the security MV-Elgamal Problem is equivalent to the security of the ECDHP.  (Use oracles!).
+    }
+  \end{enumerate}
+  }
+  \item{
+  Recall that in HW4 Problem 3 we studied a public key cryptosystem that involving Alice and Bob agreeing on a public prime and exchanging a series of values in $\bF_p^*$.
+  \begin{enumerate}
+    \item{
+    Formulate a version of this cryptosystem for Elliptic curves, and prove its correctness.  You may assume that you have a fast way to compute $\#E(\bF_p)$. Be sure to make clear what is public information and what is private information.  What plays the roll of the message?
+    }
+    \item{
+    Show that a solution to the Elliptic Curve Discrete Log Problem will break this cryptosystem.
+    }
+    \item{
+    Show that a solution the the Elliptic Curve Diffie Hellman Problem will break this cryptosystem.
+    }
+    \item{
+    Discuss any other advantages or disadvantages you observe about this cryptosystem.
+    }
+  \end{enumerate}
+  }
+  In the previous problem, the \textit{message} which was sent was a chosen point on an elliptic curve.  When the message is a number we can use ASCII to directly translate text to integers, but with points on an elliptic curve, the question is more subtle.  MV-Elgamal got around this subtlety just using the elliptic curve to create a shared secret, and using the coordinates as keys for a symmetric cipher whose plaintext are integers (not points).  In the following exercise we will describe another solution, using a probabilistic algorithm to map integers to points on the elliptic curve in a recoverable way.
+  \item{
+  Let $E$ be an elliptic curve over $\bF_p$ with equation $y^2 = x^3 + Ax + B$, where $p$ is $2k$-bits in length.
+  \begin{enumerate}
+    \item{
+    The most na\"ive way to map a plaintext $m$ (which can be thought of as an integer) to a point on the elliptic curve would to embed $m$ as the $x$-coordinate.  Explain what goes wrong with this approach.
+    }
+    \item{
+    Instead we will implement the following probabilistic algorithm, which will allow us to map a message $k$-bits in length to a point on the elliptic curve, in the following steps.
+    \begin{enumerate}[(1)]
+      \item{
+      Start with a plaintext message $m$, stored as an integer $k$-bits in length.
+      }
+      \item{
+      Choose a random integer $r$, also $k$-bits in length.
+      }
+      \item{
+      Compute $r||m\in\bF_p$.
+      }
+      \item{
+      Detect if $r||m$ is the $x$ coordinate of a point in $E(\bF_p)$.  If so, compute the $y$ coordinate, and return $P = (r||m,y)$ as your plaintext for the elliptic curve encryption.  Otherwise return to step 2.
+      }
+    \end{enumerate}
+    Describe exactly how Step 4 would be carried out.  (You may assume that you have a fast algorithm to compute square roots modulo $p$ if they exist).  Conversely explain how to reverse the algorithm to recover the plaintext from a point.
+    }
+    \item{
+    How many values of $r$ would expect to have to try until you have a point?  Justify your answer.  (Hint, this is essentially a collision algorithm, so what is the length of the list you are trying to find a collision with?  You may assume $r||m$ varies `randomly enough' as $r$ varies.)
+    }
+    \item{
+    Explicitly describe the steps you need to add to the algorithm from Problem 7 in order to be able to communicate in plain language.  (Including applying things like \verb|intToText|).
+    }
+  \end{enumerate}
+  }
+  \item{
+  You are Eve, and you intercept Bob's cipher text $c = [R,c_1,c_2]$ sent to Alice.  You know it was encrypted using MV-Elgamal, with a public curve $E$ over a prime $p$ with a base point $P$, and you know Alice's public key $Q$.  You also have 1 time access to Alice's machine to decrypt MV-Elgamal ciphers.  Describe a way to obtain the plaintext message Bob sent to Alice, proving the correctnes of your method.  \textbf{Note:} Alice's machine runs a security protocol which will not decrypt messages that have already been decrypted, so you can not just ask it to decrypt $c$.
+  }
+\end{enumerate}
+\end{document}
