@@ -95,7 +95,7 @@ If you have questions, please reach out to me ASAP.
   }
   \item{
   In class we suggested that the problem of factoring a number $N$ is in some sense equivalent to being able to compute square roots modulo $N$.  In
-  this problem we will make this precise, for $N=pq$ a product of 2 distinct primes.
+  this problem we will make this precise, for $N=pq$ a product of 2 distinct \textbf{odd} primes.
   \begin{enumerate}
     \item{
     Suppose you know the factorization of $N$ into $pq$.  Describe an algorithm to efficiently compute whether $a$ has a square root modulo $N$, and prove the correctness of your algorithm.
@@ -176,7 +176,9 @@ If you have questions, please reach out to me ASAP.
   \end{enumerate}
   }
   \item{
-  You are Eve, and you intercept Bob's cipher text $c = [R,c_1,c_2]$ sent to Alice.  You know it was encrypted using MV-Elgamal, with a public curve $E$ over a prime $p$ with a base point $P$, and you know Alice's public key $Q$.  You also have 1 time access to Alice's machine to decrypt MV-Elgamal ciphers.  Describe a way to obtain the plaintext message Bob sent to Alice, proving the correctness of your method.  \textbf{Note:} Alice's machine runs a security protocol which will not decrypt messages that have already been decrypted, so you can not just ask it to decrypt $c$.
+  You are Eve, and you intercept Bob's cipher text $c = [R,c_1,c_2]$ sent to Alice.  You know it was encrypted using MV-Elgamal, with a public curve $E$ over a prime $p$ with a base point $P$, and you know Alice's public key $Q$.  You also have 1 time access to Alice's machine to decrypt MV-Elgamal ciphers.  Describe a way to obtain the plaintext message Bob sent to Alice, proving the correctness of your method.  \textbf{Note:} Alice's machine runs a security protocol which will not decrypt messages that have already been decrypted, so you can not just ask it to decrypt $c$.\\
+  \\
+  \textbf{Bonus: }Alice noticed a weakness in her machine's security protocol, and updates it to the following: If Alice's machine has already decrypted $c = [R,c_1,c_2]$, it will only decrypt ciphertexts $c' = [R',c_1',c_2']$ where $c_1'\not=c_1$, $c_2'\not=c_2$, and $R'\not=\pm R$.  But you're clever: devise a `chosen plaintext attack' to get around this updated security protocol.
   }
 \end{enumerate}
 \end{document}
