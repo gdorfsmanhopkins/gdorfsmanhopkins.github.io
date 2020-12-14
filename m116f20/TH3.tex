@@ -144,7 +144,7 @@ If you have questions, please reach out to me ASAP.
   }
   In the previous problem, the \textit{message} which was sent was a chosen point on an elliptic curve.  When the message is a number we can use ASCII to directly translate text to integers, but with points on an elliptic curve, the question is more subtle.  MV-Elgamal got around this subtlety just using the elliptic curve to create a shared secret, and using the coordinates as keys for a symmetric cipher whose plaintext are integers (not points).  In the following exercise we will describe another solution, using a probabilistic algorithm to map integers to points on the elliptic curve in a recoverable way.
   \item{
-  Let $E$ be an elliptic curve over $\bF_p$ with equation $y^2 = x^3 + Ax + B$, where $p$ is $2k$-bits in length.
+  Let $E$ be an elliptic curve over $\bF_p$ with equation $y^2 = x^3 + Ax + B$, where $p$ is $2k+1$-bits in length.
   \begin{enumerate}
     \item{
     The most na\"ive way to map a plaintext $m$ (which can be thought of as an integer) to a point on the elliptic curve would to embed $m$ as the $x$-coordinate.  Explain what goes wrong with this approach.
