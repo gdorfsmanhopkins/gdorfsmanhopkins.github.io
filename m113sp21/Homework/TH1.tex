@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\usepackage{tabularx}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem*{hint}{Hint}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113, Spring 2021}
+
+\begin{document}
+\begin{center}
+\Large {Takehome Assignment 1}\\
+\small {Due Monday, February 22}
+\end{center}
+In this assignment, we will prove an important result called \textit{Lagrange's Theorem}.  It goes as follows.
+\begin{theorem}[Lagrange's Theorem]~\\
+  If $G$ is a finite group and $H$ is a subgroup of $G$.  Then:
+  \begin{enumerate}[(i)]
+     \item $|H|$ divides $|G|$.
+     \item $|G/H| = |G|/|H|$
+     \item $|H\backslash G| = |G|/|H|$.
+  \end{enumerate}
+\end{theorem}
+We remind the you that $H\backslash G = \{Hx:x\in H\}$ is the set of \textit{right cosets} of $G$.  With this result in hand, we will be able to deduce a celebrated result of Fermat, which is central to number theory.
+\begin{theorem}[Fermat's Little Theorem]~\\
+  Let $p$ be a prime number and $a$ an integer.  Then $a^p\equiv a\mod p$.
+\end{theorem}
+We will also be able to begin our mission of classifying finite groups up to isomorphisms, giving a complete answer for groups of order $\le5$.  To do all this, we will make the following definition.
+\begin{definition}~\\
+  Let $H$ be a group acting on a set $A$ and fix $a\in A$.  The \textit{orbit} of $a$ under $H$ is the set
+  \[H\cdot a = \{b\in A\text{ }|\text{ }b=h\cdot a\text{ for some }h\in H\}.\]
+\end{definition}
+Lets begin!
+\begin{enumerate}
+  \item Let $H$ be a group acting on a set $A$.
+  \begin{enumerate}
+    \item Show that the relation
+    \begin{center}
+      $a\sim b$ if and only if $a = h\cdot b$ for some $h\in H$
+    \end{center}
+    is an equivalence relation on the set $A$.
+    \item Show that the equivalence classes of this equivalence relation are precisely the orbits of the elements of $A$ under the action of $H$.
+    \item Conclude that the orbits of $A$ under the action of $H$ form a partition of $A$.
+  \end{enumerate}
+  \item Let $H$ be a subgroup of a group $G$, and let $H$ act on $G$ by left mulptilication.
+  \begin{eqnarray*}
+    H\times G &\to& G\\
+    (h,g) &\mapsto& hg
+  \end{eqnarray*}
+  \begin{enumerate}
+    \item Prove this is an action.
+    \item Fix $x\in G$, and consider its orbit $H\cdot x$. Show that $H$ and $H\cdot x$ have the same cardinality.  Deduce that all the orbits of $G$ under the action of $H$ have the same cardinality.
+    \item Now suppose further that $G$ is a finite group.  Use part (b) and exercise 1 to deduce the parts (i) and (iii) of Lagrange's theorem.
+    \item Observe that the argument we gave computed the number of right cosets.  Modify your argument to deduce part (ii) of Lagrange's theorem.
+  \end{enumerate}
+  \item We can use Lagrange's theorem and what we know about cyclic groups to prove Fermat's little theorem.
+  \begin{enumerate}
+    \item Let $|G|=n<\infty$.  Fix some $x\in G$.  Use Lagrange's theorem to show that $x^n = 1$.
+    \item Let $p$ be a prime number.  Compute the order of $(\bZ/p\bZ)^\times$.  Fully justify your answer.
+    \item Combine parts (a) and (b) to prove Fermat's little theorem.
+  \end{enumerate}
+  \item With Lagrange's theorem in hand, we can classify all finite groups of order $\le5$.
+  \begin{enumerate}
+    \item We first classify all groups of prime order.  Let $|G| = p$ for a prime number $p$.  Show that $G$ is cyclic.  This take care of groups of order 2,3,5 (and infinitely more cases!).  For today, only order 4 remains.
+    \item Suppose every element of $G$ has order $\le2$.  Show that $G$ is abelian.
+    \item Show that if $|G|=4$, then $G$ is abelian.
+    \item Prove that if $|G|=4$, then $G\cong Z_4$ or $G\cong Z_2\times Z_2$.  (\textit{Remark:} The latter of these two groups is called the \textit{Klein 4-Group}, and is sometimes denoted $V_4$).
+    \item Explain why $Z_4\not\cong V_4$, thus showing our classification is not redundant.
+  \end{enumerate}
+\end{enumerate}
+\end{document}
