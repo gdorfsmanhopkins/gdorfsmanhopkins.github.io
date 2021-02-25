@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\usepackage{tabularx}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem*{hint}{Hint}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113, Spring 2021}
+
+\begin{document}
+\begin{center}
+\Large {Homework Assignment 6}\\
+\small {Due Friday, March 5}
+\end{center}
+\begin{enumerate}
+  \item Let $G$ be a group, and $M,N\unlhd G$ normal subgroups such that $MN = G$.
+  \begin{enumerate}
+    \item Show $G/(M\cap N)\cong (G/M)\times (G/N)$
+    \item Suppose further that $M\cap N=\{1\}$.  Show that $G\cong M\times N$.
+  \end{enumerate}
+  \item Let $G$ be a group and $Z(G)$ its center.
+  \begin{enumerate}
+    \item Suppose $H\le Z(G)$.  Show that $H$ is a normal subgroup.  (In particular, $Z(G)$ is normal).
+    \item Show that if $G/Z(G)$ is cyclic, then $G$ is abelian.
+    \item Let $p$ and $q$ be prime numbers (not necessarily distinct), and $G$ a group of order $pq$.  Show that if $G$ is not abelian, than $Z(G) = \{1\}$.
+  \end{enumerate}
+  \item Let's classify all groups of order 6.  To begin, let $G$ be a nonabelian group of order $6$.  We will show $G\cong S_3$.
+  \begin{enumerate}
+    \item Show that there is an element $x\in G$ of order 2.  (Once we have Cauchy's theorem for nonabelian groups this part becomes easy, but since $G$ has 6 elements, one can do this by inspection using Lagrange's theorem).
+    \item Let $x\in G$ have order 2, and let $H = \la x\ra$.  Show that $H$ is not normal in $G$.  (\textit{Hint:} Show that if $H$ is normal than $H\le Z(G)$, then apply 2(c) to find a contradiction.)
+    \item Consider the action of $G$ on $A = G/H$ by left multiplication.  Show that the associated permutation representation is injective.  Conclude that $G\cong S_3$.
+    \item Complete the classification of all groups of order 6 by showing that if $Z$ is an abelian group of order 6 then $Z\cong Z_6$.  (\textit{Hint:} argue as in part (a) to obtain an element of order 2 and one of order 3.  Show that their product must have order 6.)  \textit{We've now classified groups of order $\le7$.}
+  \end{enumerate}
+  \item Let $G$ be a group.  Let $[G,G] = \la x^{-1}y^{-1}xy | x,y\in G\ra$.
+  \begin{enumerate}
+    \item Show that $[G,G]$ is a normal subgroup of $G$.
+    \item Show that $G/[G,G]$ is abelian.
+  \end{enumerate}
+  $[G,G]$ is called the \textit{commutator subgroup} of $G$, and $G/[G,G]$ is called the \textit{abelianization} of $G$, denoted $G^\ab$.  The rest of this exercise explains why.
+  \begin{enumerate}
+    \setcounter{enumii}{2}
+    \item Let $\varphi:G\to H$ be a homomorhism with $H$ abelian.  Show $[G,G]\subseteq\ker\varphi$.
+    \item Conclude that for $H$ an abelian group there is a bijection:
+    \[\left\{
+    \begin{array}{c}
+      \text{Homomorphisms }\varphi:G\to H\\
+    \end{array}\right\}
+    \Longleftrightarrow
+    \left\{
+    \begin{array}{c}
+      \text{Homomorphisms }\tilde\varphi:G^\ab\to H\\
+    \end{array}
+    \right\}
+    \]
+    \begin{hint}
+      Recall the technique of passing to the quotient described at the beginning of the 2/23 lecture
+    \end{hint}
+  \end{enumerate}
+  \item Let's now compute $D_{2n}^\ab$.  We should begin computing $xyx^{-1}y^{-1}$.  There are 3 cases.
+  \begin{enumerate}
+    \item Compute $x^{-1}y^{-1}xy$ in each of the following 3 cases. (\textit{Hint:} HW2\#9(e) gives the inverse for a reflection.)
+    \begin{enumerate}[(i)]
+      \item $x,y$ both reflections.  So $x=sr^i$ and $y=sr^j$.
+      \item $x$ a reflection and $y$ not a reflection.  So $x=sr^i$ and $y=r^j$.
+      \item Neither $x$ nor $y$ are reflections.  So $x=r^i$ and $y=r^j$.
+    \end{enumerate}
+    \item Prove that $[D_{2n},D_{2n}] = \la r^2\ra$.  If $n$ is odd one could choose another generator.  What is it?
+    \item Now prove that $D_{2n}^\ab$ is either $V_4$ or $Z_2$ depending on whether $n$ is odd or even.  Note that since this is so small we should interpret this as suggesting that $D_{2n}$ is far from abelian.
+  \end{enumerate}
+\end{enumerate}
+For the remainder we will study the quaternion group $Q_8$.  It is a nonabelian group with very interesting properties.
+\begin{definition}
+  The \textit{quaternion group of order 8}, denoted $Q_8$ is the group of the following 8 elements:
+  \[Q_8 = \{\pm1,\pm i, \pm j, \pm k\}\]
+  subject to the relations:
+  \[(-1)^2 = 1\]
+  \[i^2 = j^2 = k^2 = -1,\]
+  \[(-1)x = -x = x(-1)\text{ for all }x,\]
+  \begin{eqnarray*}
+    ij = k, & \hspace{20pt} & ji = -k,\\
+    jk = i, & \hspace{20pt} & kj = -i,\\
+    ki = j, & \hspace{20pt} & ik = -j.
+  \end{eqnarray*}
+\end{definition}
+\begin{enumerate}
+  \setcounter{enumi}{5}
+  \item Let's start with a few simple facts.  Much of this is worked out in the book.
+  \begin{enumerate}
+    \item Write the entire multiplication table for $Q_8$.
+    \item Find 2 elements which generate all of $Q_8$.  (\textit{Bonus:} Can you give a presentation of $Q_8$?)
+    \item Prove that $Q_8$ is not isomorphic to $D_8$.
+    \item Find all the subgroups of $Q_8$, and draw its lattice.  (\textit{Hint}: there are 6 total subgroups).
+    \item Prove that every subgroup of $Q_8$ is normal.
+    \item Prove that every subgroup and quotient group of $Q_8$ is abelian (\textit{Hint}: recall TH1\#4).
+    \item Compute $Z(Q_8)$ and $Q_8/Z(Q_8)$ (\textit{Hint for the second part}: you can do this by hand, but it might be slicker to apply 2(b)).
+  \end{enumerate}
+  \item Now let's follow the proof of Cayley's theorem to exhibit $Q_8$ as a subgroup of $S_8$.
+  \begin{enumerate}
+    \item Label $\{1,-1,i,-i,j,-j,k,-k\}$ as the numbers $\{1,2,\cdots,8\}$. Then the action of $Q_8$ on itself by left multiplication gives an injective map $Q_8\to S_8$.  Write the permutation representations for $-1$ and $i$ as elements $\sigma_{-1},\sigma_i\in S_8$, and verify that $\sigma_i^2 = \sigma_{-1}$.  (Using the multiplication table from question 1 will make this easier).
+    \item Use the generators from question 1(b) to give two elements of $S_8$ which generate a subgroup $H\le S_8$ isomorphic to $Q_8$.
+    \item Is $\sigma_i$ even or odd?
+    \item $A_8\cap H$ is isomorphic to a subgroup of $Q_8$.  Which one?
+  \end{enumerate}
+  \item Cayley's theorem says that if $|G|=n$ then $G$ embeds at $S_n$.  One could ask if this $n$ is \textit{sharp}, or if perhaps $G$ can embed in some smaller symmetric group.  For example, $D_8$ embeds in $S_4$ (thinking about symmetries of the square as permutations of the vertices, cf HW3\#5).  Nevertheless, for $Q_8$ the symmetric group given by Cayley's theorem is the smallest.
+  \begin{enumerate}
+    \item Let $Q_8$ act an a set $A$ with $|A|\le 7$.  Let $a\in A$.  Show that the stabilizer of $a$,  $(Q_8)_a\le Q_8$ must contain the subgroup $\{\pm1\}$.
+    \item Deduce that the kernel of the action of $Q_8$ on $A$ contains $\{\pm1\}$.
+    \item Conclude that $Q_8$ cannot embed into $S_n$ for $n\le7$.
+  \end{enumerate}
+\end{enumerate}
+\end{document}
