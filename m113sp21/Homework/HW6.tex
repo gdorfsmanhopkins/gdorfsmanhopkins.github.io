@@ -76,12 +76,12 @@
   \begin{enumerate}
     \item Suppose $H\le Z(G)$.  Show that $H$ is a normal subgroup.  (In particular, $Z(G)$ is normal).
     \item Show that if $G/Z(G)$ is cyclic, then $G$ is abelian.
-    \item Let $p$ and $q$ be prime numbers (not necessarily distinct), and $G$ a group of order $pq$.  Show that if $G$ is not abelian, than $Z(G) = \{1\}$.
+    \item Let $p$ and $q$ be prime numbers (not necessarily distinct), and $G$ a group of order $pq$.  Show that if $G$ is not abelian, then $Z(G) = \{1\}$.
   \end{enumerate}
   \item Let's classify all groups of order 6.  To begin, let $G$ be a nonabelian group of order $6$.  We will show $G\cong S_3$.
   \begin{enumerate}
     \item Show that there is an element $x\in G$ of order 2.  (Once we have Cauchy's theorem for nonabelian groups this part becomes easy, but since $G$ has 6 elements, one can do this by inspection using Lagrange's theorem).
-    \item Let $x\in G$ have order 2, and let $H = \la x\ra$.  Show that $H$ is not normal in $G$.  (\textit{Hint:} Show that if $H$ is normal than $H\le Z(G)$, then apply 2(c) to find a contradiction.)
+    \item Let $x\in G$ have order 2, and let $H = \la x\ra$.  Show that $H$ is not normal in $G$.  (\textit{Hint:} Show that if $H$ is normal then $H\le Z(G)$, then apply 2(c) to find a contradiction.)
     \item Consider the action of $G$ on $A = G/H$ by left multiplication.  Show that the associated permutation representation is injective.  Conclude that $G\cong S_3$.
     \item Complete the classification of all groups of order 6 by showing that if $Z$ is an abelian group of order 6 then $Z\cong Z_6$.  (\textit{Hint:} We do have Cauchy's theorem for abelian groups.)  \textit{We've now classified groups of order $\le7$.}
   \end{enumerate}
@@ -145,7 +145,7 @@ For the remainder we will study the quaternion group $Q_8$.  It is a nonabelian 
     \item Prove that $Q_8$ is not isomorphic to $D_8$.
     \item Find all the subgroups of $Q_8$, and draw its lattice.  (\textit{Hint}: there are 6 total subgroups).
     \item Prove that every subgroup of $Q_8$ is normal.
-    \item Prove that every subgroup and quotient group of $Q_8$ is abelian (\textit{Hint}: recall TH1\#4).
+    \item Prove that every \textit{proper} subgroup and quotient group of $Q_8$ is abelian (\textit{Hint}: TH1\#4).
     \item Compute $Z(Q_8)$ and $Q_8/Z(Q_8)$ (\textit{Hint for the second part}: you can do this by hand, but it might be slicker to apply 2(b)).
   \end{enumerate}
   \item Now let's follow the proof of Cayley's theorem to exhibit $Q_8$ as a subgroup of $S_8$.
@@ -157,9 +157,9 @@ For the remainder we will study the quaternion group $Q_8$.  It is a nonabelian 
   \end{enumerate}
   \item Cayley's theorem says that if $|G|=n$ then $G$ embeds at $S_n$.  One could ask if this $n$ is \textit{sharp}, or if perhaps $G$ can embed in some smaller symmetric group.  For example, $D_8$ embeds in $S_4$ (thinking about symmetries of the square as permutations of the vertices, cf HW3\#5).  Nevertheless, for $Q_8$ the symmetric group given by Cayley's theorem is the smallest.
   \begin{enumerate}
-    \item Let $Q_8$ act an a set $A$ with $|A|\le 7$.  Let $a\in A$.  Show that the stabilizer of $a$,  $(Q_8)_a\le Q_8$ must contain the subgroup $\{\pm1\}$.  (\textit{Hint:} The orbit stabilizer theorem might help.)
+    \item Let $Q_8$ act on a set $A$ with $|A|\le 7$.  Let $a\in A$.  Show that the stabilizer of $a$,  $(Q_8)_a\le Q_8$ must contain the subgroup $\{\pm1\}$.  (\textit{Hint:} The orbit stabilizer theorem might help.)
     \item Deduce that the kernel of the action of $Q_8$ on $A$ contains $\{\pm1\}$.
-    \item Conclude that $Q_8$ cannot embed into $S_n$ for $n\le7$.
+    \item Conclude that $Q_8$ cannot embed into $S_n$ for $n\le7$.  That is, show there is no injective homomorphisms $Q_8\hookrightarrow S_n$ for $n\le7$.
   \end{enumerate}
 \end{enumerate}
 \end{document}
