@@ -250,6 +250,15 @@ function deal(){
     if(inactiveSlots[i]==null){
       newPermutation = generateCardData();
       inactiveSlots[i] = new Card(yPositions - 1,newPermutation);
+      //If we're doing fixed order, use opacity to give a gradient to the cards
+      if(fixedOrder){
+        inactiveSlots[i].cardBack.opacity = 1-.1*i
+        if(i>1){
+          for(j=0;j<yPositions-1;j++){
+            inactiveSlots[i].blackPaths[j].stroke='lightgrey';
+          }
+        }
+      }
       inactiveSlots[i].moveTo(inactivePositions[i]);
       inactiveSlots[i].offPosition = i;
       cardList[i] = inactiveSlots[i];
