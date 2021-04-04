@@ -92,6 +92,7 @@ function initialize(){
     halfLineLength = (xList[0]+4*cardWidth/3)-xList[3]; //This gives me line lengths, which the cards like to access too
     powerBalls = makeBalls();
     powerLines = makeLines();
+    powerDottedLines = makeDottedLines();
 
     //Grow the first column of balls
     for (var i=0;i<yPositions-1;i++){
@@ -102,14 +103,16 @@ function initialize(){
 }
 
 //Here are settings that allow you to adjust the game a bit
-var settings = QuickSettings.create(screenWidth/10,8*screenHeight/10,"Settings");
-settings.addDropDown("Which Symmetric Group?",["S3","S4","S5","S6","S7"], function apply(value){
-  yPositions = value.index+4;
-  initialize();
-})
-//settings.addButton("S4",function applyS4(){yPositions=5;initiaize()});
-//settings.addButton("S5",function applyS5(){yPositions=6;initialize()});
-
+var firstTime=true;
+var gameSettings = QuickSettings.create(screenWidth/10,8*screenHeight/10,"Game Settings");
+gameSettings.addDropDown("Choose Group",["S2 ≀ Z2","S3 ≀ Z2","S4 ≀ Z2","S5 ≀ Z2"], function firstFactor(value){
+  if(!firstTime){
+    yPositions = value.index + 3
+    initialize();
+  }
+});
+gameSettings.setValue("Choose Group",1);
+firstTime=false;
 
 function on_mouse_down(event){
     if(animationQueue.length==0){

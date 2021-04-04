@@ -1,7 +1,8 @@
 class Card {
-  constructor(numberOfLines,lineEndings){
+  constructor(numberOfLines,lineEndings,action){
     this.numberOfLines = numberOfLines; //How many lines on the card
     this.lineEndings = lineEndings; //This is the permutation [a,b,c,...] of the line
+    this.action = action; //This holds which lines Z2 acts on
 
     //see if we are trying to use the card or not, and where it's living
     this.activated = false;
@@ -11,13 +12,19 @@ class Card {
     //if the card is activated we remember the colors on the left and right
     this.leftColors = [];
     this.rightColors = [];
+    //Also we remember whether each line is dotted on the left and right
+    this.leftDotted = [];
+    this.rightDotted = [];
+
     for(var i=0;i<numberOfLines;i++){
       this.leftColors.push(null);
       this.rightColors.push(null);
+      this.leftDotted.push(null);
+      this.rightDotted.push(null);
     }
 
     this.cardBack = two.makeRoundedRectangle(0,0,cardWidth,cardHeight,15);
-    this.cardBack.fill = '#D3D3D3';
+    this.cardBack.fill = 'lightgrey';
     this.cardBack.stroke = 'darkgrey';
     this.cardBack.linewidth = 3;
 
@@ -25,14 +32,14 @@ class Card {
 
     this.blackPaths = [];
     this.colorPaths = [];
+    this.rightDottedPaths = [];
+    this.leftDottedPaths = [];
+    this.actionDots = [];
 
-    //create all the paths
+    //create all the paths, and action dots
     for(var i=0;i<numberOfLines;i++){
       var newBlackPath = two.makePath(xList[0],yList[i],xList[1],yList[i],xList[2],yList[this.lineEndings[i]],xList[3],yList[this.lineEndings[i]],open = true);
       newBlackPath.stroke = 'darkgrey';
-      if(fixedOrder){
-        newBlackPath.stroke = 'black';
-      }
       newBlackPath.fill = 'none';
       newBlackPath.linewidth = 2;
 
@@ -43,8 +50,33 @@ class Card {
       newColorPath.dashes[0] = 300;
       newColorPath.dashes.offset = 300;
 
+      var newRightDottedPath = two.makePath((xList[0]+xList[1])/2,yList[i],xList[1],yList[i],xList[2],yList[this.lineEndings[i]],xList[3],yList[this.lineEndings[i]],open = true);
+      newRightDottedPath.stroke = 'none';
+      newRightDottedPath.fill = 'none';
+      newRightDottedPath.linewidth = 2;
+      newRightDottedPath.dashes[0] = 5;
+
+      var newLeftDottedPath = two.makePath(xList[0],yList[i],(xList[0]+xList[1])/2,yList[i],open = true);
+      newLeftDottedPath.stroke = 'none';
+      newLeftDottedPath.fill = 'none';
+      newLeftDottedPath.linewidth = 2;
+      newLeftDottedPath.dashes[0] = 5;
+
+      var newActionDot = two.makeCircle((xList[0]+xList[1])/2,yList[i],5);
+      newActionDot.stroke = 'none';
+      newActionDot.linewidth = 2;
+      if(this.action[i]){
+        newActionDot.fill = 'black';
+      }
+      else{
+        newActionDot.fill = 'none';
+      }
+
       this.blackPaths.push(newBlackPath);
       this.colorPaths.push(newColorPath);
+      this.rightDottedPaths.push(newRightDottedPath);
+      this.leftDottedPaths.push(newLeftDottedPath)
+      this.actionDots.push(newActionDot)
     }
 
     this.outerCircle = two.makeCircle(this.center[0],yList[this.numberOfLines],10);
@@ -72,6 +104,9 @@ class Card {
     for(var i=0;i<this.numberOfLines;i++){
       this.card.add(this.blackPaths[i]);
       this.card.add(this.colorPaths[i]);
+      this.card.add(this.leftDottedPaths[i]);
+      this.card.add(this.rightDottedPaths[i]);
+      this.card.add(this.actionDots[i]);
     }
     this.card.translation.set(-100,-100);
     this.center = [-100,-100];
@@ -88,18 +123,20 @@ class Card {
     this.center = position;
   }
   colorize(){
-    //First figure out what color each line is
+    //First figure out what color each line is and whether it's dotted on the left
     if(this.onPosition==0){
       for(var i=0;i<this.numberOfLines;i++){
         this.leftColors[i] = colors[i];
+        this.leftDotted[i] = false;
       }
     }
     else{
       for(var i=0;i<this.numberOfLines;i++){
         this.leftColors[i] = activeSlots[this.onPosition-1].rightColors[i];
+        this.leftDotted[i] = activeSlots[this.onPosition-1].rightDotted[i];
       }
     }
-    //Then set the colors of the line and associated lines and balls
+    //Then set the colors and dotted nature of the line and associated lines and ball
     for(var i=0;i<this.numberOfLines;i++){
       this.colorPaths[i].stroke = this.leftColors[i];
       this.rightColors[this.lineEndings[i]] = this.leftColors[i];
@@ -108,7 +145,33 @@ class Card {
       powerLines[this.onPosition][i].stroke = this.leftColors[i];
     }
 
-    var leftLineData = [growLines,this.onPosition];
+    //Turn on/off the dotted lines if necessary
+    for(var i=0;i<this.numberOfLines;i++){
+      //save the necessary data
+      if(this.leftDotted[i]){
+        this.leftDottedPaths[i].stroke = 'darkgrey';
+        if(this.action[i]==false){
+          this.rightDottedPaths[i].stroke = 'darkgrey';
+          this.rightDotted[this.lineEndings[i]] = true;
+        }
+        else{
+          this.rightDottedPaths[i].stroke = 'none';
+          this.rightDotted[this.lineEndings[i]] = false;
+        }
+      }
+      else{
+        this.leftDottedPaths[i].stroke = 'none';
+        if(this.action[i]==false){
+          this.rightDottedPaths[i].stroke = 'none';
+          this.rightDotted[this.lineEndings[i]] = false;
+        }
+        else{
+          this.rightDottedPaths[i].stroke = 'darkgrey';
+          this.rightDotted[this.lineEndings[i]] = true;
+        }
+      }
+    }
+    var leftLineData = [growLines,this.onPosition,this.leftDotted];
     animationQueue.push(leftLineData);
     var leftBallData = [growBalls,2*this.onPosition+1];
     animationQueue.push(leftBallData);
@@ -123,13 +186,21 @@ class Card {
       this.colorPaths[i].dashes.offset = 300;
       this.leftColors[i] = null;
       this.rightColors[i] = null;
+      this.leftDottedPaths[i].stroke = 'none';
+      this.rightDottedPaths[i].stroke = 'none';
+      this.leftDotted[i] = null;
+      this.rightDotted[i] = null;
+      if(this.action[i]){
+        this.actionDots[i].stroke = 'none';
+      }
     }
     //decolorize the balls and lines too!
     //NOTE: 7 and 16 should be replaced by cardsInPlay and 2*(cardsInPlay+1)
     for(var i = this.onPosition;i<numberOfSlots + 1;i++){
       for(var j=0;j<this.numberOfLines;j++){
         powerLines[i][j].dashes.offset=1.5*halfLineLength;
-        powerLines[i][j].stroke = 'none'
+        powerLines[i][j].stroke = 'none';
+        powerDottedLines[i][j].stroke = 'none';
       }
     }
     for(var i=2*this.onPosition+1;i<2*numberOfSlots+2;i++){
@@ -141,16 +212,9 @@ class Card {
   }
   activate(){
     this.activated = true;
-    if(fixedOrder){
-      this.onPosition = findInsertionPoint(this.offPosition);
-      activeSlots.splice(this.onPosition,0,this);
-      insertCard(this.onPosition);
-    }
-    else{
-      this.onPosition = activeSlots.length
-      this.moveTo(activePositions[this.onPosition]);
-      activeSlots.push(this);
-    }
+    this.onPosition = activeSlots.length
+    this.moveTo(activePositions[this.onPosition]);
+    activeSlots.push(this);
     inactiveSlots[this.offPosition] = null;
     this.colorize();
   }
@@ -178,9 +242,21 @@ class Card {
     for(var i=0;i<this.numberOfLines;i++){
       this.blackPaths[i].stroke = 'none';
       this.colorPaths[i].stroke = 'none';
+      this.leftDottedPaths[i].stroke = 'none';
+      this.rightDottedPaths[i].stroke = 'none';
     }
     this.card.translation.set(-100,-100);
     this.center = [-100,-100];
+  }
+}
+class S3Card extends Card{
+  constructor(lineEndings){
+    super(3,lineEndings)
+  }
+}
+class S4Card extends Card{
+  constructor(lineEndings){
+    super(4,lineEndings);
   }
 }
 
@@ -199,114 +275,28 @@ function generatePermutation(numberOfLetters){
   }
   return randomList;
 }
-function arraysEqual(a, b) {
-  if (a === b) return true;
-  if (a == null || b == null) return false;
-  if (a.length !== b.length) return false;
 
-  for (var i = 0; i < a.length; ++i) {
-    if (a[i] !== b[i]) return false;
-  }
-  return true;
-}
-function checkIfCardActive(card){
-  for(var x=0;x<activeCards.length;x++){
-    if(arraysEqual(activeCards[x],card)){
-      return true;
+function generateAction(numberOfLetters){
+  //This should be a subset of 0,1,...,n-1 which are the ones getting acted on by Z/2
+  var actionList = [];
+  for(var i=0;i<numberOfLetters;i++){
+    if(Math.random()<.5){
+      actionList.push(true);
+    }
+    else{
+      actionList.push(false);
     }
   }
-  return false;
-}
-function notIdentity(permutation){
-  for(var i=0;i<yPositions-1;i++){
-    if(permutation[i]!=i){
-      return true;
-    }
-  }
-  return false
-}
-function generateCardData(){
-  if(allowRepeats&allowIdentity){
-    return generatePermutation(yPositions-1);
-  }
-  if(allowRepeats){
-    while(true){
-      newPermutation = generatePermutation(yPositions-1);
-      if(notIdentity(newPermutation)){
-        return newPermutation;
-      }
-    }
-  }
-  while(true){
-    newPermutation = generatePermutation(yPositions-1);
-    if(!checkIfCardActive(newPermutation)){
-      if(allowIdentity||notIdentity(newPermutation)){
-        activeCards.push(newPermutation);
-        return newPermutation;
-      }
-    }
-  }
-}
-function shiftColor(base, change, direction) {
-  const colorRegEx = /^\#?[A-Fa-f0-9]{6}$/;
-
-  // Missing parameter(s)
-  if (!base || !change) {
-    return '000000';
-  }
-
-  // Invalid parameter(s)
-  if (!base.match(colorRegEx) || !change.match(colorRegEx)) {
-    return '000000';
-  }
-
-  // Remove any '#'s
-  base = base.replace(/\#/g, '');
-  change = change.replace(/\#/g, '');
-
-  // Build new color
-  let newColor = '';
-  for (let i = 0; i < 3; i++) {
-    const basePiece = parseInt(base.substring(i * 2, i * 2 + 2), 16);
-    const changePiece = parseInt(change.substring(i * 2, i * 2 + 2), 16);
-    let newPiece = '';
-
-    if (direction === 'add') {
-      newPiece = (basePiece + changePiece);
-      newPiece = newPiece > 255 ? 255 : newPiece;
-    }
-    if (direction === 'sub') {
-      newPiece = (basePiece - changePiece);
-      newPiece = newPiece < 0 ? 0 : newPiece;
-    }
-
-    newPiece = newPiece.toString(16);
-    newPiece = newPiece.length < 2 ? '0' + newPiece : newPiece;
-    newColor += newPiece;
-  }
-
-  return '#' + newColor;
+  return actionList;
 }
 
 function deal(){
   for(var i=0;i<inactiveSlots.length;i++){
-    //This loop checks if we've already used the card.
     if(inactiveSlots[i]==null){
-      newPermutation = generateCardData();
-      inactiveSlots[i] = new Card(yPositions - 1,newPermutation);
-      //If we're doing fixed order, use opacity to give a gradient to the cards
-      if(fixedOrder){
-        console.log(inactiveSlots[i].cardBack.fill);
-        adding = (25*i).toString(16);
-        adding = adding + '0000';
-        while (adding.length < 6) {
-          adding = "0" + adding;
-        }
-        adding = '#'+adding;
-        console.log(adding);
-        inactiveSlots[i].cardBack.fill = shiftColor(inactiveSlots[i].cardBack.fill,adding,'sub');
-        console.log(inactiveSlots[i].cardBack.fill);
-      }
+      console.log("Inactive Slot:",i);
+      newPermutation = generatePermutation(yPositions-1);
+      newAction = generateAction(yPositions-1);
+      inactiveSlots[i] = new Card(yPositions - 1,newPermutation,newAction);
       inactiveSlots[i].moveTo(inactivePositions[i]);
       inactiveSlots[i].offPosition = i;
       cardList[i] = inactiveSlots[i];
