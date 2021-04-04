@@ -139,13 +139,13 @@
         <h1>Nonabelian Set</h1>
         <div class = "row">
           <div class = "column">
-            <img src="../files/Set1.JPG">
+            <img src="../files/set1.JPG">
           </div>
           <div class = "column">
             <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Set-game-cards.png">
           </div>
           <div class = "column">
-            <img src="../files/Sn2.png">
+            <img src="../files/Sn2.PNG">
           </div>
         </div>
         <small>image credit <a href="https://upload.wikimedia.org/wikipedia/commons/8/8f/Set-game-cards.png">wikipedia commons</a></small>
@@ -158,7 +158,7 @@
             <div class="column">
               <div class="container">
                 <a href="nonabelianSet/Sn/index.html">
-                  <img src="../files/Sn2.png">
+                  <img src="../files/Sn2.PNG">
                   <div class="overlay">
                     <div class="text"><i>S<sub>n</sub></i></div>
                   </div>
@@ -169,7 +169,7 @@
             <div class="column">
               <div class="container">
                 <a href="nonabelianSet/SnxSm/index.html">
-                  <img src="../files/SnSm3.png">
+                  <img src="../files/SnSm3.PNG">
                   <div class="overlay">
                     <div class="text"><i>S<sub>n</sub> &times; S<sub>m</sub></i></div>
                   </div>
@@ -180,7 +180,7 @@
             <div class="column">
               <div class="container">
                 <a href="nonabelianSet/SnxSm/index.html">
-                  <img src="../files/Wreath3.png">
+                  <img src="../files/Wreath3.PNG">
                   <div class="overlay">
                     <div class="text"><i>S<sub>n</sub> &#8768; Z<sub>2</sub></i></div>
                   </div>
@@ -201,14 +201,14 @@
           <h3>
             <a href="nonabelianSet/Sn/index.html">Symmetric Groups <i>S<sub>n</sub></i></a>
           </h3>
-          <img src="../files/Sn1.png" width="100%">
+          <img src="../files/Sn1.PNG" width="100%">
           <p>
             This first version is the standard symmetric group on <i>n</i> letters.  Elements of these groups are permutations (bijective functions) on a set of <i>n</i> elements.  The set here is represented by the <i>n</i> (colored) points on the left side of the board.  The goal of the game is to choose 3 or more cards which together add up to the identity permutation.  This should mean that after composing the 3 or more functions, each point (or color) should end up back where it started.  Notice that (unlike regular set), the order that you choose your cards matters!  This is why we call this <i>nonabelian set</i>!  At the bottom of each card, there is either a dot or a circle.  This represents the <i>sign</i> or <i>parity</i> of the permutation.  The identity permutation is even, so this tells you that to win you must have an even number of filled dots on the bottom of the card.  You can play <i>S<sub>3</sub></i>, <i>S<sub>4</sub></i>, and for a real challenge <i>S<sub>5</sub></i>.  I threw in <i>S<sub>6</sub></i> and <i>S<sub>7</sub></i>, but I'm not convinced one should expect a winning hand on the board in these cases.
           </p>
           <h3>
             <a href="nonabelianSet/SnxSm/index.html">Products of Symmetric Groups <i>S<sub>n</sub> &times; S<sub>m</sub></i></a>
           </h3>
-          <img src="../files/SnSm1.png" width="100%">
+          <img src="../files/SnSm1.PNG" width="100%">
           <p>
             A slight generalization of the above playing with direct products of symmetric groups.  We often think of elements a direct product <i>G &times; H</I> of 2 groups as ordered pairs <i>(a,b)</i>, where the first coordinate is an element of the first <i>G</i>, and the second is an element of <i>H</i>, where multiplication happens coordinatewise.  In this version of the game we represent the first coordinate as the a permutation of the top set of points, and the second coordinate as a permutation on the bottom. The trick is to get both permtations to add up to the identity simultaneously.
           </p>
@@ -218,7 +218,7 @@
           <h3>
             <a href="nonabelianSet/SnWrZ2/index.html">Wreath Products of Symmetric Groups with Cyclic Groups <i>S<sub>n</sub> &#8768; Z<sub>2</sub></i></a>
           </h3>
-          <img src="../files/Wreath2.png" width="100%">
+          <img src="../files/Wreath2.PNG" width="100%">
           <p>
             The <a href="https://en.wikipedia.org/wiki/Wreath_product">wreath product</a> is a way to construct a new group from old groups together with a certain type of group action.  In this example we consider the cyclic group of order 2 <i>Z<sub>2</sub></i> acting independently on each element of the set of <i>n</i> elements.  The action on an element is represented by a dot on the card, and when the line passes through the dotted, it becomes a dashed line (or if it is already dashed it becomes solid).  The goal is the same as the the variants above, compose to the identity element, but the <i>Z<sub>2</sub></i> action must be trivial as well!  In the language of the game, not only must the colors end up correctly arranged, but all of the lines must end up solid rather than dashed.
           </p>
@@ -228,7 +228,7 @@
           <h3>
             <a href="nonabelianSet/Sn0/index.html">Adjustable Settings and Rules</a>
           </h3>
-          <img src="../files/experimentalSet.png" width="100%">
+          <img src="../files/experimentalSet.PNG" width="100%">
           <p>
             Above is a version implementing the following variants of the game (all optional with the settings).  One can choose to have no repeated cards, or to not have the identity card appear (although I rather like the identity card, it's kind of like a wildcard!).  You can also adjust the size of your hand, or play a version of the game where the cards must remain in the same order in order to get a SET.  In order to help keep track of the order when the cards are in play, I've implemented a colored gradient on the cardback whose saturation order must be preserved, but I don't think this is the best implementation.  So far this is only running for the <i>S<sub>n</sub></i> version.  If you find bugs, or have any suggestions, please do reach out.  By clicking the link, you have become a beta tester!
           </p>
