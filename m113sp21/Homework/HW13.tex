@@ -1,0 +1,164 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\usepackage{tabularx}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{facts}{Facts}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{defProp}[theorem]{Definition/Proposition}
+
+\newtheorem*{hint}{Hint}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\Out}{\operatorname{Out}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+\newcommand{\maps}{\operatorname{Maps}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bH}{\mathbb{H}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Math scripts:
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sP}{\mathscr{P}}
+
+%Mathfrak:
+\newcommand{\fJ}{\mathfrak{J}}
+\newcommand{\fN}{\mathfrak{N}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\fq}{\mathfrak{q}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113, Spring 2021}
+
+\begin{document}
+\begin{center}
+  \Large {Homework Assigment 13}\\
+  \small {Due Friday, May 7}
+\end{center}
+\begin{enumerate}
+  \item{
+  Let $R$ be a unique factorization domain.
+  \begin{enumerate}
+    \item{
+    Fix $r\in R$.  Show that $r$ is irreducible if and only if it is prime.
+    }
+    \item{
+    Let $a,b\in R$.  Show that a greatest common denominator of $a$ and $b$ exists, and is unique up to multiplication by a unit.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Let's turn our attention to $\bZ[\sqrt{-5}]$.
+  \begin{enumerate}
+    \item{
+    Show that $3$ is an irreducible element but not a prime element of $\bZ[\sqrt{-5}]$.
+    }
+    \item{
+    Deduce from part (a) that $\bZ[\sqrt{-5}]$ is not a unique factorization domain.  Explain why this means $\bZ[\sqrt{-5}]$ is not a principal ideal domain.
+    }
+  \end{enumerate}
+  We now know abstractly that $\bZ[\sqrt{-5}]$ is not a principal ideal domain.  Let's exhibit an explicit nonprincipal ideal.
+  \begin{enumerate}
+    \setcounter{enumii}{2}
+    \item{
+    Let $\fp\subseteq\bZ[\sqrt{-5}]$ be any prime ideal containing 3.  Prove that $\fp$ cannot be principal.
+    }
+    \item{
+    Prove that the ideal $I = (3,2+\sqrt{-5})$ is a maximal ideal of $\bZ[\sqrt{-5}]$ containing 3.  Conclude that it cannot be principal.  (\textit{Hint:} Show $\bZ[\sqrt{-5}]/(3)$ has 9 elements and $I/(3)$ has 3 elements.  Then leverage the third isomorphism theorem for rings to compute $\bZ[\sqrt{-5}]/I$.)
+    }
+  \end{enumerate}
+  }
+  \item{
+  Let $R$ be a Euclidean domain, and $N:R\to\bZ_{\ge0}$ a Euclidean norm.  Let's explore how the norm can help us characterize the units in $R$.
+  \begin{enumerate}
+    \item{
+    Let $m = \min\{N(x):x\not=0\}$.  Show that if $N(x)=m$, then $x\in R^\times$.
+    }
+    \item{
+    Let $\hat N:R\to\bZ$ be given by the following rule.
+    \[\hat N(r) = \min_{x\in R\setminus\{0\}} N(xr).\]
+    Prove that $\hat N$ is a Euclidean norm on $R$, and also that it satisfies the further condition that if $a|b$ then $\hat N(a)\le\hat N(b)$.
+    }
+    \item{
+    Prove that $x\in R^\times$ if and only if $\hat N(x)=\hat N(1)$.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Let $R$ be a principal ideal domain.
+  \begin{enumerate}
+    \item{
+    Show that if $\fp$ is a prime ideal, then $R/\fp$ is also a principal ideal domain.
+    }
+    \item{
+    Show that if $S$ is a multiplicative subset not containing $0$, then $S^{-1}R$ is a principal ideal domain.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Let $p$ a prime number so that $p\equiv3\mod 4$.
+  \begin{enumerate}
+    \item{
+    Prove that $p$ generates a maximal ideal of $\bZ$.
+    }
+    \item{
+    Show that $\bZ[i]/(p)$ is a field with $p^2$ elements.  Denote it by $\bF_{p^2}$.
+    }
+    \item{
+    Explain why $\bF_{p^2}\not\cong\bZ/p^2\bZ$.
+    }
+    \item{
+    Prove that there is an injective homomorphism $\bF_p\hookrightarrow\bF_{p^2}$.
+    }
+  \end{enumerate}
+  }
+\end{enumerate}
+\end{document}
