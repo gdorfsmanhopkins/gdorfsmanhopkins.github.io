@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>
+		Math 116 Fall 2021
+	</title>
+
+</head>
+
+<body>
+	<h2>
+		Math 116 Fall 2021
+	</h2>
+	<h3>
+		Introduction to Mathematical Cryptography.
+	</h3>
+
+	<h3>
+		About this course
+	</h3>
+	<p>
+		Cryptography is the art of transmitting confidential information over a potentially monitored channel.  Codes and ciphers are ancient tools, but in the modern digital age entirely new cryptographic paradigms became possible, and necessary.  One of these paradigms, and the central object of study in this course, is <i>public key cryptography</i>, allowing the exchange of confidential information between two people who have never met!  At the core of public key cryptography are marvelously clever and deep mathematical insights existing at the intersection of abstract algebra, number theory, and geometry, which we will introduce and explore.
+		<br><br>
+		This course will strike a balance between theory and practice.  We will have to develop some mathematics, and along with that there will be some proof writing and abstract formulations.  With these tools in hand we will be able to fully implement many of the modern cryptosystems we study, and start sending eachother confidential messages in a public forum!
+  </p>
+	<h3>Crucial Tidbits:</h3>
+	<p>
+		<b>Instructor:</b> <a href="http://www.gabrieldorfsmanhopkins.com" target="_blank">Gabriel Dorfsman-Hopkins</a><br>
+		<b>Homework Grader:</b> TBA<br>
+		<b>Email:</b> gabrieldh[_at_]berkeley.edu<br>
+		<b>Class Hours:</b>T-Th 5:00-6:30<br>
+		<b>Instructor Office Hours:</b> TBA<br>
+		<b>Textbook:</b>Introduction to Mathematical Cryptography, 2014 edition by Hoffstein, Pipher, Silverman [HPS]  <b>Digital copies available through the UC Berkeley Library</b></br>
+		<b>Computation Resources:</b> You will each have folders on <a href="https://cocalc.com/">CoCalc</a> to do computation and homework.<br>
+		<b>Discord:</b> We have a <a href="https://discord.com/">discord</a> server for discussion and for sending secret messages.  Email me to get an invite.<br>
+		<b>Project 1:</b> Due Tuesday 10/12<br>
+    <b>Project 2:</b> Due Tuesday 11/23<br>
+    <b>Final Exam:</b> Takehome. Due Thursday 12/16.<br>
+    <b>Syllabus:</b> Can be found <a href="syllabus.pdf" target="_blank">here</a><br>
+		<b>Homework:</b> Due (almost) every Tuesday on Gradescope.<br>
+
+    <b>Schedule:</b> <a href = "#schedule">Below</a><br>
+	</p>
+
+	<h3>Online Lectures</h3>
+	<ul>
+		<li>The first 2 lectures will be posted here, as will subsequent lectures if it becomes necessary (hopefully not...fingers crossed***).</li>
+	</ul>
+	<h3>
+		Assignments
+	</h3>
+	<ul>
+		<li>Assignments will be posted here.  Solutions to selected exercises will be posted when they are returned.</li>
+	</ul>
+	<h3>
+		Announcements
+	</h3>
+	<ul>
+		<li>The first 2 lectures (8/26 and 8/31) will be <b>prerecorded</b> rather than in person!  You will be able to access them from here.  In person classtime will begin on Thursday September 2nd.  Please spread the word to those who may not yet be officially signed up!</li>
+	</ul>
+
+	<h2>Syllabus</h2>
+	<p>
+			Mathematics is not a spectator sport.  Watching me do a algebraic computation may not be as useful as working it out yourself, and this is even more true for writing lines of code.  For this reason I will have exercises embedded in the lectures for you to work out in groups.  These could be proofs, but they could also involve writing code, so bring a laptop to class!<br><br>
+
+			Although we are currently cleared to be in person, we must be prepared for a sudden switch to remote learning.  If this happens  I will post 2 recorded lectures a week, corresponding to our scheduled Tuesday-Thursday schedule, and hold office hours during those times.  <b>The first two lectures will be recorded</b>.  For this reason also all exams will be project based takehomes rather than in person exams.<br><br>
+
+			I will have CourseCapture enabled, so that lectures will be posted to Kaltura (with captions).  This way, if you miss a lecture you can catch up.  <b>If you are feeling under the weather, please stay home!</b> You won't fall too far behind.  (Note: Since part of the class is collaborative sessions during classtime, plan on attending whenever possible.  But don't force it, let's get through this pandemic first).
+	</p>
+	<h3>CoCalc</h3>
+	<p>
+		Each one of you will have a shared folder with me on an online collaborative coding platform called <a href="https://cocalc.com/">CoCalc</a>, which in particular runs SageMath, an open source mathematical software we will be making heavy use of this semester, that runs using the Python 3 syntax.  <a href="https://cocalc.com/">Click here to get to cocalc</a>.  It is here where you will do in the computational parts of your homework assignments.  You may also sometimes want to have a Jupyter notebook open in CoCalc during the lectures to be able to follow along and work out the computational in class exercises.  During the first lecture I will walk you through setting this up.
+	</p>
+	<h3>Discord</h3>
+	<p>
+		There is a server on <a href="https://discord.com/">discord</a> for this course.  There will be a place to ask questions about lectures and homework, and to have and continue discussions.  I will be active on discord, and will try to answer questions, but I also encourage you to participate in answering questions and continuing discussions as well.  There will also be video channels with screensharing enabled if folks would like to have quick meetings or to ask for help debugging code.<br><br>
+
+		Discord will also have an important role in several of the projects for this course.  As you implement public key cryptosystems, it will simulate a space where you can communicate securely over an insecure channel.  To do this, you can publicly post your ciphertext in the appropriate channel, and if you've done everything correctly, only your intended recipient will be able to decrypt the message!  This should be a fun place to put our ideas into practice.<br><br>
+
+		Invites to our discord server expire in 24 hours, so if you need a fresh one write me an email!
+	</p>
+  <h3>Homework</h3>
+	<p>
+		The main portion of your grade will be homework assignments.  There will be homework collected almost every week <b>on Tuesdays</b>.  They will be assigned the week before they are due, and will tend to come in 2 parts.
+		<ul>
+			<li>A <i>written part</i>, which you will turn in on <a href="https://gradescope.com">Gradescope</a>.  This can be typed up in LaTeX or hand written and scanned. <b>Don't sumbit grainy photos.</b>  This will generally be more mathematical, involving proof writing or explicit computation.</li>
+	  	<li>A <i>implementation part</i>, which will completed form of Jupyter notebook on CoCalc, exported as a PDF, and also turned in on <a href="https://gradescope.com">Gradescope</a>.  See the August 26 lecture for a direct outline on how to do this.  Please also keep the homework notebook as a Jupyter notebook on CoCalc so the grader and I can try running your code.  <b>Note: Cocalc has a time machine feature so that we can see how things grow.  Don't plagiarize, it will be obvious.</b></li>
+		</ul>
+		Feel free to discuss homework in groups, but know that each one of you should be writing up your own assignment (no copying and pasting code will be allowed!  Again, the time maching feature in cocalc will make this obvious).
+	</p>
+  <h3>Implementation Projects</h3>
+	<p>
+		There will be 2 larger implementation projects.  These will look a lot like the your homework assignments, but with a larger implementation section, consisting of cohesive implementations of an entire cryptosystem we've been studying (rather than just single algorithms).  A portion of these assignments will be sending encrypted messages to eachother on Discord.  You are allowed to use algorithms written in homework assignments as peices of thse projects.  You may also use the course text, as well as your course notes. You may <i>not</i> use the internet or your peers.
+	</p>
+	<p>
+		<b>Warning!</b> As the projects are specific implementations of things we are studying in class, these due dates may shift depending on course pace.  I will give you as much notice as possible if there is any change.
+	</p>
+	<ul>
+		<li><b>Project 1: </b>Due Tuesday 10/12 on Gradescope, with message exchanges on Discord.</li>
+		<li><b>Project 2: </b>Due Tuesday 11/23, on Gradescope, with message exchanges on Discord.</li>
+	</ul>
+	<h3>Final Exam</h3>
+	<p>
+		There will be 1 final exam <b>due Thursday 12/16</b>, which will be a takehome assignment.  It will look your homework assignments, but with more of a focus on the written portion. You may use the course text as well as your course notes and previous graded homework assignments.  You may <i>not</i> use the internet or your peers.
+	</p>
+	<h3>
+		Grading Scheme
+	</h3>
+	<p>
+		Raw grades will be computed as follos:<br><br>
+		<b>Homework:</b> 50%<br>
+		<b>Project 1:</b> 15%<br>
+		<b>Project 2:</b> 15%<br>
+		<b>Final:</b> 20%<br><br>
+		After evaluating the performance of the class over the entire semester, I will adjust the median grade accordingly.  It has previously shaken out in the following general grade ranges, but it may be slightly different this time around.<br><br>
+		<b>A-Range:</b> >88%<br>
+		<b>B-Range:</b> 78-88%<br>
+		<b>C-Range:</b> 68-78%<br>
+		<b>D-Range:</b> 58-68%
+	</p>
+	<h3>Makeups and Extensions</h3>
+	<p>
+		If you need an extension on homework or the projects, let me know <i>as soon as possible</i>.  I try to post solutions ASAP after assignments are turned in, and once they are posted I will no longer accept late assignments.  I do understand that we are in the midst of a global pandemic, and things are unpredictable, so communicate with me early and often if you need more flexibility.  I will be more flexible with homework assignments than I will with the projects or final.
+	</p>
+
+	<h3>Disabled Students' Program (DSP)</h3>
+	<p>
+		The University of California is committed to providing access, equal opportunity and reasonable accommodation in its services, programs, activities, education and employment for individuals with disabilities. These resources include exam proctoring and accommodations in distraction free environments and with extra time as well as note taking.  To request disability accommodation contact the DSP Office at least ten days in advance at (510) 642-0518(V), (510) 642-6376(TTY), (510) 643-9686(FAX), or dsp@berkeley.edu.<br><br>
+		If you have a letter from the Disabled Students Program (DSP) indicating that you have a disability which requires academic accommodations, please present the letter to me as soon as possible so we can discuss the accommodations you need.
+	</p>
+<h2 id = "schedule">Tentative Schedule</h2>
+	<p>
+		Below is a very rough schedule of the course, organized weekly.  It is very difficult to predict pace for a course during a pandemic.  We may go faster than is laid out over the first few weeks...or slower.  We may cover all these things and more, or we may skip some sections due to time.  Since projects are specific implementations, their due dates may shift due to timing issues.  I will do my very best to keep it up to date as we progress through the semester.
+	</p>
+<b>Week 0 (8/26):</b>
+  <ul>
+    <li>Introduction.  Setting up CoCalc.  Course Goals.  An Example of a Cipher</li>
+  </ul>
+<b>Week 1 (8/31,9/2):</b>
+  <ul>
+    <li>Cryptanalysis.  Elementary number theory. 1.1-1.4:</li>
+    <li><b>Homework 0 due Tuesday.</b></li>
+	</ul>
+<b>Week 2 (9/7,9/9)</b>
+<ul>
+	<li>More number theory.  Encoding Schemes. 1.4-1.7</li>
+	<li><b>Homework 1 due Tuesday.</b></li>
+</ul>
+<b>Week 3 (9/14,9/16):</b>
+<ul>
+	<li>Public Key Cryptosystems.  The Discrete Log Problem.  2.1-2.4</li>
+	<li><b>Homework 2 due Tuesday.</b></li>
+</ul>
+<b>Week 4 (9/21,9/23):</b>
+<ul>
+	<li>Diffie Hellman Key Exchange.  Attacking the Discrete Log Problem. 2.4-2.7</li>
+	<li><b>Homework 3 due Tuesday</b></li>
+</ul>
+<b>Week 5 (9/28,9/30):</b>
+<ul>
+	<li>Sun Tzu's Theorem.  More Discrete Log Attacks. 2.8-2.9</li>
+	<li><b>Homework 4 due Tuesday</b></li>
+</ul>
+<b>Week 6 (10/5,10/7):</b>
+<ul>
+	<li>Eulers Formula. RSA and Implementation. Primality Testing. 3.1-3.4</li>
+	<li><b>Homework 5 due Tuesday</b></li>
+</ul>
+<b>Week 7 (10/12,10/14):</b>
+<ul>
+	<li>Factorization Techniques and Attacking RSA 3.5-3.8</li>
+	<li><b>PROJECT 1 DUE TUESDAY</b></li>
+</ul>
+<b>Week 8 (10/19,10/21):</b>
+<ul>
+	<li>Quadratic Reciprocity and Probabilistic Ecryption.  3.8-3.10</li>
+	<li><b>Homework 6 Due Tuesday</b></li>
+</ul>
+<b>Week 9 (10/26,10/28):</b>
+<ul>
+	<li>Digital Signatures.  4.1-4.3</li>
+	<li><b>Homework 7 Due Tuesday</b></li>
+</ul>
+<b>Week 10 (11/2,11/4):</b>
+<ul>
+	<li>Elliptic Curves.  6.1-6.3</li>
+	<li><b>Homework 8 Due Tuesday</b></li>
+</ul>
+<b>Week 11 (11/9):</b>
+<ul>
+	<li><i>No Class Thursday</i></li>
+	<li>The Elliptic Curve Discrete Log Problem.  Diffie-Hellman Revisited.  6.4</li>
+	<li><b>Homework 9 due Tuesday</b></li>
+</ul>
+<b>Week 12 (11/16,11/18):</b>
+<ul>
+	<li>Factoring Using Elliptic Curves.  6.6</li>
+	<li><b>Homework 10 due Tuesday.</b></li>
+</ul>
+<b>Week 13 (11/23):</b>
+<ul>
+	<li><i>No Class Thursday</i></li>
+	<li>**Bonus Time**</li>
+	<li><b>PROJECT 2 DUE TUESDAY</b></li>
+</ul>
+<b>Week 14 (11/30,12/2):</b>
+<ul>
+	<li>**Bonus Time**</li>
+	<li><b>Homework 11 Due Tuesday</b></li>
+	<li><i>Last day of formal instruction on Thursday</i></li>
+</ul>
+<b>Week 15 (12/6-12/10):</b>
+<ul>
+	<li><i>Review Week</i></li>
+	<li><b>Homework 12 due Tuesday</b></li>
+</ul>
+<b>Week 16 (12/13-12/17):</b>
+<ul>
+	<li><b>FINAL EXAM DUE THURSDAY</b></li>
+</ul>
+
+<p><b>**Bonus Time**</b>: We have a few lectures unnacounted for.  This may serve as padding depending on pacing, but if the time allows this may be filled with one of the following.
+</p>
+<ul>
+	<li>Probability Theory: New attacks and provable efficiency/accuracy.  (Chapter 5)</li>
+	<li>Bilinear Cryptosystmes: Using bilinear pairings on elliptic curves for fancy modern cryptosystems.  (End of Chapter 6 + <a href="https://crypto.stanford.edu/~dabo/papers/bfibe.pdf">this awesome paper of Boneh and Franklin</a>)</li>
+	<li>Hashing?</li>
+</ul>
+</html>
