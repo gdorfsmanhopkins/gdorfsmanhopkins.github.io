@@ -175,7 +175,7 @@ The inverse then consists of finding the base 256 expansion n, and then converti
   Now implement the Elgamal cryptosystem (we introduced this at the end of class on 9/16, and it summarized in the book [HPS Section 2.4], or in the notes I posted on the discord ``elgamal" channel).  Fix a prime $p$ and an element $g\in\bF_p^*$ and save them as global variables.
   \begin{enumerate}
     \item{
-    Write Alice's algorithms: \verb|generatePublicKey(a)| which takes as input Alice's private key and returns her public key; and \verb|elgamalDecrypt(c1,c2,a)| which takes as input ciphertext $(c_1,c_2)$ as well as Alice's private key and returns a message.
+    Write Alice's algorithms: \verb|generatePublicKey(a)| which takes as input Alice's private key and returns their public key; and \verb|elgamalDecrypt(c1,c2,a)| which takes as input ciphertext $(c_1,c_2)$ as well as Alice's private key and returns a message.
     }
     \item{
     Write Bob's algorithm: \verb|elgamalEncrypt(m,A)| which takes as input Alice's public key $A$ and a message $m$ and returns ciphertext $(c_1,c_2)$.  (Recall that Bob needs to choose a random exponent to encrypt with.  \verb|ZZ.random_element(lowerBound,upperBound)| should come in handy).
