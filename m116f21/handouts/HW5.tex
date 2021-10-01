@@ -1,0 +1,199 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 116, Fall 2021}
+
+\begin{document}
+\begin{center}
+\Large {Homework 5}\\
+\small {Due Thursday, October 7}
+\end{center}
+\section*{Implementation Part}
+\begin{enumerate}
+  \item{
+  Implement Sun-Tzu's algorithm for solving concurrent congruences (in the book this is called the Chinese Remainder Theorem).  Specifically, define a function \verb|SunTzu(moduli,residues)| which satisfies the following:
+  \begin{center}
+    \begin{tabular}{c|c}
+      Input & Output\\
+      \hline
+      A list of moduli $m_1,\cdots,m_t$ (positive integers) & If moduli are pairwise coprime\\
+      A list of integers $a_1,\cdots,a_t$ &$x$ satisfying $x\equiv a_i\mod m_i$ for all $i$.\\
+      &Otherwise an error message.
+    \end{tabular}
+  \end{center}
+  \textit{Hints}:
+  \begin{itemize}
+    \item{One way you could do this is to make an auxiliary function \verb|SunTzuPairs(m1,m2,a1,a2)| which solves the problem for 2 congruences, and have \verb|SunTzu| feed recursively into \verb|SunTzuPairs|}
+    \item{
+    Naively checking the moduli are coprime takes running the Euclidean algorithm $\cO(t^2)$ times, but you should be able to do so only running it $\cO(t)$ time.
+    }
+  \end{itemize}
+  }
+  \item{
+  Implement the Pohlig-Hellman algorithm to solve the DLP for an element $g\in\bF_p^*$ of order $N = m_1m_2...m_t$ (for coprime $m_i$).  Specifically, define a function \verb|pohligHellman(g,h,p,factors)|
+  \begin{center}
+    \begin{tabular}{c|c}
+      Input & Output\\
+      \hline
+      A prime $p$ & $\log_g(h)$ if it exists\\
+      An element $g\in\bF_p^*$ & \\
+      An element $h\in\bF_p^*$ & \\
+      The prime power factors $m_1,\cdots m_t$ of $|g|$ & \
+    \end{tabular}
+  \end{center}
+  \textit{Hints}
+  \begin{itemize}
+    \item{
+    The structure should loosely be as follows.  Reduce the problem to solving the DLP for elements of smaller order, let \verb|babyGiant| solve those problems (make sure to tell it the order is smaller, otherwise you aren't saving any time), and then use \verb|SunTzu| to stitch them together.
+    }
+    \item{
+    It is difficult in general to compute $|g|$ (about as difficult as factoring $p-1$), and so checking if the $m_i$ are indeed the prime factors of $|g|$ may be difficult.  Instead, check that $g^{m_1m_2...m_t} = 1$.  In this case your algorithm should still work (see Problem 6).
+    }
+  \end{itemize}
+  }
+  \item{
+  Use \verb|SunTzu| to solve to following sets of congruences, and check that the solution given works.
+  \begin{enumerate}
+    \item{
+      $x \equiv 9\mod 23$ and $x = 25\mod 41$
+    }
+    \item{
+    \begin{eqnarray*}
+      x&\equiv& 1\mod2\\
+      x&\equiv& 2\mod3\\
+      x&\equiv& 4\mod5\\
+      x&\equiv& 6\mod7\\
+      x&\equiv& 10\mod 11\\
+      x&\equiv& 1\mod 13\\
+      x&\equiv& 16\mod 17
+    \end{eqnarray*}
+    }
+  \end{enumerate}
+  }
+  \item{
+  Let's test out Pohlig-Hellman.
+  \begin{enumerate}
+    \item{
+    Let $p = 113$.  Last week we used baby steps-giant steps to compute $\log_3 19$ modulo $p$.  Notice that $112$ factors as $2^4*7$.  Use this information and Pohlig-Hellman to compute $\log_3 19$ and see if your answer matches.
+    }
+    \item{
+    Let $p = 30235367134636331149$.  Last week we tried using baby steps-giant steps to compute the discrete log $\log_6 3295$ modulo $p$.  You might have had trouble getting it to run.  I did.  What if I told you that $p-1$ has the following prime factorization?
+    \[p-1 = 2^2 * 3^2 * 13 * 41143 * 335341 * 4682597.\]
+    Now use Pohlig-Hellman to speed up your computation.  (It speeds it up considerably!).  Use fast powering to make sure you got the right answer (it is very satisfying!).
+    }
+  \end{enumerate}
+  }
+  \end{enumerate}
+  \section*{Written Part}
+  \begin{enumerate}
+  \setcounter{enumi}{4}
+  \item{
+  For \verb|pohligHellman| instead of checking that the $m_i$ were indeed the prime power factors of $|g|$, we just checked that $g^{m_1m_2\cdots m_t} = 1$.  Prove that if this condition holds (and the $m_i$ are still coprime) that \verb|pohligHellman| returns the correct logarithm.
+  }
+  \item{
+  Show that \verb|SunTzu| runs in $\cO(\log N)$ steps where $N = m_1m_2\cdots m_t$ is the product of the moduli.  (You may assume your basic operations $+,-,\times,\div,\%$ are all $\cO(1)$.
+  }
+  \item{
+  Let's prove the uniqueness part Sun-Tzu's theorem.
+  \begin{enumerate}
+    \item{
+    Let $a,b,c$ be positive integers and suppose that:
+    \begin{eqnarray*}
+      a|c,&b|c,&\gcd(a,b) = 1.
+    \end{eqnarray*}
+    Then $ab|c$.
+    }
+    \item{
+    Suppose $m_1,\cdots,m_t$ are pairwise coprime positive integers, and suppose $a_1,\cdots,a_t\in\bZ$.  Show that if $y$ and $z$ are both solutions to the system of congruences
+    \begin{eqnarray*}
+      x&\equiv& a_1\mod m_1\\
+      x&\equiv& a_2\mod m_2\\
+      &\vdots&\\
+      x&\equiv& a_t\mod m_t,
+    \end{eqnarray*}
+     then $y\equiv z\mod m_1m_2\dots m_t$
+     }
+   \end{enumerate}
+  }
+  \end{enumerate}
+  Let's finish by proving the following theorem:
+  \begin{theorem}\label{SquareRoots}
+  Let $m$ be an odd number and $a$ an integer not divisble by any of the prime factors of $m$.  Then $a$ has a square root mod $m$ if and only if $a^{\frac{p-1}{2}}\equiv 1\mod p$ for every prime factor $p$ of $m$.
+  \end{theorem}
+  \begin{enumerate}
+  \setcounter{enumi}{7}
+  \item{
+  \begin{enumerate}
+    \item{
+    Let $a$ be an integer not divisble by an odd prime $p$.  Show that $a$ has a square root mod $p$ if and only if $a^{\frac{p-1}{2}}\equiv 1\mod p$. (\textit{Hint:} Use HW2 Problem 8.)
+    }
+    \item{
+    Let $m = p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_t^{\alpha_t}$ and $a$ an integer.  Show that $a$ has a square root mod $m$ if and only if it has a square root mod $p_i^{\alpha_i}$ for each $i$. (\textit{Hint:} Use Sun-Tzu's Theorem.)
+    }
+    \item{
+    Let $m$ be an odd number and suppose $a$ is an integer not divisible by any prime factor of $m$.  Show $a$ has a square root mod $m$ if and only if it has a square root mod $p$ for every prime $p$ dividing $m$. (\textit{Hint:} Use HW4 Problem 7).
+    }
+    \item{
+    Deduce Theorem \ref{SquareRoots} from parts (a),(b), and (c) above.
+    }
+    \item{
+    Can you relax any of the hypotheses of Theorem \ref{SquareRoots}?  For example, what if $m$ is even?  Or what if some prime factor of $m$ divides $a$?  Compute some examples and informally discuss your thoughts.
+    }
+    \item{
+      Explain why part (a) also solves the bonus question of HW3 Problem 6(f).
+    }
+  \end{enumerate}
+  }
+  \end{enumerate}
+\end{document}
