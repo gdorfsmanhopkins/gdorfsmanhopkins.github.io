@@ -126,7 +126,7 @@ Let's implement the factorization using difference of squares!  We'll first do t
 \begin{enumerate}
   \setcounter{enumi}{4}
   \item{
-  In problem 1 we computed square roots using Sage's built in functionality.  But if $p\equiv 3\mod 4$, there is actually an easy algorithm!  So fix $p\equiv 3\mod 4$ and let $a\in\bF_p^*$.  Give a $\cO(\log p)$ algorithm to compute a square root of $a$ modulo $p$, and prove its correctness.  (\textit{Hint: You can do this in a single exponentiation!})
+  In problem 1 we computed square roots using Sage's built in functionality.  But if $p\equiv 3\mod 4$, there is actually an easy algorithm!  So fix $p\equiv 3\mod 4$ and let $a\in\bF_p^*$ have a square root mod $p$.  Give a $\cO(\log p)$ algorithm to compute a square root of $a$ modulo $p$, and prove its correctness.  (\textit{Hint: You can do this in a single exponentiation!})
   }
   \item{
   Let $L(X) = e^{\sqrt{\ln x\ln\ln x}}$.  Prove that $L(X)$ is subexponential (in the number of bits of $X$) by proving:
@@ -152,14 +152,14 @@ Let's implement the factorization using difference of squares!  We'll first do t
 Recall the function $\Psi(X,B) =\#\{n\le X:n\text{ is }B\text{-smooth}\}.$  In class we stated the following claim about the growth of $\Psi$ in certain cases
 \begin{theorem}[{[HPS] Theorem 3.43}]\label{TechnicalBit}
   Suppose there exists some $0<\varepsilon<1/2$ such that:
-  \[(\ln X)^\varepsilon < \ln B < (\ln X)^{1+\varepsilon}.\]
+  \[(\ln X)^{\varepsilon} < \ln B < (\ln X)^{1-\varepsilon}.\]
   Let $u$ be the ratio $\ln X/\ln B$.  Then the number of $B$-smooth numbers less than $X$ satisfies:
   \[\Psi(X,B)\approx X u^{-u}.\]
 \end{theorem}
 (Note, here $\approx$ can be taken to mean that their difference is a function whose limit as $X$ goes to infinity is $0$, although in the book they have something slightly more precise).  This had the following Corollary, which is more useful for our analyis.
 \begin{corollary}[{[HPS] Corollary 3.45}]\label{technicalCorollary}
   Let $0<c<1$.  Then:
-  \[\Psi(X,L(X)^c))\approx X\cdot L(X)^{(1/2c)}.\]
+  \[\Psi(X,L(X)^c))\approx X\cdot L(X)^{(-1/2c)}.\]
 \end{corollary}
 \begin{enumerate}
   \setcounter{enumi}{7}
@@ -167,8 +167,8 @@ Recall the function $\Psi(X,B) =\#\{n\le X:n\text{ is }B\text{-smooth}\}.$  In c
   Prove Corollary \ref{technicalCorollary} using Theorem \ref{TechnicalBit}.  In particular, prove the following two steps.
   \begin{enumerate}
     \item{
-      Show that there exists some $9<\varepsilon<1/2$ with
-      \[(\ln X)^\varepsilon < \ln (L(X)^c) < (\ln X)^{1+\varepsilon}.\]
+      Show that there exists some $0<\varepsilon<1/2$ with
+      \[(\ln X)^\varepsilon < \ln (L(X)^c) < (\ln X)^{1-\varepsilon}.\]
     }
     \item{
     Let $u = \ln X/\ln(L(X)^c)$.  Show that:
