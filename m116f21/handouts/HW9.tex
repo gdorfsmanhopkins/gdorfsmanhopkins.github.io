@@ -68,7 +68,7 @@
   Implement the Goldwasser-Micali probabilistic encryption scheme to securely send 1 bit of data.
   \begin{enumerate}
     \item{
-    Create a function \verb|GenerateGMKey(b)| which creates a Goldwasser-Micali key from $b$-bit primes.  In particular, it should output a \textit{public key} $[N,a]$ where $N = pq$ is a product of (secret) $b$ bit primes and $a\in\bZ/N\bZ$ is a quadratic \textit{non}residue modulo $p$ and $q$, as well as a \textit{private key} which should just consist of one of the secret primes.  (You can use part 1 to compute Legendre symbols.)
+    Create a function \verb|GenerateGMKey(b)| which creates a Goldwasser-Micali key from $b$-bit primes.  In particular, it should output a \textit{public key} $[N,a]$ where $N = pq$ is a product of (secret) $b$ bit primes and $a\in\bZ/N\bZ$ is a quadratic \textit{non}residue modulo $p$ and $q$, as well as a \textit{private key} which should just consist of one of the secret primes.  (You can use HW8 Problem 1 to compute Legendre symbols.)
     }
     \item{
     Write functions \verb|GMEncrypt(publicKey,m)| and \verb|GMDecrypt(privateKey,c)|.  The first takes a Goldwasser-Micali public key, and a bit $m = \{0,1\}$, and returns a ciphertext $c\in\bZ/N\bZ$ which is a square modulo $N$ if and only if $m=0$. The second recovers $m$ from $c$ and the private key and Legendre symbols.  (\textit{Note}: When you compute the random integer in the encryption function make sure it is larger than the square root of $N$.  For extremely large $N$, you should make use of the sage integer square root function \verb|isqrt()| since floats may round up to infinity and have trouble reconverting to ints).
