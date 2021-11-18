@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Twenty Seven</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="Homepage of Gabriel Dorfsman-Hopkins, Mathematician and Artist" />
+  <meta name="keywords" content="mathematics, algebraic geometry, perfectoid, WXML, projectivoid" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="../style/style.css" title="style" />
+
+  <style>
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+      flex: 30%;
+      max-width: 30%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="../files/https://www.googletagmanager.com/gtag/js?id=UA-127262262-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127262262-1');
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="../index.html">Gabriel<span class="logo_colour"> Dorfsman-Hopkins</span></a></h1>
+          <h2>mathematician and artist</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../research.html">Research</a></li>
+          <li><a href="../teaching.html">Teaching</a></li>
+          <li><a href="../digital_fabrication.html">Digital Fabrication</a></li>
+          <!--<li><a href="undergraduate_research.html">Undergraduate Research</a></li>-->
+          <li class="selected"><a href="../art.html">Art</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <img width="100%" height="auto" src="../files/headshot.jpg">
+        <ul>
+          <li>cohomolopkins[-at-]gmail.com<br>
+          <li>RTG Postdoc at UC Berkeley<br>
+          <li>Pronouns: he/they<br>
+          <li><a href="../files/CV_Complete.pdf">Curriculum Vitae</a></li>
+        </ul>
+
+      </div>
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Twenty Seven</h1>
+        <div class = "row">
+          <div class = "column">
+            <img src="../files/perspectiveView.jpg">
+          </div>
+	  <div class = "column">
+            <img src="../files/desert.png">
+          </div>
+	  <div class = "column">
+	    <img src="../files/topView.jpg">
+	   </div>
+
+        </div>
+        <p>
+	  <i>Twenty Seven</i> is a mathematical art project in progress, an interactive metal sculpture depicting a cubic surface, a mathematical object arising in algebraic geometry. It illustrates the famous and mysterious theorem that every cubic surface contains exactly 27 straight lines by using those lines as the skeleton of the structure itself</p>
+
+	<p> We plan to bring the completed piece to the Burning Man arts festival in the Black Rock Desert near Reno Nevada, where it can stand tall and be interacted with by a broad audience.  The projected size is an approximately 6 foot diameter at the base, with a height of approximately 12 feet, made of steel.  The 27 lines and multiple contact points between the lines, as well as with the frame, lead to a sturdy climbable structure. By climbing the sculpture, participants interact physically with the geometry of the space and, in doing so, gain a better perspective of the curvature from various angles as they themselves discover how they must plan their ascent in harmony with the lines and their flow throughout the space of the piece. This provides a unique way to explore a mathematical truth.
+	</p>
+	  <p>It is truly a remarkable and mysterious fact that a cubic surface contains exactly 27 lines. By climbing and exploring this space, participants will grow to intuit the nature of these 27 lines as the essential anchors to the geometric flow of the surface. We aim to give participants the opportunity to embody this essential truth beyond the scope of a page-bound mathematical proof by instilling a living presence at the heart of the matter, letting the interplay between geometry and limitless human creativity guide their curiosity. That is, we are creating a space where people can 'feel the theorem' -- where they can 'be the theorem'. More broadly, we hope to transport mathematics outside the realm of pure abstract thought and into the physical and emotional world. We want to share what it is to have a mathematical epiphany, to share math as we see it: the beautiful soul at the core of the universe. </p>
+
+	<p> The design of the piece is a collaboration with Daniel Rostamloo.  The build is beginning soon at the Box Shop in San Fransisco, in collaboration with Daniel Rostamloo, Chris Walker and many others. The piece is inspired in part by the work of <a href="https://oliverlabs.net">Oliver Labs</a>, who has made many beautiful models of cubic surfaces emphasizing (or only consisting of) the 27 lines.  We were also very much helped along the way by this <a href="https://nathanfieldsteel.github.io/2019/10/15/27-Lines.html">post</a> by Nathan Fieldsteel, as well as this <a href="https://analyticphysics.com/Higher%20Dimensions/27%20Lines%20on%20a%20Cubic%20Surface.htm">carefully worked out example</a> by Paul Masson.  We are also indepted to this <a href="https://core.ac.uk/download/pdf/293149021.pdf">beautiful and explicit paper by Tetsuji Shioda</a> which allowed us to generate families of cubic surfaces together with their lines during our design phase.
+        </p>
+      </div>
+    </div>
+    <div id="footer">
+      Copyright &copy; black_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">Free CSS Templates</a>
+    </div>
+</body>
+
+</html>
