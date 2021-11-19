@@ -1,0 +1,149 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 116, Fall 2021}
+
+\begin{document}
+\begin{center}
+\Large {Homework 9}\\
+\small {Due \textbf{Wednesday}, November 24}\\
+\end{center}
+\section*{Implementation Part}
+The implementation part sets up the basics of elliptic curve arithmetic.
+\begin{enumerate}
+\item{Let's start by setting up and testing the basic data structures for our objects.  For our purposes we will save an elliptic curve as a pair of integers: \verb|E = [A,B]|, corresponding to the equation $y^2 = x^3 + Ax + B$.  For this assignment, all elliptic curves will be over a finite field $\bF_p$.  A point of an elliptic curve will either be an ordered pair $(x,y)\in\bF_p^2$, or else the point $\cO$ at infinity.  We will save a point in $\bF_p^2$ as a ordered pair \verb|P = [x,y]|, and the point at infinity as a character \verb|`O'|.
+  \begin{enumerate}
+    \item{
+    Recall that an equation $y^2 = x^3 + Ax + B$ gives an elliptic curve precisely when the discrimant $\Delta = 4A^3 + 27B^2$ is nonzero.  Write a function \verb|isElliptic(E,p)| which takes the equation of a (potential) elliptic curve and a prime $p$, and returns \verb|True| if it is in fact an elliptic curve (mod $p$), and \verb|False| otherwise.
+    }
+    \item{
+    Recall that $E(\bF_p)$ is the set of points $(x,y)\in\bF_p^2$ satisfying the equation for $E$, together with a point $\cO$ at infinity.   Write a function \verb|onCurve(P,E,p)| which takes as input a point $P$, an elliptic curve $E$, and a prime $p$, returning \verb|True| if $P\in E(\bF_p)$ and \verb|False| otherwise.  (Be sure to include the possibility that $P=\cO)$.
+    }
+    \item{
+    Consider the elliptic curve $E$ given by $y^2 = x^3 + 3x + 2$ and the point $P=(3,5)$.  Using the algorithms above: for the first 7 odd primes ($3,5,7,11,13,17,19)$ print the answer the following questions.
+    \begin{enumerate}
+      \item{Is $E$ an elliptic curve over $\bF_p$?}
+      \item{Is $P\in E(\bF_p)$?}
+      \item{Is $\cO\in E(\bF_p)$?}
+    \end{enumerate}
+    }
+    \item{
+    Print the list of points for $y^2 = x^3 + 3x + 2$ over $\bF_7$.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Now let's throw some arithmetic into the mix.
+  \begin{enumerate}
+    \item{
+    Write a function \verb|addPoints(P,Q,E,p)|.  It should take as input an elliptic curve $E$ and a prime $p$, together with two points $P,Q\in E(\bF_p)$, and should return the sum $P+Q\in E(\bF_p)$.  Use the elliptic curve addition algorithm described in class.  (Be sure to allow for $P,Q$, or $P+Q$ to be $\cO$).
+    }
+    \item{
+    Let's do some testing:
+    \begin{enumerate}
+      \item{
+      Let $E$ be $x^3 + 3x + 8$, over $\bF_{13}$,  $P=(9,7)$ and $Q = (1,8)$.  Compute $P+Q$, $2P$ and $\cO+Q$.  (Note: the entire multiplication table for this curve is worked out in [HPS] Table 6.1, so it would be a good example to troubleshoot with).
+      }
+      \item{
+      Let $E$ be $y^2 = x^3 + 3x + 2$ over $\bF_7$.  Print the entire multiplication table for $E$.  (You can avoid adding a new line at the end of a print command as follows: \verb|print(stuffToPrint,end='')|, and print $\cO$ as \verb|[OOOO]| to keep rows even).
+      }
+      \item{
+      Let $E$ be $y^2 = x^3 + 231x + 473$ over $p=17389$.  Let $P = (11259,11278)$ and $Q = (11017,14673)$.  Compute $P+Q$, $2Q$ and $3P$.
+      }
+    \end{enumerate}
+    }
+  \end{enumerate}
+  }
+  \end{enumerate}
+
+\section*{Written Part}
+\begin{enumerate}
+\setcounter{enumi}{2}
+  \item{
+  Graph the following curves over $\mathbb{R}$ in the following steps. Since each is of the form $y^2=f(x)$ first draw a graph of $y = f(x)$ by finding its roots and critical points.  Then deduce the shape of $y^2 = f(x)$ by taking square roots of the $y$ coordinates (when you can).  Which of them are elliptic curves?
+  \begin{enumerate}
+  \item $y^2 = x^3 -2x+4$
+  \item $y^2 = x^3 - 7x + 6$
+  \item $y^2 = x^3 - 12x + 16$
+  \end{enumerate}
+  }
+\item{
+Consider the elliptic curve $E$ over $\mathbb{R}$ given by the equation $y^2 = x^3 - 2x + 4$.  Let $P = (0,2)$ and $Q = (3,-5)$.  Compute the following \textit{by hand}, explaining the geometry behind each step. 
+  \begin{enumerate}
+    \item{
+    Show $P,Q\in E$.
+    }
+    \item{
+    Compute $P\oplus Q$.
+    }
+    \item{
+    Compute $P\oplus P$.
+    }
+    \item{
+    Compute $P\oplus P\oplus P$.
+    }
+  \end{enumerate}
+  }
+\end{enumerate}
+Recall that a curve given by an equation $y^2 = x^3 + ax + b$ is an elliptic curve if and only if the value $\Delta_E = 4a^3 + 27b^2=0$.   This has to do with the right side of the equation having double roots, leading to nonuniqueness of tangent lines after taking square roots (cf. the graphs in question 3).  Let's make this more precise.
+\begin{enumerate}
+\setcounter{enumi}{4}
+  \item{
+  Let $f(x) = x^3 + ax + b$ be a cubic equation, which factors over $\mathbb{C}$ as $(x-e_1)(x-e_2)(x-e_3)$.  Show that $4a^3 + 27b^2 = 0$ if and only if the $e_i$ are all distinct.}
+  
+  \end{enumerate}
+
+\end{document}
