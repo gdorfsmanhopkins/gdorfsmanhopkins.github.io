@@ -1,0 +1,161 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\usepackage{tabularx}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 116, Fall 2021}
+
+\begin{document}
+\begin{center}
+\Large {Final Assignment}\\
+\small {Due Thursday, December 16 \textbf{at 11:00 PM}}
+\end{center}
+This is the final assignment of the course.  As in the projects:
+\begin{itemize}
+  \item{Your work must be your own.  For this assignment do not work in groups or share code.}
+  \item{It is open book: you may use the textbook, your class notes, my class notes and lecture videos, past homework assignments and their solutions, as well as the Sage and Python documentation.  Everything else is off limits.  I can also be a resource so don't hesitate to reach out!}
+\end{itemize}
+If you have questions, please reach out to me ASAP.
+\section*{Implementation Part}
+\begin{enumerate}
+  \item{
+  Implement Lenstra's elliptic curve factorization algorithm.  In particular, write function \verb|LenstraFactor(N)| which takes as input a number $N$ and returns a nontrivial factor of $N$.  The algorithm is outlined in the November 30th lecture (or Table 6.8 in [HPS]).  You will need your elliptic curve arithmetic algorithms from HW10 and Project 2, including \verb|addPoints|, \verb|doubleAndAddSmall|, and \verb|generateEllipticCurveAndPoint|.  You will likely need to make adjustments to deal with the case where adding is impossible (this is, after all, what you are looking for).
+  }
+  \item{
+  This is the third integer factorization algorithm we have implemented (there are many more).  In particular, we have seen \verb|PollardFactor| (HW6 Problem 1) which implements Pollard's $p-1$ algorithm, and \verb|sieveFactor| (HW7 Problem 3) which implements the Pomerance's quadratic sieve.  Let's compare them here.  Each of the following numbers are $pq$ for distinct primes $p$ and $q$.  Run (or try to run) each factorization algorithm on each.  \textbf{In the written part, include a section commenting on the results.  Why did different algorithms have more success with the some numbers and not others?}
+  \begin{enumerate}
+    \item{25992521}
+    \item{70711569293}
+    \item{508643544315682693}
+    \item{2537704279906340177603567383}
+  \end{enumerate}
+  }
+  \begin{remark}
+    Not every algorithm will terminate with all four numbers above (although I found each number to be able to be factored by at least one of them), so you may want to experiment putting upper bounds in your looping.  For \verb|LenstraFactor|, I think it is also a good idea to try several curves before giving up.
+  \end{remark}
+\end{enumerate}
+\section*{Written Part}
+\begin{enumerate}
+  \setcounter{enumi}{2}
+  \item{
+  Let $E$ be an elliptic curve over $\bF_p$, and suppose that $\#E(\bF_p) = n$.  Let $P\in E(\bF_p)$ be a point.  Suppose $a$ is an integer and that $\gcd(a,n)=1$.  Prove that $P$ is a multiple of $aP$.
+  }
+  \newpage
+  \item{
+  Recall that in HW4 Problem 6 we studied a public key cryptosystem that involving Alice and Bob agreeing on a public prime and exchanging a series of values in $\bF_p^*$.
+  \begin{enumerate}
+    \item{
+    Formulate a version of this cryptosystem for Elliptic curves, and prove its correctness.  You may assume that you have a fast way to compute $\#E(\bF_p)$. Be sure to make clear what is public information and what is private information.  What plays the roll of the message?
+    }
+    \item{
+    Show that a solution to the Elliptic Curve Discrete Log Problem will break this cryptosystem.
+    }
+    \item{
+    Show that a solution the the Elliptic Curve Diffie Hellman Problem will break this cryptosystem.
+    }
+    \item{
+    Discuss any other advantages or disadvantages you observe about this cryptosystem.
+    }
+  \end{enumerate}
+  }
+  In the previous problem, the \textit{message} which was sent was a chosen point on an elliptic curve.  When the message is a number we can use ASCII to directly translate text to integers, but with points on an elliptic curve, the question is more subtle.  MV-Elgamal got around this subtlety just using the elliptic curve to create a shared secret, and using the coordinates as keys for a symmetric cipher whose plaintext are integers (not points).  In the following exercise we will describe another solution, using a probabilistic algorithm to map integers to points on the elliptic curve in a recoverable way.  We need to introduce the following notation: if $x,y$ are 2 bitstrings, then $x||y$ is their \textit{concatenation}, that is, the bit string which first consists of $x$, and then $y$.  For example $01011||001 = 01011001$.
+  \item{
+  Let $E$ be an elliptic curve over $\bF_p$ with equation $y^2 = x^3 + Ax + B$, where $p$ is $2k+1$-bits in length.
+  \begin{enumerate}
+    \item{
+    The most na\"ive way to map a plaintext $m$ (which can be thought of as an integer) to a point on the elliptic curve would to embed $m$ as the $x$-coordinate.  Explain what goes wrong with this approach.
+    }
+    \item{
+    Instead we will implement the following probabilistic algorithm, which will allow us to map a message $k$-bits in length to a point on the elliptic curve, in the following steps.
+    \begin{enumerate}[(1)]
+      \item{
+      Start with a plaintext message $m$, stored as an integer $k$-bits in length.
+      }
+      \item{
+      Choose a random integer $r$, also $k$-bits in length.
+      }
+      \item{
+      Compute $r||m\in\bF_p$.
+      }
+      \item{
+      Detect if $r||m$ is the $x$ coordinate of a point in $E(\bF_p)$.  If so, compute the $y$ coordinate, and return $P = (r||m,y)$ as your plaintext for the elliptic curve encryption.  Otherwise return to step 2.
+      }
+    \end{enumerate}
+    Describe exactly how Step 4 would be carried out.  (You may assume that you have a fast algorithm to compute square roots modulo $p$ if they exist).  Conversely explain how to reverse the algorithm to recover the plaintext from a point.
+    }
+    \item{
+    How many values of $r$ would expect to have to try until you have a point?  (You may assume that $r||m\in\bF_p$ varies randomly as $r$ does, and use the black box about expected values given in Project 1 6(d)).
+    }
+    \end{enumerate}
+  }
+ \end{enumerate}
+The algorithm described in the previous problem has a few downsides.  First, there's some randomness which slows down the encryption process.  Second, one has to use primes much larger than the messages you start with, leading to significantly increased message expansion.  In practice, one instead can choose special elliptic curves where one can define a bijection between $\bF_p$ and $E(\bF_p)\setminus\{\cO\}$ (these are called \textit{supersingular} elliptic curves).  Let's explore an example of how this might work.
+\begin{enumerate}
+\setcounter{enumi}{5}
+  \item{
+    For this entire problem we fix a prime $p\equiv2\mod 3$, and consider the elliptic curve given $E$ by the equation $y^2=x^3+1$ over $\bF_p$.
+    \begin{enumerate}
+    \item{Show that every $y_0\in\bF_p$ is the $y$ coordinate of exactly one nonzero point of $E(\bF_p)$.  (\textit{Hint:} use HW8 Problem 6(e)).}
+    \item{To implement this, we have to make HW8 Problem 6(e) explicit: let $z\in\bF_p$.  Show that $z^{\frac{2p-1}{3}}$ is the unique cube root of $z$.  (Don't forget to show that $\frac{2p-1}{3}$ is an integer).}
+    \item{With part (a) and (b) in mind, write algorithms \verb|textToPoint| and \verb|pointToText| which will translate a string to a point on $E$, and vice versa.  (You may call the functions \verb|intToText| and \verb|textToInt| in your pseudocode.)}
+    \end{enumerate}
+}
+  \item{
+  You are Eve, and you intercept Bob's cipher text $c = [R,c_1,c_2]$ sent to Alice.  You know it was encrypted using MV-Elgamal, with a public curve $E$ over a prime $p$ with a base point $P$, and you know Alice's public key $Q$.  You also have 1 time access to Alice's machine to decrypt MV-Elgamal ciphers.  Describe a way to obtain the plaintext message Bob sent to Alice, proving the correctness of your method.  \textbf{Note:} Alice's machine runs a security protocol which will not decrypt messages that have already been decrypted, so you can not just ask it to decrypt $c$.\\
+  \\
+  \textbf{Bonus: }Alice noticed a weakness in their machine's security protocol, and updates it to the following: If Alice's machine has already decrypted $c = [R,c_1,c_2]$, it will only decrypt ciphertexts $c' = [R',c_1',c_2']$ where $c_1'\not=c_1$, $c_2'\not=c_2$, and $R'\not=\pm R$.  But you're clever: devise a `chosen ciphertext attack' to get around this updated security protocol.  (You may assume you have a fast algorithm to compute $\#E(\bF_p)$.
+  }
+\end{enumerate}
+\end{document}
