@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\usepackage{tabularx}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{question}[theorem]{Question}
+\newtheorem*{hint}{Hint}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113, Spring 2022}
+
+\begin{document}
+\begin{center}
+\Large {Homework Assignment 5}\\
+\small {Due Friday, February 25}
+\end{center}
+In this assignment we answer the following question:
+\begin{question}\label{q1}
+Let $G$ be a group, and $H\le G$ a subgroup.  When is $G/H$ a group?
+\end{question}
+More specifically we are asking when the set of a cosets a group under the mutliplication rule given by $(g_1H)(g_2H) = g_1g_2H$.  We want a way to answer the question \textit{intrinsically} to $G$ and $H$.  For this we recall the following definition from the 2/22 lecture.
+\begin{definition}
+Let $G$ be a group and $H\le G$ a subgroup.  For $g\in G$ the \textbf{conjugate of $H$ by $g$} is the set:
+\[gHg^{-1} = \{ghg^{-1}\text{ }:\text{ }h\in H\}.\]
+We say that $H$ is a \textbf{normal subgroup} if for every $g\in G$ we have
+$gHg^{-1} = H$.  If $H\le G$ is a normal subgroup, we write $H\unlhd G$.
+\end{definition}
+An intrinsic answer to Question \ref{q1} is given by the following theorem.
+\begin{theorem}\label{t1}
+Let $G$ be a group and $H\le G$ a subgroup.  The following are equivalent.
+\begin{enumerate}[(i)]
+\item $H\unlhd G$
+\item $G/H$ is a group under the rule $(g_1H)(g_2H) = g_1g_2H$.
+\item $H$ is the kernel of a group homomorphism with domain $G$.
+\end{enumerate}
+\end{theorem}
+\begin{enumerate}
+\item{There is only one goal in this assignment: to prove Theorem \ref{t1}.  To achieve this goal, we will prove $(i)\implies(ii)\implies(iii)\implies(i)$.
+\begin{enumerate}
+\item{Suppose $H\unlhd G$.  Show that $G/H$ is a group under the rule $(g_1H)(g_2H) = g_1g_2H$.  This shows that $(i)\implies(ii)$.}
+\item{Suppose that $G/H$ is a group under the rule $(g_1H)(g_2H) = g_1g_2H$.  Produce a group homomorphism from $G$ to some group whose kernel is $H$.  This shows that $(ii)\implies (iii)$.  (Note: we essentially gave this argument in the 2/22 lecture, but do include a full proof here as well).}
+\item{Let $\varphi:G\to G'$ be a group homomorphism with kernel $H$.  Show that $H\unlhd G$.  This proves $(iii)\implies(i)$, thereby completing the proof of Theorem \ref{t1}.}
+\end{enumerate}
+}
+\end{enumerate}
+\end{document}
