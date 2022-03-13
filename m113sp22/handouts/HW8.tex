@@ -1,0 +1,121 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\usepackage{tabularx}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{question}[theorem]{Question}
+\newtheorem*{hint}{Hint}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113, Spring 2022}
+
+\begin{document}
+\begin{center}
+\Large {Homework Assignment 8}\\
+\small {Due Friday, March 18}
+\end{center}
+\begin{enumerate}
+  \item Cayley's theorem says that if $|G|=n$ then $G$ embeds into $S_n$ (that is, is isomorphic to a subgroup of $S_n$).  One could ask if this $n$ is \textit{sharp}, or if perhaps $G$ can embed in some smaller symmetric group.
+  \begin{enumerate}
+  \item{Give an example to show that Cayley's theorem isn't always sharp.  That is, give a group of order $n$ which embeds into $S_d$ for some $d<n$.}
+  \end{enumerate}
+    Nevertheless, we are about to see that for $Q_8$ the symmetric group given by Cayley's theorem is the smallest.  This shows that there can be no strengthening of Cayley's theorem in general.
+  \begin{enumerate}
+  \setcounter{enumii}{1}
+    \item Let $Q_8$ act on a set $A$ with $|A|\le 7$.  Let $a\in A$.  Show that the stabilizer of $a$,  $(Q_8)_a\le Q_8$ must contain the subgroup $\{\pm1\}$.  (\textit{Hint:} It might be helpful to use the orbit stabilizer theorem and the lattice from HW6 Problem 5(d).)
+    \item Deduce that the kernel of the action of $Q_8$ on $A$ contains $\{\pm1\}$.
+    \item Conclude that $Q_8$ cannot embed into $S_n$ for $n\le7$.  That is, show there is no injective homomorphisms $Q_8\hookrightarrow S_n$ for $n\le7$.
+  \end{enumerate}
+    \item Find all groups with exactly 2 conjugacy classes.  (\textit{Hint}: Use the class equation.)
+    \item Compute all the conjugacy classes for the following groups, and verify that the class equation holds in each case.
+    \begin{enumerate}
+    \item $S_3$
+    \item $Q_8$
+    \end{enumerate}
+    \end{enumerate}
+    For the next problem it may be useful to recall the following fact we proved in class.
+    \begin{theorem}[Cauchy's Theorem for Abelian Groups]
+    Let $G$ be an abelian group of order $n$.  If $p$ is a prime dividing $n$, then $G$ has a subgroup of order $p$.
+    \end{theorem}
+    This will turn out to be true for all groups, so so far we only have it in the abelian case.
+    \begin{enumerate}
+    \setcounter{enumi}{3}
+    \item The converse to Lagrange's theorem holds for groups of prime power order.  To prove this we will need to strengthen the fourth isomorphism theorem (HW5\#1).
+  \begin{enumerate}
+    \item Let $G$ be a group and $N\unlhd G$.  Let $N\le H\le K\le G$, and let $\overline H,\overline K$ be the corresponding subgroups of $G/N$ as in HW5\#1.  Show that $|K:H| = |\overline K:\overline H|$.  (\textit{Hint}: There is an obvious map $K/H\to\overline K/\overline H$.  Prove it is bijective.  Be careful though, we don't know that $K/H$ is a group, just a set of cosets.)
+    \item Suppose $|G| = p^d$ for a prime $p$ and $d\ge 1$.  Show that $G$ has a normal subgroup of order $p$.  In particular, we have extended Cauchy's theorem to nonabelian $p$-groups!  (\textit{Hint:} What did the class equation say about the center of a $p$-group?)
+    \item Suppose $|G| = p^d$ for a prime $p$ and $d\ge1$.  Show that for every $a = 1,2,\cdots,d$, $G$ has a subgroup of order $p^a$.  (Use parts (a) and (b) to proceed by induction).
+  \end{enumerate}
+  \item Here we classify all abelian groups of order $pq$ for $p\not=q$ prime.
+  \begin{enumerate}
+  \item Let $G$ be a group of finite order and suppose that $x,y\in G$ are commuting elements, i.e., that $xy = yx$.  Show that that $|xy|$ divides the least common multiple of $x$ and $y$.
+  \item Let $G$ be an abelian group of order $pq$ for primes $p\not=q$.  Show that $G\cong Z_{pq}$.
+  \item Classify all groups of order 6 up to isomorphism.
+  \end{enumerate}
+  \item Let $V$ be an abelian group of order $p^n$ for some prime $p$ and $n>0$.  Suppose that every element of $V$ has order $\le p$.  Show by induction on $n$ that:
+  \[V\cong \underbrace{Z_p\times Z_p\times\cdots Z_p}_{n\text{ times}}.\]
+  We will call such a $V$ the \textit{elementary abelian group of order $p^n$}.  We will see in the following question that these are the same as finite dimensional $\bF_p$ vector spaces!
+  \item Let $V$ be an elementary abelian group of order $p^n$.  And identify it with
+  \[V\cong\underbrace{(\bZ/p\bZ)\times\cdots(\bZ/p\bZ)}_{n\text{ times}}.\]
+  For $\lambda\in\bF_p$ and $v = (v_1,\cdots,v_n)\in V$, we can let:
+  \[\lambda v = (\lambda v_1,\cdots,\lambda v_n).\]
+  \begin{enumerate}
+  \item Explain why the scalar multiplication giving above makes $V$ into an $\bF_p$-vector space.
+  \item Show that a function $\varphi:V\to V$ is a homomorphism if and only if it is a linear map of vector spaces.
+  \item Using Proposition 1 from HW6, identify the set of isomorphisms from $V$ to itself with a group we have already seen.
+  \end{enumerate}
+\end{enumerate}
+\end{document}
