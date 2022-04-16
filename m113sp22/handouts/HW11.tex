@@ -1,0 +1,204 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\usepackage{tabularx}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{question}[theorem]{Question}
+\newtheorem*{hint}{Hint}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113, Spring 2022}
+
+\begin{document}
+\begin{center}
+\Large {Homework Assignment 11}\\
+\small {Due Friday, April 22}
+\end{center}
+This assignment will fill in many details from lecture, and do a few hands on classifications.  To begin we will confirm that the semidirect product is indeed a group.  First recall the definition.
+\begin{definition}\label{semiD}
+  Let $H,K$ be groups, and $\varphi:K\to\Aut(H)$ a group homomorphism.  Denote the induced action of $K$ on $H$ by:
+  \[k\cdot h = \varphi(k)(h).\]
+  The \textit{semidirect product} of $H$ and $K$ with respect to $\varphi$ is the set $H\rtimes K = \{(h,k):h\in H,k\in K\}$, where multiplication is defined by the rule:
+  \[(h_1,k_1)(h_2,k_2) = (h_1(k_1\cdot h_2),k_1k_2).\]
+\end{definition}
+\begin{enumerate}
+  \item{
+  Let's make sure that $H\rtimes K$ is a group.
+  \begin{enumerate}
+    \item Show that $(1,1)\in H\rtimes K$ is the identity.  (Remember you have to check both sides).
+    \item Show that $(h,k)^{-1} = (k^{-1}\cdot h^{-1},k^{-1})$. (As above, you have to check both sides).
+    \item Prove that multiplication is associative.
+  \end{enumerate}
+  }
+  \item{Consider again the setup of Definition \ref{semiD}.  Let's prove some basic properties about $G = H\rtimes K$.
+  \begin{enumerate}
+  \item Show that the subset $\{(h,1):h\in H\}\subseteq G$ is a subgroup isomorphic to $H$.  Similarly, show that $\{(1,k):k\in K\}\subseteq G$ is a subgroup isomorphic to $K$.  In what follows we identify $H$ and $K$ with these subgroups, and write $H,K\le G$.
+  \item Prove that $H\cap K=\{1_G\}$.
+  \item Show that $H\unlhd G$ and $G/H\cong K$.
+   \end{enumerate}}
+\end{enumerate}
+In HW 10 Problem 5 we proved the \textit{Recognition Theorem for Direct Products} (HW10 Theorem 3).  There is an analogous result for semidirect products, and in fact you already did most of the work.  Let's state the result.
+\begin{theorem}[Recognition Theorem for Semidirect Products]\label{recog}
+Suppose $G$ is a group and $H,K\le G$ are subgroups.  Suppose that $H\unlhd G$ is normal, and that $H\cap K = 1$.  Then \[HK\cong H\rtimes_\varphi K,\]
+where $\varphi:K\to\Aut(H)$ corresponds to the action of $K$ on $H$ by conjugation (in $G$).  In particular, if $HK=G$ then $G\cong H\rtimes_\varphi K$.
+\end{theorem}
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Prove Theorem \ref{recog} by showing that function $H\rtimes_{\varphi} K\to HK$ defined by the rule $(h,k)\mapsto hk$ is an isomorphim.  (\textit{Note:} Bijectivity should follow from HW10 Problem 5(a), so the main verification is that it is a homomorphism).
+ \item A lot of studying semidirect products comes down to enumerating and classifying homomorphisms.
+ \begin{enumerate}
+    \item{
+    Show that giving a homomorphism $Z_n\to G$ is the same as selecting an element $g\in G$ with $|g|$ dividing $n$.  That is, give a bijection between the following sets:
+    \[\left\{
+    \begin{array}{c}
+      \text{Homomorphisms}\\
+      Z_n\to G
+    \end{array}\right\}
+    \Longleftrightarrow
+    \left\{
+    \begin{array}{c}
+      \text{Elements }g\in G\\
+      \text{where }|g|\text{ divide }n
+    \end{array}
+    \right\}
+    \]
+    }
+    \item{
+    If $p$ is prime show that giving a \textit{nontrivial} map $Z_p\to G$ is the same as choosing an element of order $p$ in $G$. (Note: the trivial map is the one that sends every element to the identity of $G$).
+    }
+    \item{
+    Show that giving a homomorphism $Z_{n_1}\times\cdots\times Z_{n_r}\to G$ is the same as chosing elements $g_1,\cdots,g_r\in G$ such that all the $g_i$ commute with eachother and each $|g_i|$ divides $n_i$.
+    }
+    \item{
+    Suppose $G$ is abelian and $p$ is prime.  Describe the set of homomorphisms $Z_p\times Z_p\to G$ as a subset of $G\times G$.
+    }
+  \end{enumerate}
+
+\end{enumerate}
+Any homomorphism $\varphi:K\to\Aut H$ allows us to build a semidirect product $H\rtimes_\varphi K$.  An interesting question is when different maps give us isomorphic semidirect products.  In class we stated and used a special case of the following lemma.
+\begin{lemma}\label{leftSemidirect}
+  Let $\varphi,\psi:K\to\Aut H$ be two homomorphisms, and suppose they differ by an automorphism of $K$.  That is, suppose there is some $\gamma\in\Aut(K)$ such that $\psi\circ\gamma = \varphi$:
+  \[
+  \begin{tikzcd}
+    K\ar[dr,"\varphi"]\ar[dd,swap,"\gamma"] & \\
+     & \Aut H\\
+    K\ar[ur,swap, "\psi"] &
+  \end{tikzcd}
+  \]
+  Then $H\rtimes_\varphi K\cong H\rtimes_\psi K$.
+\end{lemma}
+One could ask if this is the only thing that could allow different $\varphi$ to give different semidirect products.  The answer would be no, as the following lemma shows.
+\begin{lemma}\label{rightSemidirect}
+  Let $\varphi,\psi:K\to\Aut H$ be two homomorphisms, and suppose they are conjugate in $\Aut H$.  Explicitely, suppose there is some $\alpha\in\Aut H$, corresponding to the inner automorphism $\sigma_\alpha:\beta\mapsto \alpha\beta\alpha^{-1}$, and suppose that $\psi = \sigma_\alpha\circ\varphi$:
+  \[
+  \begin{tikzcd}
+    &\Aut H\ar[dd,"\sigma_\alpha"]\\
+    K\ar[ur,"\varphi"]\ar[dr,swap,"\psi"]\\
+    &\Aut H
+  \end{tikzcd}
+  \]
+  Then $H\rtimes_\varphi K\cong H\rtimes_\psi K$.
+\end{lemma}
+\begin{enumerate}
+  \setcounter{enumi}{4}
+  \item{Lemmas \ref{leftSemidirect} and \ref{rightSemidirect} say that if we alter $\varphi$ by an automorphism of $K$, or an inner automorphism of $\Aut H$, (or both), we don't change the semidirect products.  Let's prove this.
+  \begin{enumerate}
+    \item{
+    Consider the setup of Lemma \ref{leftSemidirect}.  Show that the map:
+    \begin{eqnarray*}
+      H\rtimes_\varphi K&\longrightarrow& H\rtimes_\psi K\\
+      (h,k)&\mapsto&(h,\gamma(k))
+    \end{eqnarray*}
+    is an isomorphism, thereby proving the lemma.
+    }
+    \item{
+    Consider the setup of Lemma \ref{rightSemidirect}.  Show that the map:
+    \begin{eqnarray*}
+      H\rtimes_\varphi K&\longrightarrow&H\rtimes_\psi K\\
+      (h,k) &\mapsto& (\alpha(h),k)
+    \end{eqnarray*}
+    is an isomorphism, thereby proving the lemma.  (Notice that $\alpha\in\Aut H$ is an automorphism of $H$, wheras $\sigma_\alpha$ is an automorphism of $\Aut H$, given by conjugation by $\alpha$.  In unweildy notation, this says $\sigma_\alpha\in\Aut(\Aut H)$.)
+    }
+    \item{
+    Now suppose $\varphi,\psi:K\to\Aut H$ are two homomorphisms, and suppose there is an automorphism $\gamma\in\Aut K$ and an inner automorphism $\sigma\in\Inn(\Aut(H))$ such that the following diagram commutes:
+    \[
+    \begin{tikzcd}
+      K\ar[r,"\varphi"]\ar[d,swap,"\gamma"]&\Aut H\ar[d,"\sigma"]\\
+      K\ar[r,"\psi"]&\Aut H.
+    \end{tikzcd}
+    \]
+    That is, $\sigma\circ\varphi = \psi\circ\gamma$.  Then $H\rtimes_\varphi K\cong H\rtimes_\psi K$.  (Hint: This should follow formally from Lemmas \ref{leftSemidirect} and \ref{rightSemidirect}, so you shouldn't have to do any lengthy computations).
+    }
+  \end{enumerate}
+  }
+  \item We've seen 5 groups of order 12: $Z_{12},Z_6\times Z_2, D_{12},A_4$, and a nontrivial semidirect product $Z_3\rtimes Z_4$ where the generator of $Z_4$ acts on $Z_3$ by inverting elements.  Let's prove this is all of them!
+  \begin{enumerate}
+  \item Let $G$ be a group of order 12.  Show that if $G\not\cong A_4$, then $G\cong Q\rtimes P$ where $P$ is a Sylow 2-subgroup and $Q$ is a Sylow 3-subgroup.  (\textit{Hint}: \textbf{(Sylow 3)} and the Theorem \ref{recog} should help).
+  \item Show that there is only one abelian and one nonabelian semidirect product $Z_3\rtimes Z_4$ up to isomorphism.
+  \item Show that there is only one abelian and one nonabelian semidirect prodcut $Z_3\rtimes (Z_2\times Z_2)$ up to isomorphism.  (You might need Lemma \ref{leftSemidirect}).
+  \item Put together parts (a)-(c) to deduce that there are exactly 5 groups of order 12 up to isomorphism.  Of the semidirect products classified in parts (b) and (c), which one corresponds to $D_{12}$?
+  \end{enumerate}
+    \item{
+  In this problem we classify all groups of order 75 up to isomorphism.  (There should be 3 total).
+  \begin{enumerate}
+    \item{List all the abelian groups of order 75 using the fundamental theorem of finite abelian groups.}
+    \item{Prove that a group of order 75 is isomorphic to $P\rtimes Q$ where $P$ is a Sylow 5-subgroup and $Q$ is a Sylow 3-subgroup.}
+    \item{Prove that if a group of order 75 has a \textit{cyclic} Sylow 5-subgroup, then it is abelian.}
+    \item{Show that there is a unique nonabelian group of order 75 up to isomorphism.  (\textit{Hint:} Show that 3 is a maximal 3-divisor of $|GL_2(\bF_5)|$.  Then use Sylow's theorems and 5(c).)}
+  \end{enumerate}
+  }
+\end{enumerate}
+\end{document}
