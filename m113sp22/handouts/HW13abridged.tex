@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+\usepackage[top = 1in, bottom = 1in, left =1in, right = 1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabu}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usepackage{seqsplit}
+\usepackage{ulem}
+\usepackage{tabularx}
+\AtBeginEnvironment{proof}{\color{blue}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{facts}{Fact}
+\newtheorem*{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{question}[theorem]{Question}
+\newtheorem*{hint}{Hint}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{fancyhdr}\pagestyle{fancy}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\ab}{\mathrm{ab}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Inn}{\operatorname{Inn}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ch}{\operatorname{char}}
+
+%Math blackboard:
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bF}{\mathbb{F}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bZ}{\mathbb{Z}}
+
+%Math caligraphy
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cO}{\mathcal{O}}
+
+%Math Frakture
+\newcommand{\fN}{\mathfrak{N}}
+
+\newcommand{\maps}{\operatorname{Maps}}
+
+
+%Greek blackboard font:
+\newcommand{\bmu}{\mbox{$\raisebox{-0.59ex}
+  {$l$}\hspace{-0.18em}\mu\hspace{-0.88em}\raisebox{-0.98ex}{\scalebox{2}
+  {$\color{white}.$}}\hspace{-0.416em}\raisebox{+0.88ex}
+  {$\color{white}.$}\hspace{0.46em}$}{}}
+
+\lhead{University of California, Berkeley}
+\rhead{Math 113, Spring 2022}
+
+\begin{document}
+\begin{center}
+\Large {Homework Assignment 13}\\
+\small {Due Saturday, May 7}
+\end{center}
+\begin{enumerate}
+  \item{In class we proved a cancellation law for integral domains.  We can actually say something a bit stronger (and quite useful).  Let $R$ be a ring and $a,b,c\in R$.  Suppose that a is not zero or a zero divisor, and that $ab = ac$.  Prove $b=c$.}
+  \item{
+  Let $R$ and $S$ be rings and $\varphi:R\to S$ a ring homomorphism.
+  \begin{enumerate}
+    \item{Show that $\im\varphi$ is a subring of $S$.}
+    \item{Show that $\ker\varphi$ is a (two-sided) ideal of $R$.}
+    \item{Suppose $J\subseteq S$ is an ideal.  Show that $\varphi^{-1}(J)$ is an ideal of $R$.}
+    \item{Suppose $R$ and $S$ are unital rings with \textit{nonzero} identities $1_R$ and $1_S$ respectively.  Prove that if $\varphi(1_R)\not=1_S$ then $\varphi(1_R)$ is either zero, or a zero divisor in $S$.}
+    \item{Deduce that if $S$ is an integral domain and $\varphi$ is nonzero then $\varphi(1_R)=1_S$.  (\textit{Remark:} many authors require rings to be unital, and also require ring homomorphisms to take the identity to the identity.)}
+  \end{enumerate}
+  }
+  \setcounter{enumi}{5}
+  \item{
+  Let $R$ be a commutative ring with $1\not=0$.
+  \begin{enumerate}
+    \item{
+    Fix $a\in R$.  Show that $(a)=R$ if and only if $a\in R^\times$.
+    }
+    \item{
+    Fix $a,b\in R$, and suppose that $a$ is not a zero divisor.  Show that $(a)=(b)$ if and only if $a = ub$ for some unit $u\in R^\times$.
+    }
+    \item{
+    Let $I$ be any ideal.  Show that $I=R$ if and only if $I$ contains a unit $u\in R^\times$.
+    }
+    \item{
+    Prove that $R$ is a field if and only if the only ideals in $R$ are $(0)$ and $R$ itself.
+    }
+  \end{enumerate}
+  }
+  \item{
+  Let $R$ be a commutative ring.  The \textit{nilradical} of $R$ is $\fN(R)=\{r\in R:r$ is nilpotent$\}$.  By HW12 Problem 3 we know that $\fN(R)$ is an ideal of $R$.
+  \begin{enumerate}
+    \item{Show that $R/\fN(R)$ is reduced.  This is often called the \textit{reduction of $R$,} and is denoted $R_{red}$.}
+    \item{Compute $\fN(R)$ and $R_{red}$ for the following two rings.
+    \begin{enumerate}
+    \item $R = \bZ[x]/(x)^n$ for $n\ge2$.
+    \item $R = \bZ/p^n\bZ$ for $n\ge2$.
+    \end{enumerate}}
+  \end{enumerate}
+  }
+
+\end{enumerate}
+\end{document}
