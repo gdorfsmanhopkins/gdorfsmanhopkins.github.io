@@ -31,7 +31,7 @@ initializePointsList();
 drawPoints();
 
 //Initialize the settings GUI
-var settings = QuickSettings.create(screenWidth/10,screenHeight/10,"Settings")
+var settings = QuickSettings.create(screenWidth/20,screenHeight/10,"Settings")
 settings.addDropDown("Number of Ants",[2,3,5,10,100],function setAnts(value){
   basic = false;
   n = value.value;
