@@ -139,6 +139,29 @@ function computeBaseP(n){
   }
   return digits;
 }
+
+//witt coordinates
+function computeWitt(x){
+  var digits = [];
+  for(var i=0;i<n;i++){
+    var d = x % p;
+    digits.push(d);
+    for(var j=0;j<n-i;j++){
+      var y = 1
+      for(var k = 0; k<p;k++){
+        y = y*d % (p**n);
+      }
+      d = y;
+      //console.log("d is",d);
+    }
+    x = (x-d)/p;
+    //console.log("n,x=",n,x);
+  }
+  return digits;
+}
+
+
+
 function initialize(){
   initializePointsList();
   initializeColors();
@@ -148,7 +171,7 @@ function initializePointsList(){
   points = [];
   for(var i=1;i<p**n+1;i++){
     //First compute i in base p, then compute the location and add it to the list
-    points.push(computeLocation(computeBaseP(i)));
+    points.push(computeLocation(computeBaseP(i)));  //Previously was computeWitt
   }
 }
 function initializeColors(){
@@ -204,7 +227,7 @@ function applyFunction(f){
   for(var i=0;i<p**n;i++){
     initial.push(points[i]);
     //note, we use i+1 since we start counting at 1 when initializing.  This may be necessary to fix later.
-    final.push(computeLocation(computeBaseP(f(i+1))));
+    final.push(computeLocation(computeBaseP(f(i+1))));  //previously was computeWitt
   }
   //Then push the movement to the animation queue:
   animationQueue.push({
