@@ -205,13 +205,13 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 
 .column {
     flex: 30%;
-    max-width: 30%;
+    /* max-width: 30%; */
     padding: 0 4px;
     text-align: center;
 }
 .column img {
     max-width: 100%;
-    max-height: 320px;
+    max-height: 420px;
     width: auto;
     height: auto;
     display: block;
