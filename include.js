@@ -37,7 +37,25 @@ function highlightCurrentPageNav() {
 
   const navLinks = Array.from(menu.querySelectorAll('a'));
   for (const link of navLinks) {
+    const filename = location.pathname.split("/").pop().toLowerCase();
+
+    const aliases = {
+      "publications.html": "research.html",
+      "art.html": "research.html",
+      "illustration.html": "research.html",
+      "initiatives.html": "research.html"
+    };
+
+    const mapped = aliases[filename];
     const href = link.getAttribute('href');
+
+    const hrefFilename = href.split("/").pop().toLowerCase();
+
+    if (mapped && hrefFilename === mapped) {
+        link.closest("li")?.classList.add("selected");
+        return;
+    }
+
     if (!href) {
       continue;
     }
