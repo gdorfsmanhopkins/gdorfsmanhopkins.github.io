@@ -1,4 +1,4 @@
-fetch("data/imso.json")
+fetch("data/IMSO.json")
     .then(response => response.json())
     .then(talks => {
 
