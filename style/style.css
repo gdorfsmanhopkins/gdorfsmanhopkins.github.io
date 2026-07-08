@@ -399,3 +399,71 @@ table tr td
     line-height:1.35;
     margin-bottom:18px;
 }
+
+.student-card {
+    text-align: center;
+    padding: 0 12px;
+    margin-bottom: 55px;
+}
+
+.student-name {
+    font-size: 1.45em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.student-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.student-image img {
+    max-height: 420px;
+    width: auto;
+    max-width: 100%;
+  }
+
+.project-title {
+    font-weight: 600;
+    margin: 0 0 0 0;
+    padding: 0;
+    text-align: left;
+
+}
+
+.project-tags {
+    font-size: 9pt;
+    color: #777;
+    margin: 0 0 8px 0;
+    padding: 0;
+    text-align: left;
+
+
+}
+
+.project-type {
+    font-size: 11pt;
+    margin: 0 0 6px 0;
+    padding: 0;    text-align: left;
+
+
+}
+
+.project-description {
+    font-size: 11pt;
+    margin: 0 0 8px 0;
+    font-style: italic;
+    padding: 0;
+    text-align: left;
+
+}
+
+.project-outcome {
+    font-size: 11pt;
+    margin: 0 0 10px 0;
+    padding: 0;
+    text-align: left;
+
+}
