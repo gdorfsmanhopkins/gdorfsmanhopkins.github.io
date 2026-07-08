@@ -1,0 +1,274 @@
+[
+  {
+    "date": "2023-05-12",
+    "speaker": "Saul Schleimer",
+    "affiliation": "University of Warwick",
+    "title": "Illustrating Geometry (and Topology)",
+    "url": "https://illustratingmath.org/node/49",
+    "poster": "../files/IMSOMay12.png",
+    "abstract": "According to Poincaré, 'geometry is the art of reasoning well from badly drawn figures' [1895]. In this talk I will give an informal discussion of some famous attempts to draw mathematical figures: some more, and some less, badly drawn. I will finish by discussing some of my own work (with Henry Segerman) in this direction, attempting to use computer graphics, interactive web apps, and 3D printing to illustrate mathematics.",
+    "youtube": "https://www.youtube.com/watch?v=iaI6lsqL-_0"
+  },
+  {
+    "date": "2023-06-09",
+    "speaker": "Alexander Holroyd",
+    "affiliation": "University of Bristol",
+    "title": "LEGO Construction for Mathematical Artists and Artistic Mathematicians",
+    "url": "https://illustratingmath.org/node/50",
+    "poster": "../files/IMSOJune9.png",
+    "abstract": "The LEGO system offers possibilities far beyond its core identity as a children’s toy. In particular it allows for near-instantaneous experimentation with mechanisms, while at the same time allowing for sophisticated and beautiful constructions that demonstrate physical and mathematical principles."
+  },
+  {
+    "date": "2023-07-14",
+    "speaker": "Edmund Harriss",
+    "affiliation": "University of Arkansas",
+    "title": "Realising Abstractions",
+    "url": "https://illustratingmath.org/node/55",
+    "poster": "../files/IMSOJuly14.png",
+    "abstract": "The process of illustrating mathematics is in some ways the reverse of mathematical modelling. Instead of trying to make systems in mathematics that reflect the physical world, it tries to create images and objects in the world and that reflect mathematical structure. What does it mean to tie models as closely as possible to abstract ideas, and how can this help both study mathematical ideas and also find new applications for mathematics, especially in manufacturing?"
+  },
+  {
+    "date": "2023-08-11",
+    "speaker": "Elisabetta Matsumoto",
+    "affiliation": "Georgia Institute of Technology",
+    "title": "Twisted topological tangles, or: the knot theory of knitting",
+    "url": "https://illustratingmath.org/node/56",
+    "poster": "../files/IMSOAugust11.png",
+    "abstract": "Imagine a 1D curve, then use it to fill a 2D manifold that covers an arbitrary 3D object – this computationally intensive materials challenge has been realized in the ancient technology known as knitting. This process for making functional 2D materials from 1D portable cloth dates back to prehistory, with the oldest known examples dating from the 11th century CE. Knitted textiles are ubiquitous as they are easy and cheap to create, lightweight, portable, flexible and stretchy. As with many functional materials, the key to knitting’s extraordinary properties lies in its microstructure. At the 1D level, knits are composed of an interlocking series of slip knots. At the most basic level there is only one manipulation that creates a knitted stitch – pulling a loop of yarn through another loop. However, there exist hundreds of books with thousands of patterns of stitches with seemingly unbounded complexity. The topology of knitted stitches has a profound impact on the geometry and elasticity of the resulting fabric. We have developed a formalization of the topology of two-periodic weft knitted textiles using a construction we call the swatch [1]. Using this construction, we can prove that all two-periodic weft knits form ribbon links [2]. This puts a new spin on additive manufacturing – not only can stitch pattern control the local and global geometry of a textile, but the creation process encodes mechanical properties within the material itself. Unlike standard additive manufacturing techniques, the innate properties of the yarn and the stitch microstructure has a direct effect on the global geometric and mechanical outcome of knitted fabrics."
+  },
+  {
+    "date": "2023-09-08",
+    "speaker": "Laura Taalman",
+    "affiliation": "James Madison University",
+    "title": "Mathematical Technocraft",
+    "url": "https://illustratingmath.org/node/57",
+    "poster": "../files/IMSOSept8.png",
+    "abstract": "By combining mathematics, technology, and craft we can produce physical and visual artifacts that help us discover and explore new ideas. We'll discuss a range of topics from knot theory to the fiber arts, and use code, 3D printing, and vintage punch card knitting machines to create pattern generation tools and physical models that illustrate and clarify the underlying mathematics. We'll also discuss the ups and downs of design processes that include challenges that arise from intersecting mathematics, technology, and crafting."
+  },
+  {
+    "date": "2023-10-13",
+    "speaker": "Henry Segerman",
+    "affiliation": "Oklahoma State University",
+    "title": "Artistic Mathematics: Truth and Beauty",
+    "url": "https://illustratingmath.org/node/58",
+    "poster": "../files/IMSOOct13.png",
+    "abstract": "I'll talk about my work in mathematical visualization: making accurate, effective, and beautiful pictures and models of mathematical concepts. I'll discuss what it is that makes a visualization compelling, and show many examples in the medium of 3D printing."
+  },
+  {
+    "date": "2023-11-10",
+    "speaker": "Chaim Goodman-Strauss",
+    "affiliation": "National Museum of Mathematics",
+    "title": "Illustrating Mathematics",
+    "url": "https://illustratingmath.org/node/60",
+    "poster": "../files/IMSONov10",
+    "abstract": "I’ve been illustrating mathematics since I’ve known any, and will be showing a variety of work in a range of media."
+  },
+  {
+    "date": "2023-12-08",
+    "speaker": "Nelson Max",
+    "affiliation": "University of California, Davis",
+    "title": "Visualizing topology and tilings",
+    "url": "https://illustratingmath.org/node/63",
+    "poster": "../files/IMSODec8.png",
+    "abstract": "Nelson Max will show segments of several computer animated films from the 1970s, on turning a circle or sphere inside out by a regular homotopy, and on space filling curves, and demonstrate a web-based system for uniform tilings of the sphere, plane, and hyperbolic plane."
+  },
+  {
+    "date": "2024-01-12",
+    "speaker": "David Bachman",
+    "affiliation": "Pitzer College",
+    "title": "Growing Art",
+    "url": "https://illustratingmath.org/node/70",
+    "poster": "../files/IMSOJan12.png",
+    "abstract": "When most people picture mathematical art, they envision regular shapes formed by plotting precise equations. In this talk, I will discuss my approach to creating art through a very different process, where mathematics is used to guide a virtual growth process. The results frequently mirror shapes found in nature, both in form and aesthetic appeal."
+  },
+  {
+    "date": "2024-02-09",
+    "speaker": "Katherine Stange",
+    "affiliation": "University of Colorado, Boulder",
+    "title": "Between Illustration and Research in Number Theory",
+    "url": "https://illustratingmath.org/node/72",
+    "poster": "../files/IMSOFeb9.png",
+    "abstract": "I'll tell a few mathematical stories from my personal experience with mathematical illustration as a research tool in number theory, sharing some of my experience with the process, not just results. Topics include Apollonian circle packings, Mobius transformations, continued fractions, and algebraic integers."
+  },
+  {
+    "date": "2024-03-08",
+    "speaker": "Katherine Stange",
+    "affiliation": "University of Colorado, Boulder",
+    "title": "Between Illustration and Research in Number Theory (Part 2)",
+    "url": "https://illustratingmath.org/node/74",
+    "poster": "../files/IMSOMar8.png",
+    "abstract": "I'll tell a few mathematical stories from my personal experience with mathematical illustration as a research tool in number theory, sharing some of my experience with the process, not just results. Topics include Apollonian circle packings, Mobius transformations, continued fractions, and algebraic integers."
+  },
+  {
+    "date": "2024-04-12",
+    "speaker": "Daina Taimina",
+    "affiliation": "Cornell University",
+    "title": "Tactile Hyperbolic Geometry",
+    "url": "https://illustratingmath.org/node/75",
+    "poster": "../files/IMSOApr12.png",
+    "abstract": "The theoretical discovery of hyperbolic geometry first got its actual tactile example in 1868 when Eugenio Beltrami created a negatively curved surface from paper annuli and named it a pseudosphere. Later the name pseudosphere got attached to a surface created by a tractrix rotating around its axis. However, mathematicians found more useful for theoretical purposes using different, non-tactile models such as Klein or Poincare disc models or half-plane model. Those are traditionally used in college textbooks. However, to experience deeper understanding of hyperbolic geometry, these models were not enough for Bill Thurston when he was a college student. Since in 1901 Hilbert proved that hyperbolic plane cannot be described analytically in 3-space, Thurston together with his peers at informal seminar decided to make a tactile model of hyperbolic plane and created it by gluing together paper annuli without knowing about Beltrami’s paper model created hundred years earlier. I learned about Thurston’s model in 1997 and decided to make it more durable by crocheting it. Crocheted hyperbolic planes have turned out to be a useful tool in tactile explorations of hyperbolic geometry giving to theoretical knowledge a different perspective."
+  },
+  {
+    "date": "2024-05-10",
+    "speaker": "Various speakers",
+    "affiliation": "n/a",
+    "title": "In memoriam: Roger Antonsen",
+    "url": "https://illustratingmath.org/node/77",
+    "poster": "../files/IMSOMay2024.png",
+    "abstract": "The Illustrating Mathematics Seminar Online celebrates the life and work of Roger Antonsen."
+  },
+  {
+    "date": "2024-06-14",
+    "speaker": "Elliot Kienzle",
+    "affiliation": "University of California, Berkeley",
+    "title": "Manifesting Mathematical Worlds in Digital Art",
+    "url": "https://illustratingmath.org/node/78",
+    "poster": "../files/IMSOJune2024.png",
+    "abstract": "How do you visualize something which doesn't fit on a page, like a high dimensional space or an entire field of math? You lie and cheat, use shortcuts and shorthand. In this talk, I'll share my favorite tips and tricks for bringing math to life in digital painting."
+  },
+  {
+    "date": "2024-10-11",
+    "speaker": "Rémi Coulon",
+    "affiliation": "Centre National de la Recherche Scientifique (CNRS)",
+    "title": "The Curse of the Exponential Function",
+    "url": "https://illustratingmath.org/node/79",
+    "poster": "../files/IMSOOct2024.png",
+    "abstract": "The exponential map is one of the most common functions in many areas of mathematics. However, when it comes to illustration, it is often a source of struggle. Even when we draw its graph, we have only a limited window, which makes it difficult to grasp all the features of this function. When we represent fractals, we very quickly create a mass of details that we are unable to render properly. In computations, it can be a source of numerical errors due to the limited precision of floating-point numbers, etc. In this talk, I will present some attempts (failures?) of mathematical illustration where, to my own misfortune, I came across the exponential function."
+  },
+  {
+    "date": "2024-11-08",
+    "speaker": "Jayadev Athreya",
+    "affiliation": "University of Washington",
+    "title": "Billiards in Rational Prisms",
+    "url": "https://illustratingmath.org/node/80",
+    "poster": "../files/IMSONov2024.png",
+    "abstract": "We survey what we know about the dynamics of billiards in rational prisms, that is, right prisms over rational polygons. We will discuss how to use beautiful ideas of Furstenberg and Veech to make connections between mixing properties of billiards in polygons to ergodic properties of billiards in prisms. There will be lots of examples, and lots of pictures, and no prior knowledge of ergodic theory is needed. This is joint work with Nicolas Bedaride, Pat Hooper, and Pascal Hubert."
+  },
+  {
+    "date": "2024-12-13",
+    "speaker": "Audrey Nasar",
+    "affiliation": "Fashion Institute of Technology",
+    "title": "Illustrating Math with Papercraft",
+    "url": "https://illustratingmath.org/node/81",
+    "poster": "../files/IMSODec2024.png",
+    "abstract": "I'll share some personal experience using mathematical illustration as an educational tool with art & design students in a course about math and papercraft at The Fashion Institute of Technology. Some topics included are flat foldable origami, pop up cards, dissections, and flexagons."
+  },
+  {
+    "date": "2025-02-14",
+    "speaker": "Frank Farris",
+    "affiliation": "Santa Clara University",
+    "title": "Curves in Special Relativity: Curves Whose Tangents Trace Tilings",
+    "url": "https://illustratingmath.org/node/83",
+    "poster": "../files/IMSOFeb2025.png",
+    "abstract": "We develop the idea that we can learn about special relativity, not through physics, but through a relativistic dot product. It's the ordinary dot product, but with a minus sign stuck in front of the final term. What difference could that make? You will see nonzero vectors of length zero, events that are both before and after other events, depending on who is asking, and even the twin paradox, where two travelers start and end at the same coordinates in spacetime, but one is actually older. We illustrate all this with mathematical art, as in the attached image. The pearls at the ends of curves are places where various travelers could arrive in spacetime, having traveled paths that are indistinguishable in any physical way!"
+  },
+  {
+    "date": "2025-03-14",
+    "speaker": "John Baez",
+    "affiliation": "University of California, Riverside",
+    "title": "Visual Insights",
+    "url": "https://illustratingmath.org/node/89",
+    "poster": "../files/IMSOMarch2025.png",
+    "abstract": "For several years I ran a blog called Visual Insight, which was a place to share striking images that help explain topics in mathematics. In this talk I'd like to show you some of those images and explain some of the mathematics they illustrate."
+  },
+  {
+    "date": "2025-04-11",
+    "speaker": "Jason Cantarella",
+    "affiliation": "University of Georgia",
+    "title": "Some new ways to find and visualize knot isotopies",
+    "url": "https://illustratingmath.org/node/91",
+    "poster": "../files/IMSOApril2025.png",
+    "abstract": "Untangling unknots has been a fun pastime since at least the Victorian era. (And there are some great phone games as well, now!) But now AI can play, and it turns out to be surprisingly bad at the game. In this talk, we talk about some ways to look at knot and unknot puzzles mathematically and computationally and talk about why you might seriously want to solve a lot of them in a short period of time. The key turns out to be new and interesting ways to find and visualize moves that you can make on the diagrams."
+  },
+  {
+    "date": "2025-05-09",
+    "speaker": "Roice Nelson",
+    "affiliation": "mathematical artist",
+    "title": "Abstract Regular Illustration",
+    "url": "https://illustratingmath.org/node/100",
+    "poster": "../files/IMSOMay2025.png",
+    "abstract": "The Dodecahedron is to the 120-Cell as the Klein Quartic is to the 350-Cell. The latter two are examples of \"abstract regular polytopes.\" I'm going to share adventures trying to grasp understanding of these abstract objects, an asymptotic journey. I'll muse about how illustration helps us get past walls of personal understanding, and allows us to connect with each other for sharing abstract ideas. Solidarity!"
+  },
+  {
+    "date": "2025-06-13",
+    "speaker": "Carolyn Yackel",
+    "affiliation": "Mercer University",
+    "title": "Marrying Mathematics with Illustrative Techniques",
+    "url": "https://illustratingmath.org/node/101",
+    "poster": "../files/IMSOJune2025.png",
+    "abstract": "Drawing from the speaker’s work as well as the work of many other mathematical artists, particularly fiber artists, we will discuss the relationship between choice of medium and illustration of mathematical concepts."
+  },
+  {
+    "date": "2025-09-12",
+    "speaker": "Nancy Scherich",
+    "affiliation": "Elon University",
+    "title": "Using Dance Videos to Explain Knot Theory",
+    "url": "https://illustratingmath.org/node/102",
+    "poster": "../files/IMSOSept2025.png",
+    "abstract": "I give many outreach lectures to undergraduates explaining my research in knot theory and braid group representation theory. I will show the illustrating math community how I use Math-Dance videos in my outreach lectures."
+  },
+  {
+    "date": "2025-10-10",
+    "speaker": "Grant Sanderson",
+    "affiliation": "3Blue1Brown",
+    "title": "Exploring Zeta Function Visualizations",
+    "url": "https://illustratingmath.org/node/104",
+    "poster": "../files/IMSOOct2025.png",
+    "abstract": "We’ll start from a very straightforward visual of the Riemann Zeta function as a sum, and proceed to alternate ways to interpret it so that we can make sense of it in the region of divergence. From there, we can play around with how it interplays with the sum over (1/k)(1/p^{ks}) on those same spots, where zeta zeros look like poles."
+  },
+  {
+    "date": "2025-11-14",
+    "speaker": "Vladimir Bulatov",
+    "affiliation": "Independent Artist",
+    "title": "Creating and Visualizing Symmetries",
+    "url": "https://illustratingmath.org/node/105",
+    "poster": "../files/IMSONov2025.png",
+    "abstract": "We present efficient computational methods for generating, visualizing, and interactively exploring symmetric patterns in Euclidean, spherical, hyperbolic, and inversive geometries. The algorithms are implemented in the open-source software package SymmHub, designed as a platform for experimentation and research in geometry."
+  },
+  {
+    "date": "2025-12-12",
+    "speaker": "Craig Kaplan",
+    "affiliation": "University of Waterloo",
+    "title": "Escher-like spiral tilings",
+    "url": "https://illustratingmath.org/node/106",
+    "poster": "../files/IMSODec2025.png",
+    "abstract": "In the course of his explorations of the visual representation of infinity, M.C. Escher created several prints in which tessellated figures spiral inward towards a limit in the centre of the design. I present a pleasingly simple way to think about these spiral tilings, based on the exponential function in the complex plane, and connect it to a few other related ideas in mathematical art."
+  },
+  {
+    "date": "2026-02-13",
+    "speaker": "Various speakers",
+    "affiliation": "Illustration as a Mathematical Research Technique",
+    "title": "Live from IHP",
+    "url": "https://illustratingmath.org/node/107",
+    "poster": "../files/IMSOFeb2026.png",
+    "abstract": "The Institut Henri Poincaré (in Paris) is currently hosting the trimester program \"Illustration as a Mathematical Research Technique\". This month, the seminar will live stream from a modified \"Show and Ask\" session that will take place at IHP."
+  },
+  {
+    "date": "2026-03-13",
+    "speaker": "Various speakers",
+    "affiliation": "Illustration as a Mathematical Research Technique",
+    "title": "Live from IHP: Part Deux",
+    "url": "https://illustratingmath.org/node/110",
+    "poster": "../files/IMSOMar2026.png",
+    "abstract": "The Institut Henri Poincaré (in Paris) is currently hosting the trimester program \"Illustration as a Mathematical Research Technique\". This month, once again, the seminar will live stream from a modified \"Show and Ask\" session that will take place at IHP."
+  },
+  {
+    "date": "2026-05-08",
+    "speaker": "Chaim Goodman-Strauss",
+    "affiliation": "National Museum of Mathematics",
+    "title": "Illustrating Tilings",
+    "url": "https://illustratingmath.org/node/111",
+    "poster": "../files/IMSOMay2026.png",
+    "abstract": "Illustration is a powerful and effective tool for exploring research questions in the theory of tiling — there’s no substitute for trying things out. We’ll show a few decades of our favorite drawings and give a live demo in Adobe Illustrator."
+  },
+  {
+    "date": "2026-06-12",
+    "speaker": "Alexander Thomas",
+    "affiliation": "University of Lyon",
+    "title": "From fractions to fractals",
+    "url": "https://illustratingmath.org/node/112",
+    "poster": "../files/IMSOJune2026.png",
+    "abstract": "The geometry of continued fractions has been studied by numerous mathematicians, in particular through the Farey triangulation and the Ford circles. Recently in 2020, a deformation of continued fractions has been proposed by Morier-Genoud and Ovsienko in algebraic terms. In this talk, I shall present the geometry behind these deformations: the deformed Farey triangulation and a 1-dimensional circle fractal representing rational numbers. An extension to complex numbers leads to partial circle packings in 2d. Joint with Perrine Jouteur and Olga Paris-Romaskevich."
+  }
+]
+
