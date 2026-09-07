@@ -269,6 +269,15 @@
     "url": "https://illustratingmath.org/node/112",
     "poster": "../files/IMSOJune2026.png",
     "abstract": "The geometry of continued fractions has been studied by numerous mathematicians, in particular through the Farey triangulation and the Ford circles. Recently in 2020, a deformation of continued fractions has been proposed by Morier-Genoud and Ovsienko in algebraic terms. In this talk, I shall present the geometry behind these deformations: the deformed Farey triangulation and a 1-dimensional circle fractal representing rational numbers. An extension to complex numbers leads to partial circle packings in 2d. Joint with Perrine Jouteur and Olga Paris-Romaskevich."
+  },
+  {
+    "date": "2026-09-11",
+    "speaker": "Claudio Gómez-Gonzáles ",
+    "affiliation": "Carleton College",
+    "title": "The Discriminant and its Complement",
+    "url": "https://illustratingmath.org/node/42",
+    "poster": "../files/IMSOSept2026.png",
+    "abstract": "Understanding something means learning how it degenerates. In this talk, we explore how computational experiments and interactive applets illuminate interplays between topology, algebraic geometry, and arithmetic. We will tour several distinct but related phenomena: a braided Gauss-Lucas theorem, degeneracies of the 27 lines on real cubic surfaces, and techniques for identifying special points on varieties. Throughout, we emphasize how the process of illustration functions as a generative methodology, exposing structural subtleties, sharpening conjectures, and framing classical problems in fresh terms."
   }
 ]
 
