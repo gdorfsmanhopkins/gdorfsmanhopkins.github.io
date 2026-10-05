@@ -278,6 +278,16 @@
     "url": "https://illustratingmath.org/node/42",
     "poster": "../files/IMSOSept2026.png",
     "abstract": "Understanding something means learning how it degenerates. In this talk, we explore how computational experiments and interactive applets illuminate interplays between topology, algebraic geometry, and arithmetic. We will tour several distinct but related phenomena: a braided Gauss-Lucas theorem, degeneracies of the 27 lines on real cubic surfaces, and techniques for identifying special points on varieties. Throughout, we emphasize how the process of illustration functions as a generative methodology, exposing structural subtleties, sharpening conjectures, and framing classical problems in fresh terms."
+  },
+  {
+    "date": "2026-10-01",
+    "speaker": "Chaim Goodman-Strauss, Edmund Harriss, Katherine E. Stange ",
+    "affiliation": "MoMath, University of Arkansas, Colorado University, Boulder",
+    "title": "On the Role of Illustration in a Large Language Landscape",
+    "url": "https://illustratingmath.org/node/42",
+    "poster": "../files/IMSOOct2026.png",
+    "abstract": "A panel on mathematical illustration, artificial intelligence, and how their roles intersect, diverge, and inform eachother."
   }
+
 ]
 
