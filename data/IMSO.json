@@ -272,7 +272,7 @@
   },
   {
     "date": "2026-09-11",
-    "speaker": "Claudio Gómez-Gonzáles ",
+    "speaker": "Claudio Gómez-Gonzáles",
     "affiliation": "Carleton College",
     "title": "The Discriminant and its Complement",
     "url": "https://illustratingmath.org/node/42",
@@ -280,14 +280,24 @@
     "abstract": "Understanding something means learning how it degenerates. In this talk, we explore how computational experiments and interactive applets illuminate interplays between topology, algebraic geometry, and arithmetic. We will tour several distinct but related phenomena: a braided Gauss-Lucas theorem, degeneracies of the 27 lines on real cubic surfaces, and techniques for identifying special points on varieties. Throughout, we emphasize how the process of illustration functions as a generative methodology, exposing structural subtleties, sharpening conjectures, and framing classical problems in fresh terms."
   },
   {
-    "date": "2026-10-01",
+    "date": "2026-10-10",
     "speaker": "Chaim Goodman-Strauss, Edmund Harriss, Katherine E. Stange ",
     "affiliation": "MoMath, University of Arkansas, Colorado University, Boulder",
     "title": "On the Role of Illustration in a Large Language Landscape",
     "url": "https://illustratingmath.org/node/42",
     "poster": "../files/IMSOOct2026.png",
     "abstract": "A panel on mathematical illustration, artificial intelligence, and how their roles intersect, diverge, and inform eachother."
+  },
+  {
+    "date": "2026-11-13",
+    "speaker": "Claire moriarty",
+    "affiliation": "University College Dublin, National Library of Ireland",
+    "title": "Semiotics, Ease and Elegance: Oliver Byrne's Elements of Euclid",
+    "url": "https://illustratingmath.org/node/42",
+    "poster": "../files/IMSOOct2026.png",
+    "abstract": "Oliver Byrne published his visually remarkable edition of Euclid’s Elements in 1847. The book is extraordinary: its pages are elaborated with generous four-colour diagrams, illustrations and grids, and each proposition begins with an engraved decorative initial. Its visual similarity to various stylistic themes of the much later Bauhaus and De Stijl movements has been noted, but little attention has been paid to the pedagogical and theoretical insights that shaped Byrne’s choices in illustrating his texts. In this talk, I explain some key philosophical ideas underlying the geometric illustrations and contextualise them amid Byrne’s wider mathematical and empirical preoccupations."
   }
+
 
 ]
 
